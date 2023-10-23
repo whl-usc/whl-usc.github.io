@@ -26,6 +26,7 @@
 /* Formatting */
 body {
   background-color:#FFFFFF;
+  font-family: "Lato", sans-serif;
 }
 .underline {
   text-decoration:underline;
