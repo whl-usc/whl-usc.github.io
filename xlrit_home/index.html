@@ -9,13 +9,10 @@
     <!-- Meta tags, CSS links, and other head content here -->
 </head>
 
-<!-- Header Section -->
-<header>
-    <h1 class="title"><span class="underline">XLR</span>NA <span class="underline">I</span>nsight <span class="underline">T</span>ool</h1>
-</header>
-
 <!-- Side menu -->
-<div class="sidebar">
+<script src="functions.js"></script>
+<div id="SiteNav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="https://whl-usc.github.io/">Home</a>
     <a href="#">Services</a>
     <a href="#">Downloads</a>
@@ -24,7 +21,17 @@
     <a href="mailto:zhipengl@usc.edu">Contact Us</a>
 </div>
 
+<!-- Use any element to open the sidenav -->
+<span onclick="openNav()">MENU</span>
+
 <!-- Main Content Section -->
+<div id="main">
+
+<!-- Header Section -->
+<header>
+    <h1 class="title"><span class="underline">XLR</span>NA <span class="underline">I</span>nsight <span class="underline">T</span>ool</h1>
+</header>
+
 <main>
 <body>
 <!-- <script src="https://cdn.jsdelivr.net/npm/igv@2.15.5/dist/igv.min.js"></script> -->
@@ -55,6 +62,7 @@
 </footer>
 </body>
 </html>
+</div>
 
 <!-- Consider separating this to a separate CSS File containing all of the styling formats 
 <style>

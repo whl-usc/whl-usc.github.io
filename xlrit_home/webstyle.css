@@ -27,8 +27,8 @@
 body {
   background-color:#FFFFFF;
   font-family: "Lato", sans-serif;
-  margin-left: 160px;
-  padding: 1px 16px;
+  margin-left: 10px;
+  padding: 0px 10px;
 }
 
 .underline {
@@ -44,32 +44,39 @@ ul {
 
 /* Style page content */
 .main {
-  margin-left: 160px;
+  margin-left: 10px;
   padding: 0px 10px;
 }
 
 @media screen and (max-height: 450 px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 /* The side navigation menu */
-.sidebar {
+.sidenav {
   height: 100%;
-  width: 160px;
+  width: 0px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   background-color: #000000;
   overflow-x: hidden;
-  padding-top: 26px;
+  padding-top: 60px;
+  transition: 0.25s;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
 }
 
 /* Style sidebar links */
-.sidebar a {
+.sidenav a {
   color: #f1f1f1;
   display: block;
+  font-family: "Arial", sans-serif;
   font-size: 20px;
   line-height: 20px;
   padding: 10px 0px 10px 12px;
@@ -77,7 +84,18 @@ ul {
 }
 
 /* Style links on mouse-over */
-.sidebar a:hover {
+.sidenav a:hover {
   background-color: #F0F8FF;
   color: #000000;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  background-color: #000000;
+  font-size: 38px;
+  margin-left: 50px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  text-align: center;
 }
