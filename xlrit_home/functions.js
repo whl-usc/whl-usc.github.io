@@ -1,9 +1,9 @@
-/* Set the width of the side navigation to 250px */
+/* Open the sidenav */
 function openNav() {
-  document.getElementById("SiteNav").style.width = "250px";
+  document.getElementById("SiteNav").style.display = "block";
 }
 
-/* Set the width of the side navigation to 0 */
+/* Close/hide the sidenav */
 function closeNav() {
-  document.getElementById("SiteNav").style.width = "0";
+  document.getElementById("SiteNav").style.display = "none";
 }
