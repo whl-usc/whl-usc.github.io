@@ -27,6 +27,7 @@
 body {
   background-color:#FFFFFF;
   font-family: "Lato", sans-serif;
+  margin-left: 160px;
   padding: 1px 16px;
 }
 
@@ -43,7 +44,7 @@ ul {
 
 /* Style page content */
 .main {
-  margin-left: 100px;
+  margin-left: 160px;
   padding: 0px 10px;
 }
 
@@ -55,12 +56,12 @@ ul {
 /* The side navigation menu */
 .sidebar {
   height: 100%;
-  width: 100px;
+  width: 160px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #DCDCDC;
+  background-color: #000000;
   overflow-x: hidden;
   padding-top: 16px;
 }
@@ -70,13 +71,13 @@ ul {
   padding: 6px 6px 6px 12px;
   text-decoration: none;
   font-size: 20px;
-  color: #000000;
+  color: #f1f1f1;
   display: block;
 }
 
 /* Style links on mouse-over */
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: #F7F7F7;
 }
 
 /* Position and style the close button (top right corner) */
