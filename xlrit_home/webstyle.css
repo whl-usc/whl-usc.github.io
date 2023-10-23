@@ -27,7 +27,11 @@
 body {
   background-color:#FFFFFF;
   font-family: "Lato", sans-serif;
+  margin-left: 100px;
+  padding: 1px 16px;
+  color: white;
 }
+
 .underline {
   text-decoration:underline;
 }
@@ -41,7 +45,7 @@ ul {
 
 /* Style page content */
 .main {
-  margin-left: 160px;
+  margin-left: 100px;
   padding: 0px 10px;
 }
 
@@ -51,39 +55,31 @@ ul {
 }
 
 /* Sidebar menu */
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 100px;
   background-color: #111;
-  overflow-x: hidden;
-  padding-top: 60px;
-  transition: 0.25s;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
 }
 
 /* Navigation menu links */
 .sidenav a {
-  padding: 8px 8px 8px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
   display: block;
-  transition: 0.5s;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
 }
 
-/* Mouse hover color change */
-.sidenav a:hover {
-  color: #f1f1f1;
+/* Active link */
+.sidenav a.active {
+  background-color: #f1f1f1;
+  color: #778899;
 }
 
-/* Position and style of close button (top right corner) */
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #f1f1f1;
+  color: white;
