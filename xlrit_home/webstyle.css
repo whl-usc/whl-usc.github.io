@@ -28,7 +28,6 @@ body {
   background-color:#FFFFFF;
   font-family: "Lato", sans-serif;
   padding: 1px 16px;
-  color: white;
 }
 
 .underline {
@@ -54,31 +53,29 @@ ul {
 }
 
 /* The side navigation menu */
-.sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
   left: 0;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  background-color: #DCDCDC;
+  overflow-x: hidden;
+  padding-top: 16px;
 }
 
-/* The navigation menu links */
-.sidenav a {
-  padding: 8px 8px 8px 32px;
+/* Style sidebar links */
+.sidebar a {
+  padding: 6px 6px 6px 12px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  font-size: 20px;
+  color: #000000;
   display: block;
-  transition: 0.3s;
 }
 
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
+/* Style links on mouse-over */
+.sidebar a:hover {
   color: #f1f1f1;
 }
 
