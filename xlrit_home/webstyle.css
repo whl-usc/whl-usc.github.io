@@ -46,7 +46,7 @@ ul {
 
 @media screen and (max-height: 450 px) {
   .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18 px;}
+  .sidenav a {font-size: 18px;}
 }
 
 /* Sidebar menu */
@@ -64,7 +64,7 @@ ul {
 
 /* Navigation menu links */
 .sidenav a {
-  padding: 6px 8 px 6 px 16 px;
+  padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
   color: #818181;
