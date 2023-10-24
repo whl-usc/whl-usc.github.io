@@ -1,34 +1,59 @@
 /* Titles and headers */
 
 .title {
-  font-family: "Arial", sans-serif;
+  font-family: Tahoma;
   font-size: 36px;
   font-weight: bold;
   color: #000000;
   text-transform: uppercase;
-  background-color:#F0F8FF;
 }
 .subtitle {
-  font-family: "Arial", sans-serif;
+  font-family: Tahoma;
   font-size: 22px;
   font-weight: bold;
   color: #000000;
   text-transform: uppercase;
-  background-color:#F0F8FF;
 }
 .text {
-  font-family: "Arial", sans-serif;
+  font-family: Tahoma;
   font-size: 16px;
   font-weight: regular;
   color: #000000;
 }
 
 /* Formatting */
+@media screen and (max-height: 450 px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.main {
+  padding: 0px 15px 0px 15px;
+}
+
+h1 {
+  text-align: center;
+  background-color: #FFFFFF;
+  padding: 0px 15px 0px 15px;
+}
+
 body {
   background-color:#FFFFFF;
-  font-family: "Lato", sans-serif;
-  margin-left: 10px;
-  padding: 0px 10px;
+  font-family: Tahoma;
+  padding: 0px 15px 0px 15px;
+}
+
+footer {
+  border-top: solid 2px #000;
+  position: absolute;
+  left: 500px;
+  right: 500px;
+  bottom: 0;
+  text-align: center;
+}
+
+ul {
+  list-style-type:square;
 }
 
 .underline {
@@ -36,21 +61,6 @@ body {
 }
 .text-center {
   text-align:center;
-}
-
-ul {
-  list-style-type:square;
-}
-
-/* Style page content */
-.main {
-  margin-left: 10px;
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450 px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
 }
 
 /* The side navigation menu */
@@ -63,39 +73,67 @@ ul {
   left: 0;
   background-color: #000000;
   overflow-x: hidden;
-  padding-top: 60px;
-  transition: 0.25s;
+  padding-top: 40px;
+  transition: 0.3s;
 }
 
-#main {
-  transition: margin-left .5s;
-  padding: 20px;
+/* Position and style the close button (top right corner) */
+.closebtn {
+  font-size: 22px;
+  color: white;
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  opacity: 0.75;
 }
 
 /* Style sidebar links */
-.sidenav a {
-  color: #f1f1f1;
+.sidenav_links {
+  color: #FFFFFF;
   display: block;
-  font-family: "Arial", sans-serif;
+  font-family: Tahoma;
   font-size: 20px;
-  line-height: 20px;
-  padding: 10px 0px 10px 12px;
+  line-height: 32px;
+  padding: 5px 0px 5px 14px;
   text-decoration: none;
 }
 
 /* Style links on mouse-over */
-.sidenav a:hover {
-  background-color: #F0F8FF;
-  color: #000000;
+.sidenav_links:hover, .dropdown-btn:hover, .closebtn:hover {
+  color: #B0C4DE;
 }
 
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  background-color: #000000;
-  font-size: 38px;
-  margin-left: 50px;
-  position: absolute;
-  top: 0;
-  right: 10px;
-  text-align: center;
+/* Style the dropdown button */
+.dropdown-btn {
+  color: #FFFFFF;
+  display: block;
+  font-family: Tahoma;
+  font-size: 20px;
+  line-height: 24px;
+  padding: 5px 0 5px 14px;
+  text-decoration: none;
+}
+
+.active {
+  background-color: #696969;
+  color: white;
+}
+
+/* Dropdown container (hidden) */
+.dropdown-container {
+  display: none;
+}
+
+.dropdown-container a {
+  color: white;
+  display: block;
+  font-family: Tahoma;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 5px 0px 5px 22px;
+  text-decoration: none;
+}
+
+.dropdown-container a:hover {
+  color: #F0E68C;
 }
