@@ -20,19 +20,20 @@
 <body>
     <!-- Use element to open the sidenav -->
     <span onclick="openNav()"><i class="bi bi-list sticky-element" style="font-size: 22px; "></i></span>
-    <div class="colored-box"></div>
+    <div class="title-colored-box"></div>
     <!-- Side menu -->
     <div id="SiteNav" class="sidenav">
         <a class="closebtn" onclick="closeNav()"><i class="bi bi-x-lg">&nbsp;&nbsp;</i></a>
         <a class="sidenav_links" href="https://whl-usc.github.io/xlrit_home/index.html"><i class="bi bi-house-heart"></i>&nbsp;Home</a>    
         <a class="dropdown-btn" onclick="toggleDropdown(this)"><i class="bi bi-star"></i>&nbsp;Datasets&nbsp;<i class="bi bi-caret-down"></i></a>
-        <!-- Sub-section of services -->
+
+        <!-- Sub-section of datasets -->
         <div class="dropdown-container">
-            <a href="#">PARIS-2</a>
-            <a href="#">SHARC-exo</a>
-            <a href="#">DARC-exo</a>
-            <a href="#">HiClip</a>
-            <!-- Add more services as needed -->
+            <a href="https://whl-usc.github.io/xlrit_datasets/paris2">PARIS-2</a>
+            <a href="https://whl-usc.github.io/xlrit_datasets/sharc">SHARC-exo</a>
+            <a href="https://whl-usc.github.io/xlrit_datasets/darc">DARC-exo</a>
+            <a href="https://whl-usc.github.io/xlrit_datasets/hiclip">HiClip</a>
+            <!-- Add more datasets as needed -->
         </div>
         <a class="dropdown-btn" onclick="toggleDropdown(this)"><i class="bi bi-wrench"></i>&nbsp;Tools&nbsp;<i class="bi bi-caret-down"></i></a>
         <!-- Sub-section of services -->
@@ -57,12 +58,14 @@
             <header>
                 <h1><span class="underline">XLR</span>NA <span class="underline">I</span>nsight <span class="underline">T</span>ools</h1>
             </header>
-            
             <div>
                 <h2 class="subtitle">The Project</h2>
                     <p class="text">Experimental and computational data derived from PARIS and SHARC are provided here. Datasets and relevant scripts can be directly accessed via GitHub and NCBI Geo. Processed data can be visualized here using the webtools provided.</p>
-            </div>
+                    <p class="text">Advancements in the field of RNA structure and interaction studies have enabled high throughput analysis of RNAs, revealing base pairing and higher order interactions. Despite the progress on the experimental methods for studying RNA secondary and intermolecular complexes, computational analysis of such data generated has remained a challenge, typically limited to specific studies. One subset of such experimental methods, the crosslinking- and proximity-ligation based approaches generates non-continuous reads that indicate specific RNA structures and interactions. Here, we detail a computational pipeline for analyzing the non-continuous "gapped" reads from a variety of methods that employ the crosslinking-ligation principle (see PARIS, PARIS2, LIGR, SPLASH, SHARC). Briefly, the pipeline functions as follows. First, raw data are processed to remove sequencing adapters and PCR duplicates (and if applicable. separated by barcode). Next, all reads are permissively mapped to a custom reference genome using STAR. Then, primary alignments are extracted, classified, and assembled to duplex groups (DGs), non-overlapping (NGs), or tri-segment groups (TGs). Finally, DGs can be visualized using IGV, converted to stemloop groups, and have endpoints (read arm stopping points) determined. Furthermore, the nucleotide frequncy or SHAPE reactivity of DG arms can be determined.</p>
+                    
+                    <iframe width="768" height="512" src="https://www.youtube.com/embed/1GXibPeUUGQ?mute=1"></iframe>
 
+            </div>
             <div>
                 <h3 class="text">An example of XLRNA</h3>
                     <!-- Element to embed the IGV browser -->
@@ -70,11 +73,10 @@
                     <script>createIGVBrowser();</script>
             </div>
 
-        <!-- Footer Section -->
-        <footer>
-            <p class="text">&copy;2023 Lu Lab</p>
-        </footer>
-        
+            <!-- Footer Section -->
+            <a class="footer-colored-box"></a>
+            <footer>&copy;&nbsp;2023 Lu Lab</footer>    
+
         </main>
     </div>
 
