@@ -20,10 +20,9 @@ function toggleDropdown(button) {
 }
 
 /* Create an IGV.browser instance */
-function IGVbrowser() {
+function createIGVBrowser() {
   var igvDiv = document.getElementById("igv-div");
-  var options =
-  {
+  var options = {
       genome: "hg38",
       locus: "chr8:127,736,588-127,739,371",
       tracks: [
@@ -37,7 +36,7 @@ function IGVbrowser() {
   };
 
   igv.createBrowser(igvDiv, options)
-          .then(function (browser) {
-              console.log("Created IGV browser");
-          })
+      .then(function (browser) {
+          console.log("Created IGV browser");
+      });
 }
