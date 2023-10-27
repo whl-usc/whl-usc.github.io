@@ -1,85 +1,94 @@
 <!DOCTYPE html>
 
 <html lang="en-US">
-    <head>
-        <!-- Meta tags, CSS links, and other head content here -->
-        <title>XLRIT: XLRNA Insight Tools</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="XLRIT: XLRNA Insight Tools">
-        <meta name="author" content="https://zhipenglulab.org/">
-        <meta name="keyword" content="RNA, PARIS, XLRNA, SHARC">
-        <link rel="stylesheet" type="text/css" href="webstyle.css">
-        <!-- Bootstrap Icon CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-        <!-- JavaScript functions -->
-        <script src="functions.js"></script>
-        <script src="igv.min.js"></script>
-    </head>
+<head>
+    <!-- Meta tags, CSS links, and other head content here -->
+    <title>XLRIT: XLRNA Insight Tools</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XLRIT: XLRNA Insight Tools">
+    <meta name="author" content="https://zhipenglulab.org/">
+    <meta name="keyword" content="RNA, PARIS, XLRNA, SHARC">
+    <link rel="stylesheet" type="text/css" href="webstyle.css">
+    <!-- Bootstrap Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- JavaScript functions -->
+    <script src="functions.js"></script>
+    <script src="igv.min.js"></script>
+</head>
 
+<!-- Start of content that is common to all pages -->
 <body>
-    <!-- Use element to open the sidenav -->
-    <span onclick="openNav()"><i class="bi bi-list sticky-element" style="font-size: 22px; "></i></span>
-    <div class="title-colored-box"></div>
-    <!-- Side menu -->
-    <div id="SiteNav" class="sidenav">
-        <a class="closebtn" onclick="closeNav()"><i class="bi bi-x-lg">&nbsp;&nbsp;</i></a>
-        <a class="sidenav_links" href="https://whl-usc.github.io/xlrit_home/index.html"><i class="bi bi-house-heart"></i>&nbsp;Home</a>    
-        <a class="dropdown-btn" onclick="toggleDropdown(this)"><i class="bi bi-star"></i>&nbsp;Datasets&nbsp;<i class="bi bi-caret-down"></i></a>
 
-        <!-- Sub-section of datasets -->
-        <div class="dropdown-container">
-            <a href="https://whl-usc.github.io/xlrit_datasets/paris2">PARIS-2</a>
-            <a href="https://whl-usc.github.io/xlrit_datasets/sharc">SHARC-exo</a>
-            <a href="https://whl-usc.github.io/xlrit_datasets/darc">DARC-exo</a>
-            <a href="https://whl-usc.github.io/xlrit_datasets/hiclip">HiClip</a>
-            <!-- Add more datasets as needed -->
-        </div>
-        <a class="dropdown-btn" onclick="toggleDropdown(this)"><i class="bi bi-wrench"></i>&nbsp;Tools&nbsp;<i class="bi bi-caret-down"></i></a>
-        <!-- Sub-section of services -->
-        <div class="dropdown-container">
-            <a href="#">BEDtools</a>
-            <a href="#">Nucleotide Frequency</a>
-            <a href="#">Read Statistics</a>
-            <a href="#">SAMtools</a>
-            <a href="#">STAR</a>
-            <!-- Add more services as needed -->
-        </div>
-        <a class="sidenav_links" href="https://whl-usc.github.io/xlrit_home/downloads.html"><i class="bi bi-file-arrow-down"></i>&nbsp;Downloads</a>            
-        <a class="sidenav_links" href="https://whl-usc.github.io/xlrit_home/links.html"><i class="bi bi-link-45deg"></i>&nbsp;Links</a>
-        <a class="sidenav_links" href="https://zhipenglulab.org/"><i class="bi bi-people"></i>&nbsp;Lab Website</a>
-        <a class="sidenav_links" href="mailto:zhipengl@usc.edu"><i class="bi bi-mailbox"></i>&nbsp;Contact Us</a>
+<!-- Use element to open the sidenav -->
+<span onclick="openNav()"><i class="bi bi-list sticky-element" style="font-size: 22px; "></i></span>
+<div class="title-colored-box"></div>
+
+<!-- Side menu -->
+<div id="SiteNav" class="sidenav">
+    <a class="closebtn" onclick="closeNav()"><i class="bi bi-x-lg">&nbsp;&nbsp;</i></a>
+    <a class="sidenav_links" href="https://whl-usc.github.io/xlrit_home/index.html"><i class="bi bi-house-heart"></i>&nbsp;Home</a>    
+    <a class="dropdown-btn" onclick="toggleDropdown(this)"><i class="bi bi-star"></i>&nbsp;Datasets&nbsp;<i class="bi bi-caret-down"></i></a>
+
+    <!-- Sub-section of datasets -->
+    <div class="dropdown-container">
+        <a href="https://whl-usc.github.io/xlrit_datasets/paris2">PARIS-2</a>
+        <a href="https://whl-usc.github.io/xlrit_datasets/sharc">SHARC-exo</a>
+        <a href="https://whl-usc.github.io/xlrit_datasets/darc">DARC-exo</a>
+        <a href="https://whl-usc.github.io/xlrit_datasets/hiclip">HiClip</a>
+        <!-- Add more datasets as needed -->
+    </div>
+    <a class="dropdown-btn" onclick="toggleDropdown(this)"><i class="bi bi-wrench"></i>&nbsp;Tools&nbsp;<i class="bi bi-caret-down"></i></a>
+    
+    <!-- Sub-section of tools -->
+    <div class="dropdown-container">
+        <a href="#">BEDtools</a>
+        <a href="#">Nucleotide Frequency</a>
+        <a href="#">Read Statistics</a>
+        <a href="#">SAMtools</a>
+        <a href="#">STAR</a>
+        <!-- Add more tools as needed -->
     </div>
 
-    <!-- Main Content Section -->
-    <div id="main">
-        <main>
-            <!-- Header -->
-            <header>
-                <h1><span class="underline">XLR</span>NA <span class="underline">I</span>nsight <span class="underline">T</span>ools</h1>
-            </header>
-            <div>
-                <h2 class="subtitle">The Project</h2>
-                    <p class="text">Experimental and computational data derived from PARIS and SHARC are provided here. Datasets and relevant scripts can be directly accessed via GitHub and NCBI Geo. Processed data can be visualized here using the webtools provided.</p>
-                    <p class="text">Advancements in the field of RNA structure and interaction studies have enabled high throughput analysis of RNAs, revealing base pairing and higher order interactions. Despite the progress on the experimental methods for studying RNA secondary and intermolecular complexes, computational analysis of such data generated has remained a challenge, typically limited to specific studies. One subset of such experimental methods, the crosslinking- and proximity-ligation based approaches generates non-continuous reads that indicate specific RNA structures and interactions. Here, we detail a computational pipeline for analyzing the non-continuous "gapped" reads from a variety of methods that employ the crosslinking-ligation principle (see PARIS, PARIS2, LIGR, SPLASH, SHARC). Briefly, the pipeline functions as follows. First, raw data are processed to remove sequencing adapters and PCR duplicates (and if applicable. separated by barcode). Next, all reads are permissively mapped to a custom reference genome using STAR. Then, primary alignments are extracted, classified, and assembled to duplex groups (DGs), non-overlapping (NGs), or tri-segment groups (TGs). Finally, DGs can be visualized using IGV, converted to stemloop groups, and have endpoints (read arm stopping points) determined. Furthermore, the nucleotide frequncy or SHAPE reactivity of DG arms can be determined.</p>
-                    
-                    <iframe width="768" height="512" src="https://www.youtube.com/embed/1GXibPeUUGQ?mute=1"></iframe>
+    <!-- Section containing other links -->
+    <a class="sidenav_links" href="https://whl-usc.github.io/xlrit_home/downloads.html"><i class="bi bi-file-arrow-down"></i>&nbsp;Downloads</a>            
+    <a class="sidenav_links" href="https://whl-usc.github.io/xlrit_home/links.html"><i class="bi bi-link-45deg"></i>&nbsp;Links</a>
+    <a class="sidenav_links" href="https://zhipenglulab.org/"><i class="bi bi-people"></i>&nbsp;Lab Website</a>
+    <a class="sidenav_links" href="mailto:zhipengl@usc.edu"><i class="bi bi-mailbox"></i>&nbsp;Contact Us</a>
+    <!-- Add more links as needed -->
 
-            </div>
-            <div>
-                <h3 class="text">An example of XLRNA</h3>
-                    <!-- Element to embed the IGV browser -->
-                    <div id="igv-div"></div>
-                    <script>createIGVBrowser();</script>
-            </div>
+</div>
 
-            <!-- Footer Section -->
-            <a class="footer-colored-box"></a>
-            <footer>&copy;&nbsp;2023 Lu Lab</footer>    
-
-        </main>
-    </div>
+    <!-- Footer Section -->
+    <a class="footer-colored-box"></a>
+    <footer>&copy;&nbsp;2023 Lu Lab</footer>  
 
 </body>
+<!-- End of content that is common to all pages -->
+
+<!-- Main Content Section -->
+<div id="main">
+    <main>
+        <!-- Header -->
+        <header>
+            <h1><span class="underline">XLR</span>NA <span class="underline">I</span>nsight <span class="underline">T</span>ools</h1>
+        </header>
+        <div>
+            <h2 class="subtitle">The Project</h2>
+                <p class="text">Experimental and computational data derived from PARIS and SHARC are provided here. Datasets and relevant scripts can be directly accessed via GitHub and NCBI Geo. Processed data can be visualized here using the webtools provided.</p>
+                <p class="text">Advancements in the field of RNA structure and interaction studies have enabled high throughput analysis of RNAs, revealing base pairing and higher order interactions. Despite the progress on the experimental methods for studying RNA secondary and intermolecular complexes, computational analysis of such data generated has remained a challenge, typically limited to specific studies. One subset of such experimental methods, the crosslinking- and proximity-ligation based approaches generates non-continuous reads that indicate specific RNA structures and interactions. Here, we detail a computational pipeline for analyzing the non-continuous "gapped" reads from a variety of methods that employ the crosslinking-ligation principle (see PARIS, PARIS2, LIGR, SPLASH, SHARC). Briefly, the pipeline functions as follows. First, raw data are processed to remove sequencing adapters and PCR duplicates (and if applicable. separated by barcode). Next, all reads are permissively mapped to a custom reference genome using STAR. Then, primary alignments are extracted, classified, and assembled to duplex groups (DGs), non-overlapping (NGs), or tri-segment groups (TGs). Finally, DGs can be visualized using IGV, converted to stemloop groups, and have endpoints (read arm stopping points) determined. Furthermore, the nucleotide frequncy or SHAPE reactivity of DG arms can be determined.</p>
+                
+                <p align="center"><iframe width="768" height="512" src="https://www.youtube.com/embed/1GXibPeUUGQ?mute=1"></iframe></p>
+
+        </div>
+        <div>
+            <h3 class="text">An example of XLRNA</h3>
+                <!-- Element to embed the IGV browser -->
+                <div id="igv-div"></div>
+                <script>createIGVBrowser();</script>
+        </div>
+
+    </main>
+</div>
 
 </html>
