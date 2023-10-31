@@ -30,6 +30,14 @@
   background-color: #F0F8FF
 }
 
+.links-gray {
+  color:#808080;
+}
+
+.links-blue {
+  color:#0000FF;
+}
+
 /* Formatting */
 @media screen and (max-height: 450 px) {
   .sidenav {padding-top: 15px;}
@@ -37,7 +45,7 @@
 }
 
 .main {
-  padding: 75px 0px 200px 0px;
+  padding: 75px 25px 200px 25px;
 }
 
 h1 {
@@ -73,7 +81,7 @@ h1 {
 body {
   background-color:#FFFFFF;
   font-family: Tahoma, sans-serif;
-  padding: 75px 0px 200px 0px;
+  padding: 75px 25px 200px 0px;
 }
 
 footer {
@@ -88,16 +96,25 @@ footer {
   color: #FFFFFF;
 }
 
-h2, h3, p {
-  padding: 0px 25px 0px 25px
+h2, h3, p, a {
+  padding: 0px 25px 0px 25px;
+  display: block
 }
 
 ul {
   list-style-type:square;
 }
 
+a {
+  white-space: nowrap;
+}
+
 .underline {
   text-decoration:underline;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .text-center {
