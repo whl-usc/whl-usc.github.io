@@ -1,7 +1,7 @@
 /* Titles and headers */
 
 .title {
-  font-family: Tahoma;
+  font-family: Tahoma, sans-serif;
   font-size: 36px;
   font-weight: bold;
   color: #000000;
@@ -9,14 +9,14 @@
   text-transform: uppercase;
 }
 .subtitle {
-  font-family: Tahoma;
+  font-family: Tahoma, sans-serif;
   font-size: 22px;
   font-weight: bold;
   color: #000000;
   text-transform: uppercase;
 }
 .text {
-  font-family: Tahoma;
+  font-family: Tahoma, sans-serif;
   font-size: 16px;
   font-weight: regular;
   color: #000000;
@@ -72,7 +72,7 @@ h1 {
 
 body {
   background-color:#FFFFFF;
-  font-family: Tahoma;
+  font-family: Tahoma, sans-serif;
   padding: 75px 0px 200px 0px;
 }
 
@@ -132,7 +132,7 @@ ul {
 .sidenav_links {
   color: #FFFFFF;
   display: block;
-  font-family: Tahoma;
+  font-family: Tahoma, sans-serif;
   font-size: 20px;
   line-height: 32px;
   padding: 5px 0px 5px 14px;
@@ -148,7 +148,7 @@ ul {
 .dropdown-btn {
   color: #FFFFFF;
   display: block;
-  font-family: Tahoma;
+  font-family: Tahoma, sans-serif;
   font-size: 20px;
   line-height: 24px;
   padding: 5px 0 5px 14px;
@@ -168,7 +168,7 @@ ul {
 .dropdown-container a {
   color: white;
   display: block;
-  font-family: Tahoma;
+  font-family: Tahoma, sans-serif;
   font-size: 18px;
   line-height: 20px;
   padding: 5px 0px 5px 22px;
