@@ -96,17 +96,19 @@ footer {
   color: #FFFFFF;
 }
 
-h2, h3, p, a {
+h2, h3 {
   padding: 0px 25px 0px 25px;
-  display: block
+  display: block;
 }
+
+p, a {
+  padding: 0px 25px 0px 25px;
+  display: inline-block;
+}
+
 
 ul {
   list-style-type:square;
-}
-
-a {
-  white-space: nowrap;
 }
 
 .underline {
