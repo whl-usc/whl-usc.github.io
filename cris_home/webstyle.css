@@ -29,6 +29,18 @@
   .sidenav a {font-size: 18px;}
 }
 
+@media screen and (max-width: 768 px) {
+  h1 {
+    font-size: 0.75rem
+  }
+  footer {
+    font-size: 0.75rem
+  }
+  body {
+    font-size: 0.75rem
+  }
+}
+
 .main {
   padding: 75px 0px 75px 0px;
 }
