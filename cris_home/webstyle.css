@@ -1,5 +1,4 @@
 /* Titles and headers */
-
 .title {
   font-family: Tahoma, sans-serif;
   font-size: 36px;
@@ -8,6 +7,7 @@
   background-color: #B0E0E6;
   text-transform: uppercase;
 }
+
 .subtitle {
   font-family: Tahoma, sans-serif;
   font-size: 22px;
@@ -15,73 +15,29 @@
   color: #000000;
   text-transform: uppercase;
 }
+
 .text {
   font-family: Tahoma, sans-serif;
   font-size: 16px;
   font-weight: regular;
   color: #000000;
 }
-.sticky-element {
-  z-index: 2;
-  position: fixed;
-  top: 15px;
-  left: 20px;
-  color: #000000;
-  background-color: #F0F8FF
-}
 
-.links-gray {
-  color:#808080;
-}
-
-.links-blue {
-  color:#0000FF;
-}
-
-/* Formatting */
+/* Formatting and spacing of specific elements*/
 @media screen and (max-height: 450 px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
 
 .main {
-  padding: 75px 25px 200px 25px;
-}
-
-h1 {
-  z-index: 1;
-  text-align: center;
-  background-color: #F0F8FF;
-  position: fixed;
-  top: -10px;
-  left: 0px;
-  right: 0px;
-}
-
-.title-colored-box {
-  z-index:1;
-  position:fixed;
-  top: 0;
-  width: 100%;
-  height: 65px;
-  background-color: #000;
-  opacity: 0.75;
-}
-
-.footer-colored-box {
-  z-index:1;
-  position:fixed;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #000;
-  opacity: 0.75;
+  padding: 75px 0px 75px 0px;
 }
 
 body {
-  background-color:#FFFFFF;
+  background-color:#F8F8FF;
   font-family: Tahoma, sans-serif;
-  padding: 75px 25px 200px 0px;
+  padding: 75px 0px 75px 0px;
+  margin: 0;
 }
 
 footer {
@@ -96,31 +52,117 @@ footer {
   color: #FFFFFF;
 }
 
-h2, h3 {
+h1 {
+  z-index: 1;
+  position: fixed;
+  text-align: center;
+  background-color: #F0F8FF;
+  top: -10px;
+  left: 0px;
+  right: 0px;
+}
+
+h1, h2, h3 {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 0px 25px 0px 25px;
+}
+
+p {
   padding: 0px 25px 0px 25px;
   display: block;
+  text-align: justify;
 }
 
-p, a {
-  padding: 0px 25px 0px 25px;
-  display: inline-block;
+a {
+  padding: 0px 0px 0px 0px;
+  display: inline;
 }
-
 
 ul {
   list-style-type:square;
 }
 
-.underline {
-  text-decoration:underline;
+/* Visual element coloring */
+.title-colored-box {
+  z-index:1;
+  position:fixed;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  background-color: #000;
+  opacity: 0.95;
 }
 
-.bold {
-  font-weight: bold;
+.footer-colored-box {
+  z-index:1;
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  opacity: 0.95;
+}
+
+.sticky-element {
+  z-index: 2;
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  color: #000000;
+  background-color: #F0F8FF
+}
+
+.links-grey {
+  color:#696969;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.links-blue {
+  color:#0000FF;
+  text-decoration: none;
 }
 
 .text-center {
   text-align:center;
+}
+
+.media-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
+.media-container img,
+.media-container iframe {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.section-break {
+  border-top: 4px dotted rgba(100, 100, 100, 0.3);
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.section {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  margin: 15px 25px 15px 25px;
+  background-color: #FFFFFF;
+}
+
+/* Special function or spacing */
+.splitscreen {
+  display: flex;
+}
+
+.splitscreen .left, .splitscreen .right {
+  flex: 1;
 }
 
 /* The side navigation menu */
@@ -133,7 +175,7 @@ ul {
   left: 0;
   background-color: #000000;
   overflow-x: hidden;
-  padding-top: 40px;
+  padding-top: 35px;
   transition: 0.3s;
 }
 
@@ -152,7 +194,7 @@ ul {
   color: #FFFFFF;
   display: block;
   font-family: Tahoma, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 32px;
   padding: 5px 0px 5px 14px;
   text-decoration: none;
@@ -168,7 +210,7 @@ ul {
   color: #FFFFFF;
   display: block;
   font-family: Tahoma, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 24px;
   padding: 5px 0 5px 14px;
   text-decoration: none;
@@ -188,7 +230,7 @@ ul {
   color: white;
   display: block;
   font-family: Tahoma, sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 20px;
   padding: 5px 0px 5px 22px;
   text-decoration: none;

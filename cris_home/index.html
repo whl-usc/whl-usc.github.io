@@ -3,7 +3,7 @@
 <html lang="en-US">
 <head>
     <!-- Meta tags, CSS links, and other head content here -->
-    <title>CRIS: Crosslinking-based RNA Interactomes and Structurome</title>
+    <title>CRIS Database</title>
     <link rel="icon" type="image/x-icon" href="icons8-x-96.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,12 +39,13 @@
         <a href="https://whl-usc.github.io/xlrit_datasets/hiclip">HiClip</a>
         <!-- Add more datasets as needed -->
     </div>
+
     <a class="dropdown-btn" onclick="toggleDropdown(this)"><i class="bi bi-wrench"></i>&nbsp;Tools&nbsp;<i class="bi bi-caret-down"></i></a>
     
     <!-- Sub-section of tools -->
     <div class="dropdown-container">
         <a href="#">BEDtools</a>
-        <a href="#">Nucleotide Frequency</a>
+        <a href="#">Crosslink Sites</a>
         <a href="#">Read Statistics</a>
         <a href="#">SAMtools</a>
         <a href="#">STAR</a>
@@ -52,17 +53,15 @@
     </div>
 
     <!-- Section containing other links -->
-    <a class="sidenav_links" href="https://whl-usc.github.io/cris_home/downloads.html"><i class="bi bi-file-arrow-down"></i>&nbsp;Downloads</a>            
     <a class="sidenav_links" href="https://whl-usc.github.io/cris_home/links.html"><i class="bi bi-link-45deg"></i>&nbsp;Links</a>
     <a class="sidenav_links" href="https://zhipenglulab.org/"><i class="bi bi-people"></i>&nbsp;Lab Website</a>
     <a class="sidenav_links" href="mailto:zhipengl@usc.edu"><i class="bi bi-mailbox"></i>&nbsp;Contact Us</a>
     <!-- Add more links as needed -->
-
 </div>
 
-    <!-- Footer Section -->
-    <a class="footer-colored-box"></a>
-    <footer>&copy;&nbsp;2023 Lu Lab</footer>  
+<!-- Footer Section -->
+<a class="footer-colored-box"></a>
+<footer>&copy;&nbsp;2023 Lu Lab</footer>  
 
 <!-- End of content that is common to all pages -->
 </body>
@@ -70,43 +69,51 @@
 <!-- Main Content Section -->
 <div id="main">
     <main>
+
         <!-- Header -->
         <header>
-            <h1><span class="underline">C</span>rosslinking-based <span class="underline">R</span>NA <span class="underline">I</span>nteractomes and <span class="underline">S</span>tructuromes</h1>
+            <h1><u>C</u>rosslinking-based <u>R</u>NA <u>I</u>nteractomes and <u>S</u>tructuromes</h1>
         </header>
-        <div>
-            <h2 class="subtitle">The Project</h2>
-                <p class="text">Experimental and computational data derived from various RNA crosslinking-based are experiments are provided here. Datasets and relevant workflows can be directly accessed via GitHub and NCBI. Specific examples highlighting the quality and functionality of the processed data can be visualized through this database.</p>
-                <p class="text">Advancements in the field of RNA structure and interaction studies have enabled high throughput analysis of RNAs, revealing base pairing and higher order interactions. Despite the progress on the experimental methods for studying RNA secondary and intermolecular complexes, computational analysis of such data generated has remained a challenge, typically limited to specific studies. One subset of such experimental methods, the crosslinking- and proximity-ligation based approaches generates non-continuous reads that indicate specific RNA structures and interactions. Here, we detail a computational pipeline for analyzing the non-continuous "gapped" reads from a variety of methods that employ the crosslinking-ligation principle (see PARIS, PARIS2, LIGR, SPLASH, SHARC). Briefly, the pipeline functions as follows. First, raw data are processed to remove sequencing adapters and PCR duplicates (and if applicable. separated by barcode). Next, all reads are permissively mapped to a custom reference genome using STAR. Then, primary alignments are extracted, classified, and assembled to duplex groups (DGs), non-overlapping (NGs), or tri-segment groups (TGs). Finally, DGs can be visualized using IGV, converted to stemloop groups, and have endpoints (read arm stopping points) determined. Furthermore, the nucleotide frequncy or SHAPE reactivity of DG arms can be determined.</p>
-                
-                <p align="center"><iframe width="342" height="256" src="https://www.youtube.com/embed/1GXibPeUUGQ?mute=1"></iframe></p>
-        </div>
         
-        <div>
-            <h2 class="subtitle">Our Publications</h2><br>
-                
-                <p class="text bold"><span class="underline">PARIS</span></p>
-                <a class="text links-grey" href="https://www.nature.com/articles/s41467-021-22552-y">Optimized photochemistry and enzymology enable efficient analysis of RNA structures and interactions in cells and virus infections, Zhang M, Li K, Bai J, Velema WA, Yu C, van Damme R, Lee WH, Corpuz ML, Chen JF, Lu Z* Nature Communications, 12:2344 (2021)</a>
-                <a class="text links-blue bold" href="https://www.dropbox.com/scl/fi/dnplp4rb5669lwvs976f1/2021_PARIS2.pdf?rlkey=vnl2yyjgupphirtc8cqmais7p&dl=0">PDF</a>
+        <section class="section">
+        <h2 class="subtitle">The Project</h2>
+            <p class="text">Experimental and computational data derived from various RNA crosslinking-based are experiments are provided here. Datasets and relevant workflows can be directly accessed via GitHub and NCBI. Specific examples highlighting the quality and functionality of the processed data can be visualized through this database.</p>
+            <p class="text">Advancements in the field of RNA structure and interaction studies have enabled high throughput analysis of RNAs, revealing base pairing and higher order interactions. Despite the progress on the experimental methods for studying RNA secondary and intermolecular complexes, computational analysis of such data generated has remained a challenge, typically limited to specific studies. One subset of such experimental methods, the crosslinking- and proximity-ligation based approaches generates non-continuous reads that indicate specific RNA structures and interactions. Here, we detail a computational pipeline for analyzing the non-continuous "gapped" reads from a variety of methods that employ the crosslinking-ligation principle (see PARIS, PARIS2, LIGR, SPLASH, SHARC). Briefly, the pipeline functions as follows. First, raw data are processed to remove sequencing adapters and PCR duplicates (and if applicable. separated by barcode). Next, all reads are permissively mapped to a custom reference genome using STAR. Then, primary alignments are extracted, classified, and assembled to duplex groups (DGs), non-overlapping (NGs), or tri-segment groups (TGs). Finally, DGs can be visualized using IGV, converted to stemloop groups, and have endpoints (read arm stopping points) determined. Furthermore, the nucleotide frequncy or SHAPE reactivity of DG arms can be determined.</p>
+            <div class="media-container">
+                <iframe width="480px" height="360px" src="https://www.youtube.com/embed/1GXibPeUUGQ?mute=1" frameborder="0"></iframe>
+            </div>
+            <br>
+        </section>
+        <div class="section-break"></div>
 
-                <a class="text links-grey" href="https://link.springer.com/protocol/10.1007/978-1-4939-7213-5_4"> PARIS: psoralen analysis of RNA interactions and structures with high throughput and resolution. Lu Z, Gong J and Zhang QC Methods in Molecular Biology: RNA Detection, 59-84 (2018)</a>
-                <a class="text links-blue bold" href="https://www.dropbox.com/s/0m97bb2jriwunzh/2018_method.pdf?dl=0">PDF</a>
-                
-                <a class="text links-grey" href="https://www.cell.com/cell/fulltext/S0092-8674(16)30422-6">RNA duplex map in living cells reveals higher order transcriptome structure. Lu Z, Zhang QC, Lee B, Flynn RA, Smith MA, Robinson JT, Davidovich C, Gooding AR, Goodrich KJ, Mattick JS, Mesirov JP, Cech TR, Chang HY (2016) Cell, 165 (5): 1267-1279</a>
-                <a class="text links-blue bold" href="https://www.dropbox.com/s/epy34g26hqa951n/2016_paris%2Bs.pdf?dl=0">PDF</a><br>
-                
-                <p class="text bold"><span class="underline">SHARC</span></p>
-                <a class="text links-grey" href="https://www.nature.com/articles/s41467-022-28602-3">Chemical Reversible Crosslinking Enables Measurement of RNA 3D Distances and Alternative Conformations in Cells. Van Damme R, Li K, Zhang M, Bai J, Lee WH, Yesselman JD, Lu Z* and Velema WA* Nature Communications, 13:911 (2022)</a>
-                <a class="text links-blue bold" href="https://www.dropbox.com/s/p8cv35fasoh2n4l/2022_SHARC.pdf?dl=0">PDF</a>
+        <section class="section">
+        <h2 class="subtitle">Examples</h2>
+            <div class="media-container">
+                <img width="960px" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-021-22552-y/MediaObjects/41467_2021_22552_Fig6_HTML.png?as=webp" alt="Figure 6">
+            </div>
+            <p><b>a)</b> PARIS2 validates predicted structures (black arcs) and reveals new alternative conformations (colored arcs) in the 699 nt 5′UTR of the US47 strain of EV-D68. 5′CL cloverleaf structure, IRES internal ribosome entry site, including domains II–VI, a1–a5 five alternative conformations. Numbers in parentheses are the counts of gapped alignments in each DG. 
+            <b>b)</b> Long-range structures connecting the 5′UTR to the rest of the genome in two EV-D68 strains. All DGs have cov≥0.01 for these two samples. The two stars indicate the right-side anchors for the strongest long-range strucgtures in the two strains, near the CRE and the region near the stop codon at the end of peptide 3D (3Dstop). <b>c)</b> Long-range structures in the 5′UTR are primarily anchored in three linker regions L1–L3 (e.g., L1 is after domain I). 
+            <b>d)</b> Diagram showing the three strongest long-range structures L1-CRE (connecting L1 and near CRE, in US47), L2L3-start (start codon, in US47), and L1L2-3Dstop (in VR1197). <b>e–g)</b> DGs supporting the three long-range structures. In L1-CRE <b>(e)</b>, the first ~5000nt of the genome is shown. In the L2L3-start <b>(f)</b>, the first ~80nt of the genome is shown. In L1L2-3Dstop <b>(g)</b>, the entire genome is shown. <b>h)</b> Quantifying the strength of DGs for the three structures in all conditions. H HeLa cells, S SH-SY5Y cells, U US47, V VR1197, A AG, G GA. <b>i)</b> Stability of the three structures, measured in minimal free energy (MFE), in the two strains.</p>
+        </section>
+        <div class="section-break"></div>
 
-        <div>
-            <h3 class="text">An example of XLRNA</h3>
-                <!-- Element to embed the IGV browser -->
-                <div id="igv-div"></div>
-                <script>createIGVBrowser();</script>
-        </div>
+        <section class="section">
+        <h2 class="subtitle">Our Publications</h2>
+            <p><b>PARIS</b></p>
+            <p><a class="text links-grey" href="https://www.nature.com/articles/s41467-021-22552-y">Optimized photochemistry and enzymology enable efficient analysis of RNA structures and interactions in cells and virus infections, Zhang M, Li K, Bai J, Velema WA, Yu C, van Damme R, Lee WH, Corpuz ML, Chen JF, Lu Z* Nature Communications, 12:2344 (2021).</a>&nbsp;<a class="text links-blue bold" href="https://www.dropbox.com/scl/fi/dnplp4rb5669lwvs976f1/2021_PARIS2.pdf?rlkey=vnl2yyjgupphirtc8cqmais7p&dl=0"><b>PDF</b></a></p>
+            <p><a class="text links-grey" href="https://link.springer.com/protocol/10.1007/978-1-4939-7213-5_4"> PARIS: psoralen analysis of RNA interactions and structures with high throughput and resolution. Lu Z, Gong J and Zhang QC Methods in Molecular Biology: RNA Detection, 59-84 (2018).</a>&nbsp;<a class="text links-blue bold" href="https://www.dropbox.com/s/0m97bb2jriwunzh/2018_method.pdf?dl=0"><b>PDF</b></a></p>
+            <p><a class="text links-grey" href="https://www.cell.com/cell/fulltext/S0092-8674(16)30422-6">RNA duplex map in living cells reveals higher order transcriptome structure. Lu Z, Zhang QC, Lee B, Flynn RA, Smith MA, Robinson JT, Davidovich C, Gooding AR, Goodrich KJ, Mattick JS, Mesirov JP, Cech TR, Chang HY (2016) Cell, 165 (5): 1267-1279.</a>&nbsp;<a class="text links-blue bold" href="https://www.dropbox.com/s/epy34g26hqa951n/2016_paris%2Bs.pdf?dl=0"><b>PDF</b></a></p>
+            <p><b>SHARC</b></p>
+            <p><a class="text links-grey" href="https://www.nature.com/articles/s41467-022-28602-3">Chemical Reversible Crosslinking Enables Measurement of RNA 3D Distances and Alternative Conformations in Cells. Van Damme R, Li K, Zhang M, Bai J, Lee WH, Yesselman JD, Lu Z* and Velema WA* Nature Communications, 13:911 (2022).</a>&nbsp;<a class="text links-blue bold" href="https://www.dropbox.com/s/p8cv35fasoh2n4l/2022_SHARC.pdf?dl=0"><b>PDF</b></a></p>
+        </section>
+        <div class="section-break"></div>
 
     </main>
 </div>
-
 </html>
+
+<!-- Element to embed the IGV browser
+<h2 class="text">An example of XLRNA</h2>
+<div style="padding-left: 25px" style="padding-right: 25px" id="igv-div"></div>
+<script>createIGVBrowser();</script>
+-->
