@@ -29,6 +29,11 @@
   .sidenav a {font-size: 18px;}
 }
 
+@media screen and (max-width: 768 px) {
+  .footer-content {font-size: 0.75rem;}
+  h1 {font-size: 0.50rem;}
+}
+
 .main {
   padding: 75px 0px 75px 0px;
 }
@@ -36,30 +41,60 @@
 body {
   background-color:#F8F8FF;
   font-family: Tahoma, sans-serif;
-  padding: 75px 0px 75px 0px;
+  padding: 25px 0px 75px 0px;
   margin: 0;
 }
 
 footer {
-  z-index:2;
-  border-top: solid 2px #FFFFFF;
+  z-index: 1;
   position: fixed;
-  left: 300px;
-  right: 300px;
-  padding-top: 10px;
-  bottom: 10px;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0 ,0, 0.85);
+  color:#000;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.85);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+
+.footer-content {
   text-align: center;
-  color: #FFFFFF;
+  max-width: 90%;  
 }
 
 h1 {
   z-index: 1;
   position: fixed;
-  text-align: center;
-  background-color: #F0F8FF;
   top: -10px;
-  left: 0px;
-  right: 0px;
+  width: 100%;
+  background-color: #F0F8FF;
+}
+
+.h1-container {
+  display: flex;
+  justify-content: left;
+  height: 50px;
+}
+
+.h1-content {
+  text-align: center;
+  max-width: 90%;  
+}
+
+.h1-colored-box {
+  z-index: 1;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 65px;
+  background-color: #000;
+  opacity: 0.85;
+  display: flex;
 }
 
 h1, h2, h3 {
@@ -83,26 +118,6 @@ ul {
 }
 
 /* Visual element coloring */
-.title-colored-box {
-  z-index:1;
-  position:fixed;
-  top: 0;
-  width: 100%;
-  height: 65px;
-  background-color: #000;
-  opacity: 0.85;
-}
-
-.footer-colored-box {
-  z-index:1;
-  position:fixed;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #000;
-  opacity: 0.85;
-}
-
 .sticky-element {
   z-index: 2;
   position: fixed;
