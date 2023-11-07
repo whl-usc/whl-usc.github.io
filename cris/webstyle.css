@@ -119,17 +119,29 @@ ul {
 
 /* Table formatting */
 table {
-  margin-left: 15px;
-  margin-top: 15px;
-  margin-right: 15px;
-  margin-bottom: 15px;
+  margin: 15px;
   border: 1px solid black;
+  border-collapse: collapse;
+  width:95%;
 }
 
 th, td {
   border: 0.5px solid gray;
-  padding: 5px 5px 5px 5px ;
+  padding: 8px;
+  text-align: center;
 }
+
+th {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  background-color: #FFFFFF;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
 
 /* Visual element coloring */
 .sticky-element {
