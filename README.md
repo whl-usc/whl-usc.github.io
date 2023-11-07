@@ -11,7 +11,7 @@ Advancements in the field of RNA structure and interaction studies have enabled 
 
 Briefly, the pipeline functions as follows: Raw data were processed to remove sequencing adapters and PCR duplicates (and if applicable. separated by barcode). All reads were permissively mapped to a custom reference genome (Hg38 with masked repeat regions) using STAR. Primary alignments were extracted, classified, and assembled to duplex groups (DGs), non-overlapping (NGs), or tri-segment groups (TGs). 
 
-Here, DGs can be visualized using IGV, converted to stemloop groups, and have endpoints (read arm stopping points) determined. Furthermore, the nucleotide frequncy or SHAPE reactivity of DG arms can be determined. 
+Here, DGs can be visualized using IGV, converted to stemloop groups, and have endpoints (read arm stopping points) determined. Furthermore, the nucleotide frequency or SHAPE reactivity of DG arms can be determined. 
 
 <!-- CONTACT -->
 ## Contact
