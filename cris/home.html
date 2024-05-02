@@ -19,44 +19,83 @@
 
 <!-- Header -->
 <header>
-    <u>C</u>rosslinking-based <u>R</u>NA <u>I</u>nteractomes and <u>S</u>tructuromes
+    <div class="title">
+        <u>C</u>rosslinking-based <u>R</u>NA <u>I</u>nteractomes and <u>S</u>tructuromes
+    </div>
 </header>
 
 <!-- Footer -->
 <footer>
     <div class="footer-block">
-        <div class="footer-item">
+        <div class="footer-item link-hover">
             <h3><u>Contact Us</u></h3>
-            <p>zhipengl@usc.edu</p>
+            <a href="mailto:zhipengl@usc.edu" method="post">zhipengl@usc.edu</a>
         </div>
-        <div class="footer-item">
+        
+        <div class="footer-item link-hover">
             <h3><u>Mailing Address</u></h3>
-            <p>USC Alfred E. Mann School of Pharmacy and Pharmaceutical Sciences</p>
-            <p>University of Southern California</p>
-            <p>1985 Zonal Avenue</p>
-            <p>Los Angeles, CA 90033</p>
+            <a href="https://maps.app.goo.gl/FqTFehk5fkJEUTnv5" class="address">
+            <div>USC Alfred E. Mann School of Pharmacy and Pharmaceutical Sciences</div>
+            <div>University of Southern California</div>
+            <div>1985 Zonal Avenue</div>
+            <div>Los Angeles, CA 90033</div>
+            </a>
         </div>
-        <div class="footer-item">
+        
+        <div class="footer-item link-hover">
             <h3><u>About Us</u></h3>
-            <p><a href="https://zhipenglulab.org/">Lab Website</a></p>
+            <a href="https://zhipenglulab.org/">Lab Website</a>    
         </div>
-        <div class="footer-item">
+
+        <div class="footer-item link-hover">
             <h3><u>Github</u></h3>
-            <p><a href="https://github.com/zhipenglu/CRSSANT/">CRSSANT</a></p>
-            <p><a href="https://github.com/minjiezhang-usc/PARIS2">PARIS</a></p>
-            <p><a href="https://github.com/whl-usc/">rna2d3d</a></p>
+            <a href="https://github.com/zhipenglu/CRSSANT/">CRSSANT</a>
+            <a href="https://github.com/minjiezhang-usc/PARIS2">PARIS</a>
+            <a href="https://github.com/whl-usc/">rna2d3d</a>
         </div>
     </div>
-    <div class="footer-copyright">
+
+    <div class="copyright">
+        <p><i>Decoding and Targeting RNA Machines in Living Cells</i></p>
         <p>&copy;&nbsp;2024 Lu Lab</p>
     </div>
 </footer>
 
+<!-- Side menu -->
+<div id="SiteNav" class="sidenav">
+    <!-- Return to home link -->
+    <div class="nav-section-header link-hover">
+        <a href="https://whl-usc.github.io/cris/home.html">Home</a>    
+    </div>
+    <!-- Sub-section; datasets -->
+    <div class="nav-section link-hover">
+        <div class="nav-section-header">Datasets</div>
+        <a href="https://whl-usc.github.io/cris/paris2"> PARIS-2</a>
+        <a href="https://whl-usc.github.io/cris/sharc"> SHARC-exo</a>
+        <a href="https://whl-usc.github.io/cris/darc"> DARC-exo</a>
+        <a href="https://whl-usc.github.io/cris/hiclip"> HiClip</a>
+        <!-- Add more datasets as needed -->
+    </div>
+    <!-- Sub-section; tools -->
+    <div class="nav-section link-hover">
+        <div class="nav-section-header">Tools</div>
+        <a href="https://bedtools.readthedocs.io/en/latest/index.html">BEDtools</a>
+        <a href="#">Crosslink Sites</a>
+        <a href="#">Read Statistics</a>
+        <a href="https://www.htslib.org/" class="tools-link">SAMtools</a>
+        <a href="https://github.com/alexdobin/STAR" class="tools-link">STAR</a>
+        <!-- Add more tools as needed -->
+    </div>
+    <!-- Section; other links -->
+    <div class="nav-section link-hover">
+        <div class="nav-section-header">Downloads</div>
+        <a href="https://whl-usc.github.io/cris/downloads.html">Links</a>
+        <!-- Add more links as needed -->
+    </div>
+</div>
+
 <body>
-    <!-- Side menu for navigation -->
-    <div id="SiteNav" class="sidenav"></div>
+    <h1>Testing this here</h1>
 </body>
 
-
-</body>
 </html>
