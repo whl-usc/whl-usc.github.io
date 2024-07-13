@@ -1,25 +1,145 @@
-/* Positioning and spacing the main body */
+/* Positioning and styling main body elements */
 body {
-  background: rgba(240, 240, 240, 0.50);
-  padding-left: 165px;
-  padding-top: 55px;
-  position: fixed;
-  text-align: center;
+  background: rgba(240, 240, 240, 0.25);
+  padding-left: 200px;
+}
+
+main {
+  margin-bottom: 120px;
+  overflow-y: auto;
+  padding-top: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
   color: rgba(0, 0, 0, 1);
   font-family: Tahoma, sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
+  margin: 10px 5px;
+}
+
+h2 {
+  color: rgba(0, 0, 0, 1);
+  font-family: Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 5px;
+}
+
+p, ul {
+  color: rgba(0, 0, 0, 1);
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0px 0px 10px 5px;
+  width: fit-content;
+}
+
+hr {
+  border: 0.5px dashed rgba(200, 200, 200, 0.75);
+  margin: 5px 0;
+}
+
+.section-color {
+  background: rgba(174, 214, 241, 0.05);
+  padding: 5px;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  text-align:center;
+  justify-content: center;
+}
+
+.link-hover a:hover, .link-hover p:hover {
+  text-decoration: underline;
+}
+
+/* Special formatting for publications - long lines */
+
+.publications {
+    width: 1080px;
+}
+
+.publications a {
+  color: rgba(0, 0, 0, 1);
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  justify-content: left;
+  text-decoration: underline;
+}
+
+.publications a:hover {
+  color: rgba(0, 0, 255, 1);
+}
+
+/* Create a grid system for items */
+.grid-container {
+  background: rgba(174, 214, 241, 0.20);
+  border: 0.5px solid rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 10px 0px;
+  padding: 10px;
+  width: fit-content;
+}
+
+.grid-item {
+  color: black;
+  background: rgba(255, 255, 255, 0.75);
+  border: 0.5px solid rgba(0, 0, 0, .5);
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+  font-family: Tahoma, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.grid-item:hover {
+  border-color: rgba(255, 255, 0, 0.25);
+}
+
+.grid-item:hover a:hover, .grid-hover p:hover {
+  text-decoration: underline;
+}
+
+/* Code examples */
+.code-section {
+  color: black;
+  background: rgba(0, 0, 0, 0.01);
+  border: 0.5px solid rgba(0, 0, 0, 0.50);
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+  font-family: Courier New;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 10px 20px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;  
+  width: fit-content;
+}
+
+.code-block {
+  text-align: left;
+  width: fit-content;
 }
 
 /* Styling the header and footer */
 header, footer {
   /* Spacing */
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.50);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
   left: 50%;
-  position: fixed;
   transform: translateX(-50%);
   width: 100%;
   /* Style */
@@ -31,10 +151,11 @@ header, footer {
 
 /* Header section */
 header {
-  background: linear-gradient(to right, rgba(22, 83, 126, 1), rgba(22, 83, 126, 0.50));
+  background: linear-gradient(to right, rgba(22, 83, 126, 0.75), rgba(22, 83, 126, 0.50));
   height: 50px;
-  top: 0px;
+  position: fixed;
   text-align: left;
+  top: 0px;
   white-space: nowrap;
 }
 
@@ -43,81 +164,71 @@ header {
   font-family: Tahoma, sans-serif;
   font-size: 36px;
   font-weight: bold;
+  position: relative;
   padding-left: 25px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.50);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.70);
 }
 
 /* Footer section */
 footer {
   background: linear-gradient(to bottom, rgba(0, 0 ,0, 1), rgba(0, 0, 0, 0.75));
   bottom: 0;
+  height: 80px;
+  padding: 2px 20px;
+  position: fixed;
   text-align: left;
-  white-space: nowrap;
 }
 
 .footer-block {
+  color: rgba(255, 255, 255, 1);
   display: flex;
-  justify-content: space-evenly;
-  padding: 5px;
-}
-
-.footer-item, .copyright p {
   font-family: Tahoma, sans-serif;
   font-size: 14px;
+  justify-content: space-evenly;
+  margin-top: 2px;
 }
 
-.footer-item a, .footer-item h3, .footer-item p, .address {
-  display: block;
+.footer-item a, .footer-item h3, .footer-item p {
   color: rgba(255, 255, 255, 1);
-  margin: 0;
+  display: block;
+  margin: 0px 2px;
   text-decoration: none;
-}
-
-/* Copyright text */
-.copyright p {
-  font-size: 14px;
-  margin-top: 10px;
-  text-align: center;
-  margin: 0;
 }
 
 /* Styling the side navigation */
 .sidenav {
-  background: rgba(174, 214, 241, 0.15);
+  background: rgba(174, 214, 241, 0.20);
   border: 0.5px solid rgba(0, 0, 0, 1);
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
   font-family: Tahoma, sans-serif;
   font-size: 14px;
   height: flex;
   left: 15px;
   position: fixed;
   text-align: left;
-  top: 75px;
-  width: 130px;
+  top: 70px;
+  width: 165px;
 }
 
 .nav-section a {
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.25);
+  border-bottom: 0.5px dotted rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 1);
   display: block;
-  margin-bottom: 5px;
-  padding: 5px 2px 5px 10px;
+  padding: 5px 5px;
   text-decoration: none;
   text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.50);
 }
 
-.link-hover a:hover, .link-hover p:hover {
-  color: rgba(0, 0, 255, 1);
-  text-decoration: underline;
-}
-
 .nav-section-header {
-  border-top: 3px solid rgba(10, 10, 10, 1);
-  border-bottom: 0.5px solid rgba(0, 0, 0, 1);
+  border-bottom: 0.3px solid rgba(0, 0, 0, 0.35);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top: 5px solid rgba(10, 10, 10, 1);
   color: rgba(10, 10, 10, 1);
   font-family: Tahoma, sans-serif;
   font-size: 14px;
   font-weight: bold;
-  padding: 5px 2px 5px 10px;
+  padding: 4px 5px;
   text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.50);
 }
