@@ -42,16 +42,34 @@ ul {
   font-family: Tahoma, sans-serif;
   font-size: 14px;
   font-weight: normal;
-  margin: 0px 50px 10px 5px;
+  margin: 0px 50px 0px 5px;
   text-align: justify;
   width: fit-content;
 }
 
 /* Section separators and styling */
 hr {
-  border: 1px dotted rgba(200, 200, 200, 0.85);
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, rgba(100, 100, 100, 0.25), rgba(255, 255, 255, 1.0));
+  margin: 10px 5px;
+}
+.separator-container {
+  text-align: center;
   margin: 5px auto;
-  width: 75%;
+}
+.separator-dots {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.50), rgba(0, 0, 0, 1.0), rgba(255, 255, 255, 0.50));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 12px;
+}
+.separator-line {
+  border-top: 2px dotted rgba(0, 0, 0, 0.50);
+  margin: 0px auto;
+  width: 35%;
 }
 .section-color {
   background: rgba(248, 248, 255, 0.05);
@@ -106,7 +124,6 @@ input[type="text"] {
   list-style-position: outside;
   list-style-type: lower-roman;
   margin-left: 25px;
-  margin-bottom: 10px;
 }
 .instructions p {
   margin-left: 15px;
@@ -126,6 +143,7 @@ input[type="text"] {
   list-style-position: outside;
   list-style-type: number;
   margin-bottom: 10px;
+  max-width: 90%;
   width: fit-content;
 }
 
@@ -215,7 +233,8 @@ dd {
 }
 .dl-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  margin-left: 75px;
 }
 
 /* Header section */

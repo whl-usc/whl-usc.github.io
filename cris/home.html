@@ -41,13 +41,16 @@
                     <a class="grid-item grid-hover" href="https://pass">STATISTICS</a>
                 </div>
             </div>
+            <div class="separator-line"></div>
+            <h2>Pipeline overview</h2>
             <hr />
-            <div class="container">
-                <h2>... AN OVERVIEW FIGURE GOES HERE ...</h2>
-            </div>
-            <!-- References -->
-            <hr />    
+        </div>
+        <div class="separator-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
+
+        <!-- References -->
+        <div class="section-color">    
             <h1>Select Publications</h1>
+            <hr />
             <p>
                 In the section below, you will find a curated list of publications pertinent to the CRIS database. The literature contains details that may be of interest, although the general workflow is described here.
             </p>
@@ -94,7 +97,7 @@
         <!-- Break up contents to new pages after each of the 3-linebreaks-->
 
         <!-- Background information -->
-        <hr />
+        <div class="separator-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
         <div class="section-color">
             <h1>Why RNA?</h1><hr>
             <h2>Molecules to Medicine Mentality</h2>
@@ -131,7 +134,7 @@
         </div>
 
         <!-- Datasets/Studies -->
-        <hr />
+        <div class="separator-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
         <div class="section-color">
             <h1>PARIS (2)</h1>
             <hr />
@@ -139,17 +142,17 @@
         </div>
 
         <!-- Tools we use -->
-        <hr />
+        <div class="separator-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
         <div class="section-color">
             <h1>Bioinformatic Tools</h1>
             <hr />
             <h2>Data Pre-processing</h2>
                 <p>
-                    Sequencing reads are provided as compressed (zipped) fastq files. They must first be processed to remove sequencing adapters and unique barcodes, then demultiplexed using common tools. File prefixes and paths will vary according to the experimental conditions and file origin, and should be substituted for instances of <b>"$<i>Outprefix</i>"</b> or <b>"$<i>path</i>"</b> in subsequent steps.
+                    Sequencing reads are provided as compressed (zipped) fastq files. They must first be processed to remove sequencing adapters and unique barcodes, then demultiplexed using common tools. File prefixes and paths will vary according to the experimental conditions and file origin, and should be substituted for instances of <b>"<i>$Outprefix</i>"</b> or <b>"<i>$path</i>"</b> in subsequent steps.
                 </p> 
             <h3>Trimmomatic</h3>
                 <p>
-                    When performing sequencing using an Illumina instrument, sequences that correspond to the library adapter can [and more often than not, are] present in the fastq files at the 5'- and 3'- ends of the reads if the read length is greater than the insert size. Since library inserts are shorter than the total read length of the sequencer, adapters must be trimmed away prior to alignment. Trimmomatic is used to remove the 3'-end adapters <a href="https://academic.oup.com/bioinformatics/article/30/15/2114/2390096" target="_blank"><i>(Bolger et al. 2014)</i></a>.
+                    When performing sequencing using an Illumina instrument, sequences that correspond to the library adapter can be [more often than not] present in the fastq files at the 5'- and 3'- ends of the reads, if the read length is greater than the insert size. Since library inserts are shorter than the total read length of the sequencer, adapters must be trimmed away prior to alignment. Trimmomatic is used to remove the 3'-end adapters <a href="https://academic.oup.com/bioinformatics/article/30/15/2114/2390096" target="_blank"><i>(Bolger et al. 2014)</i></a>.
                 </p>
                  <div class="container">
                     <code class="example">java -jar trimmomatic-0.36.jar SE -threads 16 -phred33 $fastq $Outprefix'_trim3.fastq' ILLUMINACLIP:$fasta:3:20:10 SLIDINGWINDOW:4:20 MINLEN:18</code>
@@ -163,43 +166,34 @@
                 <div class="dl-container">
                     <dl>
                         <dt>SE</dt>
-                        <dd>Single ended mode.</dd>
-
+                            <dd>Single ended mode.</dd>
                         <dt>-threads</dt>
-                        <dd>Indicates the number of computing threads to use, which improves performance on multi-core computers. If not specified, it will be chosen automatically.</dd>
-
+                            <dd>Indicates the number of computing threads to use, which improves performance on multi-core computers. If not specified, it will be chosen automatically.</dd>
                         <dt>-phred33 or -phred64</dt>
-                        <dd>Specifies the base quality encoding.</dd>
-
+                            <dd>Specifies the base quality encoding.</dd>
                         <dt>Input/output</dt>
-                        <dd>For input and output files, specifying .gz tells Trimmomatic that the file provided is in compressed format or that Trimmomatic should gzip the file, respectively.</dd>
-
+                            <dd>For input and output files, specifying .gz tells Trimmomatic that the file provided is in compressed format or that Trimmomatic should gzip the file, respectively.</dd>
                         <dt>ILLUMINACLIP</dt>
-                        <dd>Finds and removes specifically Illumina adapters.</dd>
-
+                            <dd>Finds and removes specifically Illumina adapters.</dd>
                         <dt>fastaWithAdaptersEtc</dt>
-                        <dd>Specifies the path to a fasta file containing all the adapters, PCR sequences, etc. The naming of the various sequences within this file determines how they are used.</dd>
-
+                            <dd>Specifies the path to a fasta file containing all the adapters, PCR sequences, etc. The naming of the various sequences within this file determines how they are used.</dd>
                         <dt>seedMismatches</dt>
-                        <dd>Specifies the maximum mismatch count which will still allow a full match to be performed. To speed up the search, short sections of each adapter (up to 16bp) are tested at all possible positions to find "seeds" that trigger a full alignment.</dd>
-
+                            <dd>Specifies the maximum mismatch count which will still allow a full match to be performed.</dd>
+                            <dd>To speed up the search, short sections of each adapter (up to 16bp) are tested at all possible positions to find "seeds" that trigger a full alignment.</dd>
                         <dt>palindromeClipThreshold</dt>
-                        <dd>Specifies how accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment.</dd>
-
+                            <dd>Specifies how accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment.</dd>
                         <dt>simpleClipThreshold</dt>
-                        <dd>Specifies how accurate the match between any adapter etc. sequence must be against a read. Suggested values are 7-15 depending on the length of the Score; increase 0.6 per match, decrease by Q/10 per mismatch where Q is the quality score.</dd>
-
+                            <dd>Specifies how accurate the match between any adapter etc. sequence must be against a read.</dd>
+                            <dd>Suggested values are 7-15 depending on the length of the Score; increase 0.6 per match, decrease by Q/10 per mismatch where Q is the quality score.</dd>
                         <dt>Sliding window</dt>
-                        <dd>Performs sliding window trimming once the average quality within the window falls below specified threshold. By considering multiple bases, a single poor quality base will not cause the removal of high quality data later in the read.</dd>
-
+                            <dd>Performs sliding window trimming when average quality within the window falls below specified threshold.</dd>
+                            <dd>By considering multiple bases, a single poor quality base will not cause the removal of high quality data later in the read.</dd>
                         <dt>Sliding window size</dt>
-                        <dd>Length of window in number of base pairs.</dd>
-
+                            <dd>Length of window in number of base pairs.</dd>
                         <dt>Sliding window minimum quality</dt>
-                        <dd>The average quality required during trimming.</dd>
-
+                            <dd>The average quality required during trimming.</dd>
                         <dt>Minimum read length</dt>
-                        <dd>Removes reads that fall below the specified minimum length. Reads removed by this step are included in the 'dropped reads' count. Length written in base pairs.</dd>
+                            <dd>Removes reads that fall below the specified minimum length. Reads removed by this step are included in the 'dropped reads' count. Length written in base pairs.</dd>
                     </dl>
                 </div>
                 <p>
@@ -230,14 +224,16 @@
                 <div class="dl-container">
                     <dl>
                         <dt>-b</dt>
-                        <dd>Specifies the position and length of hexamer for reads to be used for demultiplexing.</dd> 
+                            <dd>Specifies the position and length of hexamer for reads to be used for demultiplexing.</dd> 
                         <dt>-l&nbsp;&nbsp;“L”</dt>
-                        <dd>Specifies the list of specific length (-b) of barcodes "L" to be used for separation and subsequent names for the output file(s). Multiple barcodes can be provided separated with two colons "::". For example, providing "CGTGAT:R701" will take reads with barcode "CGTGAT" and separate them into file "R701.fastq".</dd>
-                        <dd>Use format BARCODE1:LIB_NAME1::BARCODE2:LIB_NAME2::...</dd>
+                            <dd>Specifies the list of specific length (-b) of barcodes "L" to be used for separation and subsequent names for the output file(s).</dd>
+                            <dd>Multiple barcodes can be provided separated with two colons "::".</dd>
+                            <dd>For example, providing "CGTGAT:R701" will take reads with barcode "CGTGAT" and separate them into file "R701.fastq".</dd>
+                            <dd>Use format BARCODE1:LIB_NAME1::BARCODE2:LIB_NAME2::...</dd>
                         <dt>-s</dt>
-                        <dd>Generates a simple statistics output file if separated by library barcode.</dd>
+                            <dd>Generates a simple statistics output file if separated by library barcode.</dd>
                         <dt>-d</dt>
-                        <dd>Specifies the directory at which to output file(s).</dd>
+                            <dd>Specifies the directory at which to output file(s).</dd>
 
                     </dl>
                 </div>
@@ -283,7 +279,7 @@
         </div>
 
         <!-- RNA-RNA interaction Table -->
-        <hr />
+        <div class="separator-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
         <div class="section-color">
             <h1>RNA-RNA Interaction Table</h1>
                 <p>
@@ -297,38 +293,68 @@
         </div> 
            
         <!-- Data Download Table -->
-        <hr />
+        <div class="separator-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
         <div class="section-color">
             <div class="instructions">
                 <h1>Available Data</h1>
                 <h2>Processed Data</h2>
                     <p>
-                        All published data generated via the PARIS or SHARC methods is available in BAM format in live links. File prefixes are named with details of the experimental conditions.
+                        All published data generated via the PARIS or SHARC methods is available in BAM format. The file prefixes are named with details of the experimental conditions as described below.
                     </p>
+                    <div class="dl-container">
+                        <dl>
+                            <dt>Species</dt>
+                                <dd>HS - Homo Sapiens </dd>
+                                <dd>MM - Mus Musculus</dd>
+                                <dd>VIR - Virus</dd>
+                                <dd>IV - In vitro</dd>                            
+                            <dt>Cell Type // Tissue // Strain</dt>
+                                <dd>Verbatim</dd>
+                            <dt>Crosslinker</dt>
+                                <dd>AMT - Aminomethyltrioxsalen</dd>
+                                <dd>Amo - Amotosalen</dd>
+                                <dd>DPI - 2,6-Pyridinedicarboxylic acid (SHARC)</dd>
+                                <dd>FA - Formaldehyde</dd>
+                                <dd><i>Note that crosslinker concentrations can be in either mg/mL or molar (M).</i><br />
+                                A rule of thumb is that the psoralens (AMT/Amo) are in mg/mL, while all other crosslinkers are in M.</dd>
+                            <dt>Proximity Ligase</dt>
+                                <dd>T4 - T4 RNA Ligase 1</dd>
+                                <dd>Mth - Mth RNA Ligase</dd>
+                            <dt>Ligation Incubation Time</dt>
+                                <dd>1, 2, 12, or 24 hours of incubation.</dd>
+                            <dt>Exonuclease Trimming Time</dt>
+                                <dd>0, 1, 2, 12, or 24 hours of incubation.</dd>
+                                <dd>Samples labeled exo-0h are considered "non-trimmed".</dd>
+                            <dt>File Suffixes (Types)</dt>
+                                <dd>pri_crssant - CRSSANT precursor file; prigap1_filtered + pritrans with "SA" tag column 21 removed.</dd>
+                                <dd>prigap1 - Non-continuous alignments, each with 1 gap.</dd>
+                                <dd>prigapm - Non-continuous alignments, each with more than 1 gap.</dd>
+                                <dd>"_filtered" - Reads filtered for short gaps (1-2nt) and splice junctions.</dd>
+                                <dd>prihomo - Non-continuous alignments, where 2 arms overlap each other.</dd>
+                                <dd>pritrans - Non-continuous alignments, with 2 arms on different strands or chromosomes.</dd>
+                                <dd>gaplen - Distribution of gap lengths among the alignments.</dd>
+                                <dd>seglen - Distribution of arm lengths among the alignments.</dd>
+                        </dl>
+                    </div>
                     <div class="table-container">
                         <table id="dataSet">
                         <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterTable()">
                             <thead>
                                 <tr>
                                     <th>Dataset</th>
-                                    <th>Species</th>
-                                    <th>Cell Type / Tissue Origin</th>
-                                    <th>Crosslinker</th>
-                                    <th>Proximity Ligase</th>
-                                    <th>Ligation Incubation Time</th>
-                                    <th>Exonuclease Trimming Time</th>
+                                    <th>pri_crssant</th>
+                                    <th>prigap1</th>
+                                    <th>prigap1_filtered</th>
+                                    <th>prigapm</th>
+                                    <th>prigapm_filtered</th>
+                                    <th>prihomo</th>
+                                    <th>pritrans</th>
+                                    <th>gaplen</th>
+                                    <th>seglen</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr>pri_crssant</tr>
-                                    <tr>prigap1</tr>
-                                    <tr>prigap1_filtered</tr>
-                                    <tr>prigapm</tr>
-                                    <tr>prigapm_filtered</tr>
-                                    <tr>prohomo</tr>
-                                    <tr>pritrans</tr>
-                                    <tr>gaplen</tr>
-                                    <tr>seglen</tr>
+
                             </tbody>
                         </table>
                     </div>
