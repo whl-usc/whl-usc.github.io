@@ -14,82 +14,13 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <!-- JavaScript functions -->
-    <script src="functions.js"></script>
+    <script src="include.js"></script>
     <script src="igv.min.js"></script>
 </head>
 
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="title">
-            <u>C</u>rosslinking-based <u>R</u>NA <u>I</u>nteractomes and <u>S</u>tructuromes
-        </div>
-    </header>
-
-    <!-- Side menu -->
-    <div id="SiteNav" class="sidenav">
-        <!-- Return to home link -->
-        <div class="nav-section link-hover">
-            <a class="nav-section-header" href="https://whl-usc.github.io/cris/home.html"> Home</a>
-        </div>
-        <!-- Sub-section; studies -->
-        <div class="nav-section link-hover">
-            <div class="nav-section-header">Studies</div>
-            <a href="https://whl-usc.github.io/cris/crssant"> CRSSANT</a>
-            <a href="https://whl-usc.github.io/cris/hiclip"> HiClip</a>
-            <a href="https://whl-usc.github.io/cris/paris2"> PARIS</a>
-            <a href="https://whl-usc.github.io/cris/sharc"> SHARC</a>
-            <!-- Add more datasets as needed -->
-        </div>
-        <!-- Sub-section; resources -->
-        <div class="nav-section link-hover">
-            <div class="nav-section-header">Linked Resources</div>
-            <a href="https://bedtools.readthedocs.io/en/latest/index.html">BEDtools</a>
-            <a href="#">Custom Tools</a>
-            <a href="https://whl-usc.github.io/cris/igv" class="tools-link">Integrative Genomics Viewer</a>
-            <a href="https://www.htslib.org/" class="tools-link">SAMtools</a>
-            <a href="https://github.com/alexdobin/STAR" class="tools-link">STAR</a>
-            <!-- Add more tools as needed -->
-            </div>
-        <!-- Section; other links -->
-        <div class="nav-section link-hover">
-            <div class="nav-section-header">Downloads</div>
-            <a href="https://whl-usc.github.io/cris/downloads.html">Data</a>
-            <a href="https://whl-usc.github.io/cris/publications.html">Papers</a>
-        <!-- Add more links as needed -->
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-background"></div>
-        <div class="footer-block">
-            <div class="footer-item">
-                <p><i>Decoding and Targeting RNA Machines in Living Cells</i></p>
-                <p>&copy;&nbsp;2024 Lu Lab</p>
-            </div>
-            <div class="footer-item link-hover">
-                <h3><u>Github</u></h3>
-                <a href="https://github.com/zhipenglu/CRSSANT/" target="_blank">CRSSANT</a>
-                <a href="https://github.com/minjiezhang-usc/PARIS2" target="_blank">PARIS</a>
-                <a href="https://github.com/whl-usc/" target="_blank">rna2d3d</a>
-            </div>
-            <div class="footer-item link-hover">
-                <h3><u>Contact Us</u></h3>
-                <a href="https://zhipenglulab.org/" target="_blank">Lab Website</a>    
-                <a href="mailto:zhipengl@usc.edu" method="post">zhipengl@usc.edu</a>
-            </div>
-            <div class="footer-item link-hover">
-                <h3><u>Mailing Address</u></h3>
-                <a href="https://maps.app.goo.gl/FqTFehk5fkJEUTnv5" class="address" target="_blank">
-                USC Alfred E. Mann School of Pharmacy and Pharmaceutical Sciences<br />
-                University of Southern California<br />
-                1985 Zonal Avenue, Los Angeles, CA 90033<br />
-                </a>
-            </div>
-        </div>
-    </footer>
-
+    <div data-include-html="navigation.html"></div>
     <!-- Main Contents-->
     <main>
         <div class="section-color">
