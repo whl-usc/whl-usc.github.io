@@ -120,7 +120,9 @@
         <hr />
         <div class="section-color">
             <h1>Select Publications</h1>
-            <p>Below are the highlighted publications, relevant to the CRIS database.</p>
+            <p>
+                In the section below are highlighted publications, relevant to the CRIS database.
+            </p>
             <div class="publications">
                 <h2><b>PARIS</b></h2>
                 <ul>
@@ -202,7 +204,7 @@
                         <li>Lorem Ipsum</li>
                     </ul>
                 </div>
-    </div>
+        </div>
 
         <!-- Datasets/Studies -->
         <div class="section-color">
@@ -215,45 +217,146 @@
         <div class="section-color">
             <h1>Bioinformatic Tools</h1>
             <hr />
-            <h2>Trimmomatic</h2>
-            <p>Trimmomatic is first used to remove the 3'-end adapters.</p>
-            <div class="container">
-                <div class="code-block code-section">
-                    java -jar trimmomatic-0.36.jar SE -threads 16 -phred33 $fastq $Outprefix'_trim3.fastq' ILLUMINACLIP:$fasta:3:20:10 SLIDINGWINDOW:4:20 MINLEN:18
+
+            <h2>Data Pre-processing</h2>
+                <p>
+                    Sequencing reads are provided as compressed (zipped) fastq files. They must first be processed to remove sequencing adapters and unique barcodes, then demultiplexed using common tools. File prefixes and paths will vary according to the experimental conditions and file origin, and should be substituted for instances of <b>"$<i>Outprefix</i>"</b> or <b>"$<i>path</i>"</b> in subsequent steps.
+                </p> 
+            <h3>Trimmomatic</h3>
+                <p>
+                    When performing sequencing using an Illumina instrument, sequences that correspond to the library adapter can [and more often than not, are] present in the fastq files at the 5'- and 3'- ends of the reads if the read length is greater than the insert size. Since library inserts are shorter than the total read length of the sequencer, adapters must be trimmed away prior to alignment. Trimmomatic is used to remove the 3'-end adapters <a href="https://academic.oup.com/bioinformatics/article/30/15/2114/2390096" target="_blank"><i>(Bolger et al. 2014)</i></a>.
+                </p>
+                 <div class="container">
+                    <code class="example">java -jar trimmomatic-0.36.jar SE -threads 16 -phred33 $fastq $Outprefix'_trim3.fastq' ILLUMINACLIP:$fasta:3:20:10 SLIDINGWINDOW:4:20 MINLEN:18</code>
                 </div>
-            </div>
+                <p> 
+                    <i>Note that the described parameters are specific to this pipeline. For instance, the reads from PARIS and SHARC-based experiments are single-ended, therefore only one set of input and output files is specified.</i> The processing steps (trimming, cropping, adapter clipping, etc.) are specified as additional arguments after the input/output files. Multiple steps can be specified as required, by using additional arguments at the end as described in the section processing steps (separated by a single space). For input and output files, adding .gz/.bz2 as an extension tells Trimmomatic that the file is provided in gzip/bzip2 format or that Trimmomatic should gzip/bzip2 the file, respectively. Note that most processing steps take one or more settings, delimited by ':' (colon). 
+                </p>
+                <div class="container">
+                    <code>java -jar &lt;trimmomatic.jar&gt; SE [-threads&lt;threads&gt;] [-phred33 | -phred64] &lt;input.fastq.gz&gt; &lt;output.fastq.gz&gt; ILLUMINACLIP:&lt;adapters.fa&gt;:&lt;seed mismatches&gt;:&lt;palindrome clip threshold&gt;:&lt;simple clip threshold&gt; SLIDINGWINDOW:&lt;windowSize&gt;:&lt;requiredQuality&gt; MINLEN:&lt;length&gt;</code>
+                </div>
+                <div class="dl-container">
+                    <dl>
+                        <dt>SE</dt>
+                        <dd>Single ended mode.</dd>
+
+                        <dt>-threads</dt>
+                        <dd>Indicates the number of computing threads to use, which improves performance on multi-core computers. If not specified, it will be chosen automatically.</dd>
+
+                        <dt>-phred33 or -phred64</dt>
+                        <dd>Specifies the base quality encoding.</dd>
+
+                        <dt>Input/output</dt>
+                        <dd>For input and output files, specifying .gz tells Trimmomatic that the file provided is in compressed format or that Trimmomatic should gzip the file, respectively.</dd>
+
+                        <dt>ILLUMINACLIP</dt>
+                        <dd>Finds and removes specifically Illumina adapters.</dd>
+
+                        <dt>fastaWithAdaptersEtc</dt>
+                        <dd>Specifies the path to a fasta file containing all the adapters, PCR sequences, etc. The naming of the various sequences within this file determines how they are used.</dd>
+
+                        <dt>seedMismatches</dt>
+                        <dd>Specifies the maximum mismatch count which will still allow a full match to be performed. To speed up the search, short sections of each adapter (up to 16bp) are tested at all possible positions to find "seeds" that trigger a full alignment.</dd>
+
+                        <dt>palindromeClipThreshold</dt>
+                        <dd>Specifies how accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment.</dd>
+
+                        <dt>simpleClipThreshold</dt>
+                        <dd>Specifies how accurate the match between any adapter etc. sequence must be against a read. Suggested values are 7-15 depending on the length of the Score; increase 0.6 per match, decrease by Q/10 per mismatch where Q is the quality score.</dd>
+
+                        <dt>Sliding window</dt>
+                        <dd>Performs sliding window trimming once the average quality within the window falls below specified threshold. By considering multiple bases, a single poor quality base will not cause the removal of high quality data later in the read.</dd>
+
+                        <dt>Sliding window size</dt>
+                        <dd>Length of window in number of base pairs.</dd>
+
+                        <dt>Sliding window minimum quality</dt>
+                        <dd>The average quality required during trimming.</dd>
+
+                        <dt>Minimum read length</dt>
+                        <dd>Removes reads that fall below the specified minimum length. Reads removed by this step are included in the 'dropped reads' count. Length written in base pairs.</dd>
+                    </dl>
+                </div>
+                <p>
+                    Note that this final pre-processing step takes place after the readCollapse and splitFastq (see below). Trimmomatic is used to remove the 5'-end adapter sequences. HEADCROP:17 option is used to trim off the designed random and multiplexing barcodes.
+                </p>
+                <div class="container">
+                    <code class="example">java -jar trimmomatic-0.36.jar SE -threads 16 -phred33 $Outprefix'_trim3_nodup_'$barcode'.fastq' $Outprefix'_trim_no-dup_'$barcode'.fastq' HEADCROP:17 MINLEN:20</code>
+                </div>
+                <div class="container">
+                    <code>java -jar &lt;trimmomatic.jar&gt; SE -threads 16 -phred33 &lt;input.fastq&gt; &lt;output.fastq&gt; HEADCROP:17 MINLEN:20</code>
+                </div>
+
+            <h3>icSHAPE Tools</h3>
+                <p>
+                    Carryover of code from the iCSHAPE pipeline. More details to be added.
+                </p>
+                <div class="container">
+                    <code class="example">perl readCollapse $Outprefix'_trim3.fastq' $Outprefix'_trim3_nodup.fastq'</code>
+                </div> 
+                <div class="container">
+                    <code>perl &lt;readCollapse.pl&gt; &lt;input.fastq&gt; &lt;output.fastq&gt;</code>
+                </div>
+                <div class="container">
+                    <code class="example">perl splitFastq.pl -U $Outprefix'_trim3_nodup.fastq' -b 6:6 -l CGTGAT:R701::ACATCG:R702::GCCTAA:R703 -s -d ./</code>
+                </div>
+                <div class="container">
+                    <code>perl splitFastq.pl -U &lt;input.fastq&gt; -b 6:6 -l L -s -d &lt;Output Path&gt;</code>
+                </div>
+                <div class="dl-container">
+                    <dl>
+                        <dt>-b</dt>
+                        <dd>Specifies the position and length of hexamer for reads to be used for demultiplexing.</dd> 
+                        <dt>-l&nbsp;&nbsp;“L”</dt>
+                        <dd>Specifies the list of specific length (-b) of barcodes "L" to be used for separation and subsequent names for the output file(s). Multiple barcodes can be provided separated with two colons "::". For example, providing "CGTGAT:R701" will take reads with barcode "CGTGAT" and separate them into file "R701.fastq".</dd>
+                        <dd>Use format BARCODE1:LIB_NAME1::BARCODE2:LIB_NAME2::...</dd>
+                        <dt>-s</dt>
+                        <dd>Generates a simple statistics output file if separated by library barcode.</dd>
+                        <dt>-d</dt>
+                        <dd>Specifies the directory at which to output file(s).</dd>
+
+                    </dl>
+                </div>
+            <h2>Quality Control (FastQC)</h2>
+            <h3>FastQC</h3>
+                <p>
+                    After pre-processing, data must be checked for quality.
+                </p>
             <hr />
-            <h2>STAR</h2>
-            <p>The mapping of pre-processed data is standardized from PARIS- and SHARC-based sequencing. STAR and various scripts from the CRSSANT pipeline are used.</p>
-            <div class="container">
-                <div class="code-block code-section">
-                    /STAR-2.7.1a/bin/Linux_x86_64/STAR<br />
-                    --runThreadN 8<br />
-                    --runMode alignReads<br />
-                    --genomeDir $StaridxPath<br />
-                    --readFilesIn $Fastq<br />
-                    --outFileNamePrefix $Outprefix'_1_'<br />
-                    --genomeLoad NoSharedMemory<br />
-                    --outReadsUnmapped Fastx<br />
-                    --outFilterMultimapNmax 10<br />
-                    --outFilterScoreMinOverLread 0<br />
-                    --outSAMattributes All<br />
-                    --outSAMtype BAM Unsorted SortedByCoordinate<br />
-                    --alignIntronMin 1<br />
-                    --scoreGap 0<br />
-                    --scoreGapNoncan 0<br />
-                    --scoreGapGCAG 0<br />
-                    --scoreGapATAC 0<br />
-                    --scoreGenomicLengthLog2scale -1<br />
-                    --chimOutType WithinBAM HardClip<br />
-                    --chimSegmentMin 5<br />
-                    --chimJunctionOverhangMin 5<br />
-                    --chimScoreJunctionNonGTAG 0<br />
-                    --chimScoreDropMax 80<br />
-                    --chimNonchimScoreDropMin 20<br />
+            <h2>Alignment to reference genome</h2>
+            <h3>STAR</h3>
+                <p>
+                    The mapping of pre-processed data is standardized from PARIS- and SHARC-based sequencing. STAR and various scripts from the CRSSANT pipeline are used. More specific details can be found in the supplemental material provided as part of the <a href="https://genome.cshlp.org/content/suppl/2022/05/02/gr.275979.121.DC1/Supplemental_Material.pdf" target="_blank"><i>CRSSANT</i></a> pipeline paper.
+                </p>
+                <div class="container">
+                    <code class="code-block example">
+                        /STAR-2.7.1a/bin/Linux_x86_64/STAR<br />
+                        --runThreadN 8<br />
+                        --runMode alignReads<br />
+                        --genomeDir $StaridxPath<br />
+                        --readFilesIn $Fastq<br />
+                        --outFileNamePrefix $Outprefix'_1_'<br />
+                        --genomeLoad NoSharedMemory<br />
+                        --outReadsUnmapped Fastx<br />
+                        --outFilterMultimapNmax 10<br />
+                        --outFilterScoreMinOverLread 0<br />
+                        --outSAMattributes All<br />
+                        --outSAMtype BAM Unsorted SortedByCoordinate<br />
+                        --alignIntronMin 1<br />
+                        --scoreGap 0<br />
+                        --scoreGapNoncan 0<br />
+                        --scoreGapGCAG 0<br />
+                        --scoreGapATAC 0<br />
+                        --scoreGenomicLengthLog2scale -1<br />
+                        --chimOutType WithinBAM HardClip<br />
+                        --chimSegmentMin 5<br />
+                        --chimJunctionOverhangMin 5<br />
+                        --chimScoreJunctionNonGTAG 0<br />
+                        --chimScoreDropMax 80<br />
+                        --chimNonchimScoreDropMin 20<br />
+                    </code>
                 </div>
             </div>
-        </div>
 
         <!-- RNA-RNA interaction Table -->
         <hr />
@@ -265,45 +368,47 @@
         </div> 
            
         <!-- Data Download Table -->
-        <hr></hr><hr></hr><hr></hr>
+        <hr />
         <div class="section-color">
             <h1>Available Data</h1>
-                <h2>Processed Data</h2>
-                    <p>Our data is available in BAM format...</p>
-                    <p>Table of links to all types of data - raw vs. intermediary</p>
+            <h2>Processed Data</h2>
+                <p>
+                    Our data is available in BAM format...
+                </p>
+                <p>
+                    Table of links to all types of data - raw vs. intermediary
+                </p>
 
             <h2>Raw Data</h2>
-                <p><b>Option 1.</b>&nbsp;Bulk download data from a whole project via NCBI GEO.</p>
-                <p><br />sra_grab.sh enables simple download and extraction of data from a GEO accession number.</p>
-                <div class="container">
-                    <div class="code-section">
-                        sra_grab.sh
-                    </div>
-                </div>
-                <p>
-                    <b>Option 2.</b>&nbsp;Individual sample (direct) download through NCBI GEO.
-                </p>
-                <div class="instructions">
-                    <ul>
-                        <li>
-                            At the bottom of GEO Accession Display, select <i>SRA Run Selector</i>.
-                        </li>
-                        <li>
-                            In the run table, select the SRR<i>XXXXX</i> file in the <i>Run</i> column that corresponds to the correct data.
-                        </li>
-                        <li>
-                            Under the <i>FASTA/FASTQ</i> download tab, click to download directly.
-                        </li>
-                        <li>
-                            To download to a server, copy the link that opens in your browser upon clicking the <i>FASTQ</i> link; use wget or curl.
-                        </li>
-                        <li>
-                            <i>WARNING: Always check to see if a study uses paired-end or single-end sequences. If downloading through Option 2, be sure to download both files of the pair.</i>
-                        </li>
-                    </ul>
-                </div>
+            <p>
+                <b>Option 1.</b>&nbsp;Bulk download data from a whole project via NCBI GEO.
+            </p>
+            <p>
+                sra_grab.sh enables simple download and extraction of data from a GEO accession number.
+            </p>
+            <p>
+                <b>Option 2.</b>&nbsp;Individual sample (direct) download through NCBI GEO.
+            </p>
+            <div class="instructions">
+                <ul>
+                    <li>
+                        At the bottom of GEO Accession Display, select <i>SRA Run Selector</i>.
+                    </li>
+                    <li>
+                        In the run table, select the SRR<i>XXXXX</i> file in the <i>Run</i> column that corresponds to the correct data.
+                    </li>
+                    <li>
+                        Under the <i>FASTA/FASTQ</i> download tab, click to download directly.
+                    </li>
+                    <li>
+                        To download to a server, copy the link that opens in your browser upon clicking the <i>FASTQ</i> link; use wget or curl.
+                    </li>
+                </ul>
+                <p><i>WARNING: Always check to see if a study uses paired-end or single-end sequences. If downloading through Option 2, be sure to download both files of the pair.</i></p>
+            </div>
         </div>
     </main>
+
 </body>
 
 </html>

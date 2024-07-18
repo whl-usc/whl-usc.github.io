@@ -1,7 +1,7 @@
 /* Positioning and styling main body elements */
 body {
   background: rgba(240, 240, 240, 0.25);
-  padding-left: 250px;
+  padding-left: 175px;
 }
 
 main {
@@ -16,19 +16,21 @@ h1, h2, h3 {
   color: rgba(0, 0, 0, 1);
   font-family: Tahoma, sans-serif;
   font-weight: bold;
-  margin: 10px 5px;
 }
 
 h1 {
   font-size: 20px;
+  margin: 10px 5px;
 }
 
 h2 {
   font-size: 16px;
+  margin: 10px 15px;
 }
 
 h3 {
   font-size: 14px;
+  margin: 10px 15px;
 }
 
 p, ul {
@@ -36,9 +38,11 @@ p, ul {
   font-family: Tahoma, sans-serif;
   font-size: 14px;
   font-weight: normal;
-  margin: 10px 20px;
+  margin: 10px 25px;
   width: fit-content;
 }
+
+/* Section separators and styling */
 
 hr {
   border: 1px dotted rgba(200, 200, 200, 0.85);
@@ -47,9 +51,10 @@ hr {
 }
 
 .section-color {
-  background: rgba(174, 214, 241, 0.05);
+  background: rgba(245, 245, 250, 0.05);
+  border: 0.5px solid rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.125);
   padding: 10px;
   position: relative;
   max-width: 95%;
@@ -134,25 +139,65 @@ hr {
 }
 
 /* Code examples */
-.code-section {
+code {
   color: black;
-  background: rgba(217, 217, 214, 0.20);
+  background: rgba(252, 252, 252, 1.0);
   border: 0.5px solid rgba(0, 0, 0, 0.50);
   border-radius: 5px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.125);
   font-family: Courier New;
   font-size: 14px;
   font-weight: normal;
   margin: 10px 20px;
+  max-width: 80%;
+  overflow-x: auto;
   padding: 10px;
   text-align: center;
   text-decoration: none;  
+  white-space: nowrap;
   width: fit-content;
+  z-index: 10;
+}
+
+code.example {
+  background: rgba(200, 250, 200, 0.25);
 }
 
 .code-block {
   text-align: left;
   width: fit-content;
+}
+
+/* Definition lists for vocabulary */
+dl {
+  background-color: rgba(255, 255, 220, 0.15);
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+  color: rgba(0, 0, 0, 1);
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  max-width: 75%;
+  padding: 20px;
+  width: fit-content;
+}
+
+dt {
+  color: rgba(10, 10, 10, 1);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+dt::after {
+  content: ":";
+}
+
+dd {
+  margin: 5px 50px 5px 15px;
+}
+
+.dl-container {
+  display: flex;
+  justify-content: center;
 }
 
 /* Header section */
@@ -184,7 +229,6 @@ header {
 footer {
   background: linear-gradient(to bottom, rgba(0, 0 ,0, 1), rgba(0, 0, 0, 0.55));
   bottom: 0;
-  box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.25);
   color: rgba(255, 255, 255, 1);
   font-family: Tahoma, sans-serif;
   height: 75px;
@@ -234,7 +278,7 @@ footer {
 
 /* Styling the side navigation */
 .sidenav {
-  background: rgba(174, 214, 241, 0.20);
+  background: rgba(227, 218, 201, 0.10);
   border: 0.5px solid rgba(0, 0, 0, 1);
   border-radius: 10px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
@@ -245,7 +289,7 @@ footer {
   position: fixed;
   text-align: left;
   top: 70px;
-  width: 165px;
+  width: 135px;
 }
 
 .nav-section a {
