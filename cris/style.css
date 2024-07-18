@@ -71,6 +71,36 @@ hr {
   text-decoration: underline;
 }
 
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: fit-content;
+}
+th, td {
+  border: 1px solid #ddd;
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  text-align: left;
+}
+th {
+  background-color: #f4f4f4;
+}
+th:hover {
+  background-color: rgba(20, 20, 20, 0.50);
+}
+.table-container {
+    width: 80%;
+    margin: 0 auto;
+}
+input[type="text"] {
+    width: 25%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(20, 20, 20, 1.0);
+    border-radius: 4px;
+}
+
 /* Special formatting for publications - long lines */
 .instructions li {
   list-style-position: outside;

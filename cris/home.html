@@ -27,7 +27,7 @@
             <h2>The central resource hub dedicated to RNA-crosslinking methodologies and research.</h2>
             <hr />
             <p>
-                Introducing the Crosslinking-based RNA Interactomes and Structurome (CRIS) database, a comprehensive resource advancing RNA research. CRIS consolidates data from multiple pipelines, offering a user-friendly platform for researchers with varying computational expertise. It integrates data from established pipelines like Cross-linked RNA Secondary Structure Analysis using Network Techniques (CRSSANT), ensuring consistent preprocessing for accurate analysis. CRIS facilitates analyses across datasets, uncovering patterns in RNA structures, gene expression, RNA-RNA interactions, and providing insights into RNA dynamics and conformations.
+                Introducing the Crosslinking-based RNA Interactomes and Structurome (CRIS) database, a comprehensive resource advancing RNA research. CRIS consolidates data from multiple pipelines, offering a user-friendly platform for researchers with varying computational expertise. It integrates data from established pipelines like Cross-linked RNA Secondary Structure Analysis using Network Techniques (CRSSANT), ensuring consistent pre-processing for accurate analysis. CRIS facilitates analyses across datasets, uncovering patterns in RNA structures, gene expression, RNA-RNA interactions, and providing insights into RNA dynamics and conformations.
             </p>
             <p>
                 Key features include detailed guidelines for data processing workflows, access to raw and processed data, statistical information, visualization tools, and quick access to relevant GitHub-linked scripts.
@@ -102,7 +102,7 @@
                     RNA, or <i>Ribonucleic Acid</i>, stands as a pivotal biomolecule crucial to life, with growing recognition of its potential as a therapeutic target. Originally viewed as a mere messenger molecule for shuttling genetic information from DNA to proteins, recent research has illuminated RNA's multifaceted roles. Beyond gene regulation and protein synthesis, RNA orchestrates critical functions in cell signaling and facilitates intricate intra- and intercellular interactions. This expanded role is underscored by the emergence of RNA-based drugs approved for clinical use and numerous candidates in clinical trials, transforming RNA from an "undruggable" target to a promising frontier in disease treatment.
                 </p>
                 <p>
-                    The "Molecules to Medicine" approach emphasizes translating fundamental biological insights into clinical applications. In RNA research, this mindset underscores the journey from understanding RNA structures and functions at a molecular level to harnessing this knowledge for therapeutical use. This holistic approach integrates interdisciplinary expertise, combining molecular biology, bioinformatics, and pharmaceutical sciences to innovate diagnostics, therapies, and personalized medicine strategies. In recent decades, RNA research has witnessed explosive growth fueled by technological advancements and interdisciplinary collaborations. This expansion encompasses the study of RNA structures, functions, interactions, and regulatory mechanisms across diverse biological contexts. The field's evolution has been propelled by innovative physical and chemical methodologies that enable precise characterization of RNA molecules, revealing intricate details crucial for understanding their roles in health and disease.
+                    The "Molecules to Medicine" approach emphasizes translating fundamental biological insights into clinical applications. In RNA research, this mindset underscores the journey from understanding RNA structures and functions at a molecular level to harnessing this knowledge for therapeutic use. This holistic approach integrates interdisciplinary expertise, combining molecular biology, bioinformatics, and pharmaceutical sciences to innovate diagnostics, therapies, and personalized medicine strategies. In recent decades, RNA research has witnessed explosive growth fueled by technological advancements and interdisciplinary collaborations. This expansion encompasses the study of RNA structures, functions, interactions, and regulatory mechanisms across diverse biological contexts. The field's evolution has been propelled by innovative physical and chemical methodologies that enable precise characterization of RNA molecules, revealing intricate details crucial for understanding their roles in health and disease.
                 </p>
             <h2>RNA Structures</h2>
                 <p>
@@ -305,9 +305,33 @@
                     <p>
                         All published data generated via the PARIS or SHARC methods is available in BAM format in live links. File prefixes are named with details of the experimental conditions.
                     </p>
-                    <p>
-                        A sortable table will go here, providing access to all the intermediate files generated from PARIS/SHARC.
-                    </p>
+                    <div class="table-container">
+                        <table id="dataSet">
+                        <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterTable()">
+                            <thead>
+                                <tr>
+                                    <th>Dataset</th>
+                                    <th>Species</th>
+                                    <th>Cell Type / Tissue Origin</th>
+                                    <th>Crosslinker</th>
+                                    <th>Proximity Ligase</th>
+                                    <th>Ligation Incubation Time</th>
+                                    <th>Exonuclease Trimming Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr>pri_crssant</tr>
+                                    <tr>prigap1</tr>
+                                    <tr>prigap1_filtered</tr>
+                                    <tr>prigapm</tr>
+                                    <tr>prigapm_filtered</tr>
+                                    <tr>prohomo</tr>
+                                    <tr>pritrans</tr>
+                                    <tr>gaplen</tr>
+                                    <tr>seglen</tr>
+                            </tbody>
+                        </table>
+                    </div>
                 <hr />
                 <h2>Raw Data</h2>
                 <p><b>Option 1.</b>&nbsp;Bulk download data from a whole project via NCBI GEO accesion list.</p>
