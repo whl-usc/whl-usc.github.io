@@ -317,6 +317,28 @@
                     <p>
                         All published data generated via the PARIS or SHARC methods is available in BAM format. The file prefixes are named with details of the experimental conditions as described below.
                     </p>
+                    <div class="table-container">
+                        <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterTable()">
+                        <table id="dataSet">
+                            <thead>
+                                <tr>
+                                    <th>Dataset</th>
+                                    <th>pri_crssant</th>
+                                    <th>prigap1</th>
+                                    <th>prigap1_filtered</th>
+                                    <th>prigapm</th>
+                                    <th>prigapm_filtered</th>
+                                    <th>prihomo</th>
+                                    <th>pritrans</th>
+                                    <th>gaplen</th>
+                                    <th>seglen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
                     <div class="dl-container">
                         <dl>
                             <dt>Species</dt>
@@ -352,59 +374,23 @@
                                 <dd>seglen - Distribution of arm lengths among the alignments.</dd>
                         </dl>
                     </div>
-                    <div class="table-container">
-                        <table id="dataSet">
-                        <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterTable()">
-                            <thead>
-                                <tr>
-                                    <th>Dataset</th>
-                                    <th>pri_crssant</th>
-                                    <th>prigap1</th>
-                                    <th>prigap1_filtered</th>
-                                    <th>prigapm</th>
-                                    <th>prigapm_filtered</th>
-                                    <th>prihomo</th>
-                                    <th>pritrans</th>
-                                    <th>gaplen</th>
-                                    <th>seglen</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                        </table>
-                    </div>
                 <hr />
                 <h2>Raw Data</h2>
-                <p><b>Option 1.</b>&nbsp;Bulk download data from a whole project via NCBI GEO accesion list.</p>
-                <ul>
-                    <p>Use script <a href="https://github.com/whl-usc/cris_tools/blob/main/sra_grab.sh" target="_blank">sra_grab.sh</a> for rapid download and extraction of data via a GEO accession page.</p>
-                    <li>
-                        At the corresponding GEO Accession Display, select <i>SRA Run Selector</i>.
-                    </li>
-                    <li>
-                        Download the "Accession List", which should contain SRR<i>XXXXX</i> lines that correspond to the correct data.
-                    </li>
-                    <li>
-                        Modify the shell script sra_grab.sh <i>(lines 20, 21)</i> for input file path (SRR_LIST_FILE="SRR_Acc_List.txt") and output directory path (OUTPUT_DIR="./geo_rnaseq_data") if appropriate.
-                    </li>
-                </ul>
-                <p><br /><b>Option 2.</b>&nbsp;Individual sample (direct) download through NCBI GEO linked files.</p>
-                <ul>
-                    <li>
-                        At the bottom of GEO Accession Display, select <i>SRA Run Selector</i>.
-                    </li>
-                    <li>
-                        In the run table, select the SRR<i>XXXXX</i> file in the <i>Run</i> column that corresponds to the correct data.
-                    </li>
-                    <li>
-                        Under the <i>FASTA/FASTQ</i> download tab, click to download directly.
-                    </li>
-                    <li>
-                        To download to a server, copy the link that opens in your browser upon clicking the <i>FASTQ</i> link; use wget or curl.
-                    </li>
-                </ul>
-                <p><i>WARNING: Always check to see if a study uses paired-end or single-end sequences. If downloading through Option 2, be sure to download both files of the pair.</i></p>
+                    <p><b>Option 1.</b>&nbsp;Bulk download data from a whole project via NCBI GEO accesion list.</p>
+                    <ul>
+                        <p>Use script <a href="https://github.com/whl-usc/cris_tools/blob/main/sra_grab.sh" target="_blank">sra_grab.sh</a> for rapid download and extraction of data via a GEO accession page.</p>
+                        <li>At the corresponding GEO Accession Display, select <i>SRA Run Selector</i>.</li>
+                        <li>Download the "Accession List", which should contain SRR<i>XXXXX</i> lines that correspond to the correct data.</li>
+                        <li>Modify the shell script sra_grab.sh <i>(lines 20, 21)</i> for input file path (SRR_LIST_FILE="SRR_Acc_List.txt") and output directory path (OUTPUT_DIR="./geo_rnaseq_data") if appropriate.</li>
+                    </ul>
+                    <p><br /><b>Option 2.</b>&nbsp;Individual sample (direct) download through NCBI GEO linked files.</p>
+                    <ul>
+                        <li>At the bottom of GEO Accession Display, select <i>SRA Run Selector</i>.</li>
+                        <li>In the run table, select the SRR<i>XXXXX</i> file in the <i>Run</i> column that corresponds to the correct data.</li>
+                        <li>Under the <i>FASTA/FASTQ</i> download tab, click to download directly.</li>
+                        <li>To download to a server, copy the link that opens in your browser upon clicking the <i>FASTQ</i> link; use wget or curl.</li>
+                    </ul>
+                    <p><i>WARNING: Always check to see if a study uses paired-end or single-end sequences. If downloading through Option 2, be sure to download both files of the pair.</i></p>
             </div>
         </div>
 
