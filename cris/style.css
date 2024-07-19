@@ -85,8 +85,19 @@ hr {
   text-align: center;
   justify-content: center;
 }
+
+/* Linked images and sources */
 .link-hover a:hover, .link-hover p:hover {
   text-decoration: underline;
+}
+.linked-image {
+  display: block;
+  margin: 20px auto;
+  width: 1440px;
+  height: auto;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
 /* Tables */
