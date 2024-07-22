@@ -82,8 +82,9 @@ hr {
 }
 .container {
   display: flex;
+  justify-content: left;
+  margin-left: 25px;
   text-align: center;
-  justify-content: center;
 }
 
 /* Linked images and sources */
@@ -101,40 +102,63 @@ hr {
 }
 
 /* Tables */
+.table-container {
+  margin: 0 auto;
+  width: 80%;
+}
 table {
   border-collapse: collapse;
-  width: fit-content;
+  width: 100%;
 }
-th {
+th, td {
   border: 1px solid #ddd;
   font-family: Tahoma, sans-serif;
   font-size: 14px;
-  padding: 5px;
+  padding: 5px 5px;
   text-align: left;
-}
-td {
-  font-family: Tahoma, sans-serif;
-  font-size: 14px;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
+  width: 150px;
 }
 th {
-  background-color: #f4f4f4;
+  background-color: rgba(0, 100, 200, 0.50);
 }
-th:hover {
-  background-color: rgba(20, 20, 20, 0.50);
+th.filter {
+  position: relative;
+  padding: 0px auto;
+  width: 400px;
 }
-.table-container {
-    width: 80%;
-    margin: 0 auto;
+th.filter:hover {
+  background-color: rgba(0, 100, 200, 0.75);
 }
-input[type="text"] {
-    width: 25%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(20, 20, 20, 1.0);
-    border-radius: 4px;
+
+/* Dropdown Header */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 0;
+  margin: 0 auto;
+  overflow-y: auto;
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px auto;
+  text-decoration: none;
+  color: black;
+}
+.dropdown-menu a:hover {
+  background-color: rgba(20, 20, 100, 0.1);
+}
+
+/* Search Input */
+#searchInput {
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 25%;
 }
 
 /* Special formatting for publications - long lines */
@@ -174,7 +198,7 @@ input[type="text"] {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(3, 1fr);
-  margin: 10px 10px;
+  margin: 10px auto;
   padding: 10px;
   width: fit-content;
 }
@@ -201,7 +225,7 @@ input[type="text"] {
 /* Code examples */
 code {
   color: black;
-  background: rgba(255, 248, 220, 0.25);
+  background: rgba(255, 248, 220, 0.45);
   border: 0.5px solid rgba(0, 0, 0, 0.50);
   border-radius: 3px;
   font-family: Courier New;
@@ -211,7 +235,7 @@ code {
   max-width: 80%;
   overflow-x: auto;
   padding: 10px;
-  text-align: center;
+  text-align: left;
   text-decoration: none;  
   white-space: nowrap;
   width: fit-content;
@@ -227,9 +251,9 @@ code.example {
 
 /* Definition lists for vocabulary */
 dl {
-  background: rgba(255, 248, 220, 0.25);
+  background: rgba(255, 248, 220, 0.15);
   border-radius: 5px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.65);
   color: rgba(0, 0, 0, 1);
   font-family: Tahoma, sans-serif;
   font-size: 14px;
@@ -365,4 +389,25 @@ footer {
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
+}
+
+/* Javascript styling */
+#igv-container {
+  border: 0.5px solid rgba(0, 0, 0, 0.50);
+  border-radius: 3px;
+  margin: 10px 0;
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 10px;
+  width: 98.5%;
+}
+.igv-ideogram-canvas {
+  max-height: 100px;
+}
+label, button {
+  color: rgba(0, 0, 0, 1);
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 25px;
 }

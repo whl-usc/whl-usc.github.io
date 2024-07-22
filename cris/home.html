@@ -288,10 +288,19 @@
             <h3>Primary Read Extraction</h3>
                 <p>Samtools and awk examples.</p>
             <hr />
+
             <h2>CRSSANT</h2>
                 <p>How to run CRSSANT</p>
+
             <h2>DG Analysis</h2>
-                <p>Other tools and IGV browsing</p>
+                <p>Other tools and IGV browsing</p>            
+            <h2>IGV Browser</h2>
+            <form id="uploadForm">
+                <label for="fileInput">Upload a file:</label>
+                <input type="file" id="fileInput" accept=".bam,.vcf,.bed,.gff,.gtf,.wig,.bigwig">
+            </form>
+            <div id="igv-container"></div>
+            <script src="https://cdn.jsdelivr.net/npm/igv@2.15.13/dist/igv.min.js"></script>
         </div>
 
         <!-- RNA-RNA interaction Table -->
@@ -317,27 +326,36 @@
                     <p>
                         All published data generated via the PARIS or SHARC methods is available in BAM format. The file prefixes are named with details of the experimental conditions as described below.
                     </p>
-                    <div class="table-container">
-                        <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterTable()">
-                        <table id="dataSet">
-                            <thead>
-                                <tr>
-                                    <th>Dataset</th>
-                                    <th>pri_crssant</th>
-                                    <th>prigap1</th>
-                                    <th>prigap1_filtered</th>
-                                    <th>prigapm</th>
-                                    <th>prigapm_filtered</th>
-                                    <th>prihomo</th>
-                                    <th>pritrans</th>
-                                    <th>gaplen</th>
-                                    <th>seglen</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+                        <div class="table-container">
+                            <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterTable()">
+                            <table id="dataSet">
+                                <thead>
+                                    <tr>
+                                        <th class="filter" id="datasetHeader">Dataset&nbsp;&nbsp;&nbsp;<i class="bi bi-caret-down-square-fill"></i>
+                                            <ul class="dropdown-menu" id="dropdownMenu">
+                                                <!-- Dropdown menu items are populated by the functions.js script -->
+                                            </ul>
+                                        </th>
+                                        <!-- Other headers if needed -->
+                                    </tr>
+                                    <tr>
+                                        <th>File Name</th>
+                                        <th>pri_crssant</th>
+                                        <th>prigap1</th>
+                                        <th>prigap1_filtered</th>
+                                        <th>prigapm</th>
+                                        <th>prigapm_filtered</th>
+                                        <th>prihomo</th>
+                                        <th>pritrans</th>
+                                        <th>gaplen</th>
+                                        <th>seglen</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody">
+                                    <!-- Rows are to be populated by the functions.js script -->
+                                </tbody>
+                            </table>
+                        </div>
 
                     <div class="dl-container">
                         <dl>
