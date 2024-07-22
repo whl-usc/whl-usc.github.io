@@ -1,7 +1,7 @@
 /* Positioning and styling main body elements */
 body {
   background: rgba(255, 255, 255, 1);
-  padding-left: 175px;
+  padding-left: 150px;
 }
 main {
   margin-bottom: 120px;
@@ -339,7 +339,7 @@ footer {
   position: fixed;
   text-align: left;
   top: 70px;
-  width: 7.5%;
+  width: 120px;
 }
 .nav-section a {
   border-bottom: 0.5px dotted rgba(0, 0, 0, 0.15);
