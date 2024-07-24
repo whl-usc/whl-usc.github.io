@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 seglen: "https://example.com/path/to/seglen.bam",
             }
         },
-                {
+        {
             name: "HS-HeLa_Amo-1_T4-24h_exo-2h",
             links: {
                 pri_crssant: "https://Documents/CRIS/data/PARIS/PARIS1/HS-HEK293T_AMT-0.5_T4-24h_exo-0h/HS-HEK293T_AMT-0.5_T4-24h_exo-0h_pri_crssant.bam?csf=1&web=1&e=YzEpYc",
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 seglen: "https://example.com/path/to/seglen.bam",
             }
         },
-                {
+        {
             name: "HS-HeLa_Amo-1_T4-24h_exo-12h",
             links: {
                 pri_crssant: "test",
@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.addEventListener("click", function (event) {
+        // Close the dropdown if clicking outside of the dropdown and header
         if (!datasetHeader.contains(event.target) && !dropdownMenu.contains(event.target)) {
             dropdownMenu.style.display = "none";
         }

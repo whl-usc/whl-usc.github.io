@@ -49,14 +49,11 @@ ul {
 
 /* Section separators and styling */
 hr {
+  background: linear-gradient(to right, rgba(0, 0, 0, 1.0), rgba(255, 255, 255, 0.5));
   border: 0;
-  height: 2px;
-  background: linear-gradient(to right, rgba(100, 100, 100, 0.25), rgba(255, 255, 255, 1.0));
-  margin: 10px 5px;
-}
-.separator-container {
-  text-align: center;
-  margin: 5px auto;
+  height: 1.0px;
+  margin: 0px 5px 10px;
+  max-width: 75%;
 }
 .separator-dots {
   background: linear-gradient(to right, rgba(255, 255, 255, 0.50), rgba(0, 0, 0, 1.0), rgba(255, 255, 255, 0.50));
@@ -66,10 +63,16 @@ hr {
   font-size: 14px;
   letter-spacing: 12px;
 }
+.dot-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 5px auto;
+}
 .separator-line {
-  border-top: 2px dotted rgba(0, 0, 0, 0.50);
-  margin: 0px auto;
-  width: 35%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1.0), rgba(0, 0, 0, 1.0), rgba(255, 255, 255, 1.0));
+  height: 1.0px;
+  margin-left: 0px auto;
 }
 .section-color {
   background: rgba(248, 248, 255, 0.05);
@@ -231,7 +234,7 @@ code {
   font-family: Courier New;
   font-size: 14px;
   font-weight: normal;
-  margin: 10px 20px;
+  margin: 10px 45px;
   max-width: 80%;
   overflow-x: auto;
   padding: 10px;
@@ -253,7 +256,7 @@ code.example {
 dl {
   background: rgba(255, 248, 220, 0.15);
   border-radius: 5px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.65);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.45);
   color: rgba(0, 0, 0, 1);
   font-family: Tahoma, sans-serif;
   font-size: 14px;
@@ -271,12 +274,12 @@ dt::after {
   content: ":";
 }
 dd {
-  margin: 5px 50px 5px 15px;
+  margin: 0px 50px 5px 15px;
 }
 .dl-container {
   display: flex;
   justify-content: left;
-  margin-left: 75px;
+  margin-left: 25px;
 }
 
 /* Header section */
