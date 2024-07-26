@@ -1,18 +1,19 @@
 // Adds the header, sidenav, and footer sections to the document.
-function includeHTML() {
+async function includeHTML() {
     const elements = document.querySelectorAll("[data-include-html]");
-    elements.forEach(el => {
+    for (const el of elements) {
         const file = el.getAttribute("data-include-html");
         if (file) {
-            fetch(file)
-                .then(response => response.text())
-                .then(data => {
-                    el.innerHTML = data;
-                    el.removeAttribute("data-include-html");
-                })
-                .catch(error => console.error("Error loading file:", error));
+            try {
+                const response = await fetch(file);
+                const data = await response.text();
+                el.innerHTML = data;
+                el.removeAttribute("data-include-html");
+            } catch (error) {
+                console.error("Error loading file:", error);
+            }
         }
-    });
+    }
 }
 document.addEventListener("DOMContentLoaded", includeHTML);
 
