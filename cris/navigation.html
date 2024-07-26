@@ -2,8 +2,14 @@
 
 <html lang="en-US">
 
-<link rel="stylesheet" type="text/css" href="style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- JavaScript functions -->
+    <script src="functions.js"></script>
+</head>
 
 <body>
     <!-- Header -->
@@ -13,39 +19,62 @@
         </div>
     </header>
 
-    <!-- Side menu -->
-    <div id="SiteNav" class="sidenav">
-        <!-- Return to home link -->
-        <div class="nav-section-header link-hover"><a href="https://whl-usc.github.io/cris/home.html"><i class="bi bi-house-door"></i>&nbsp;Home&nbsp;</a></div>
-        <div class="nav-section link-hover">
-            <a href="https://whl-usc.github.io/cris/background.html/">Background</a>
-            <a href="https://whl-usc.github.io/cris/tools.html/">Custom Tools</a>	
-        </div>
-        <!-- Sub-section; studies -->
-        <div class="nav-section link-hover">
-            <div class="nav-section-header">Studies</div>
-            <a href="https://whl-usc.github.io/cris/studies/crssant.html"> CRSSANT</a>
-            <a href="https://whl-usc.github.io/cris/studies/hiclip.html"> HiClip</a>
-            <a href="https://whl-usc.github.io/cris/studies/paris2.html"> PARIS</a>
-            <a href="https://whl-usc.github.io/cris/studies/sharc.html"> SHARC</a>
-            <!-- Add more datasets as needed -->
-        </div>
-        <!-- Section; other links -->
-        <div class="nav-section link-hover">
-            <div class="nav-section-header">Datasets</div>
-            <a href="https://whl-usc.github.io/cris/data.html">Data</a>
-        </div>
-        <!-- Sub-section; resources -->
-        <div class="nav-section link-hover">
-            <div class="nav-section-header">Linked Resources</div>
-            <a href="https://bedtools.readthedocs.io/en/latest/index.html" target="_blank">BEDtools</a>
-            <a href="https://igv.org/" target="_blank">Integrative Genomics Viewer</a>
-            <a href="https://www.htslib.org/" target="_blank">SAMtools</a>
-            <a href="https://github.com/alexdobin/STAR" target="_blank">STAR</a>
-            <!-- Add more tools as needed -->
+    <!-- Site navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="hamburger-menu" id="hamburger-menu">
+                &#9776; <!-- Hamburger icon -->
             </div>
-        <!-- Add more links as needed -->
-    </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="https://whl-usc.github.io/cris/home.html" class="split"><i class="bi bi-house-door"></i>&nbsp;Home&nbsp;</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://whl-usc.github.io/cris/background.html/">Background</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://whl-usc.github.io/cris/tools.html/">Custom Tools</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://whl-usc.github.io/cris/data.html">Data</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Linked Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://bedtools.readthedocs.io/en/latest/index.html" target="_blank">BEDtools</a></li>
+                        <li><a href="https://igv.org/" target="_blank">Integrative Genomics Viewer</a></li>
+                        <li><a href="https://www.htslib.org/" target="_blank">SAMtools</a></li>
+                        <li><a href="https://github.com/alexdobin/STAR" target="_blank">STAR</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="https://whl-usc.github.io/cris/home.html" class="split"><i class="bi bi-house-door"></i>&nbsp;Home&nbsp;</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="https://whl-usc.github.io/cris/background.html/">Background</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="https://whl-usc.github.io/cris/tools.html/">Custom Tools</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="https://whl-usc.github.io/cris/data.html">Data</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#">Linked Resources</a>
+                    <ul class="mobile-dropdown-menu">
+                        <li><a href="https://bedtools.readthedocs.io/en/latest/index.html" target="_blank">BEDtools</a></li>
+                        <li><a href="https://igv.org/" target="_blank">Integrative Genomics Viewer</a></li>
+                        <li><a href="https://www.htslib.org/" target="_blank">SAMtools</a></li>
+                        <li><a href="https://github.com/alexdobin/STAR" target="_blank">STAR</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Footer -->
     <footer>

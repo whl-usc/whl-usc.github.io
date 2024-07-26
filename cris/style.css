@@ -1,7 +1,7 @@
 /* Positioning and styling main body elements */
 body {
   background: rgba(255, 255, 255, 1);
-  padding-left: 150px;
+  margin: 0px;
 }
 main {
   margin-bottom: 120px;
@@ -350,48 +350,124 @@ footer {
   white-space: nowrap;
 }
 
-/* Styling the side navigation */
-.sidenav {
-  background: rgba(227, 218, 201, 0.10);
-  border: 0.5px solid rgba(0, 0, 0, 1);
-  border-radius: 10px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-  font-family: Tahoma, sans-serif;
-  font-size: 14px;
-  height: flex;
-  left: 15px;
+/* Styling the site navigation bar */
+.navbar {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 1.0);
+  display: flex;
+  height: 30px;
+  margin-top: 50px;
   position: fixed;
-  text-align: left;
-  top: 70px;
-  width: 120px;
+  width: 100%;
+  z-index: 100;
 }
-.nav-section a {
-  border-bottom: 0.5px dotted rgba(0, 0, 0, 0.15);
+.navbar-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  width: 100%;
+}
+.hamburger-menu {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: whitesmoke;
+}
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.nav-item {
   color: rgba(0, 0, 0, 1);
-  display: block;
-  padding: 5px 5px;
-  text-decoration: none;
-  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.50);
-}
-.nav-section-header {
-  border-bottom: 0.3px solid rgba(0, 0, 0, 0.35);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-top: 5px solid rgba(10, 10, 10, 1);
-  color: rgba(10, 10, 10, 1);
   font-family: Tahoma, sans-serif;
+  font-weight: bold;
   font-size: 14px;
-  font-weight: bold;
-  padding: 4px 5px;
-  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.50);
+  position: relative;
+  margin-right: 50px; /* Space between items */
 }
-.nav-section-header a {
-  font-size: 16px;
-  font-weight: bold;
+.nav-item a {
+  display: block;
+  color: white;
   text-decoration: none;
+  padding: 0px 20px; /* Adjust padding as needed */
+  text-align: center;
+}
+.nav-item a:hover,
+.dropdown-menu a:hover {
+  color: rgba(100, 100, 255, 0.50);
+  text-decoration: underline;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px; /* Align with navbar height */
+  left: 0;
+  background-color: #333;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 200;
+}
+.dropdown-menu li {
+  width: 200px;
+}
+.dropdown-menu a {
+  color: white; /* Ensures the text color of dropdown links */
+  padding: 12px 16px; 
+  text-decoration: none;
+  display: block;
+}
+.nav-item:hover .dropdown-menu {
+    display: block;
 }
 
-/* Javascript styling */
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block; /* Show hamburger menu */
+  }
+  .nav-menu {
+    display: none; /* Hide desktop menu */
+  }
+  .mobile-menu {
+    display: none; /* Initially hidden */
+  }
+  .mobile-menu.active {
+    display: block; /* Show mobile menu when active */
+    position: absolute;
+    top: 50px; /* Align with navbar height */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 200;
+  }
+  .mobile-nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-nav-item {
+    width: 100%;
+  }
+  .mobile-nav-item a {
+    padding: 10px 15px;
+    text-align: left;
+  }
+  .mobile-dropdown-menu {
+    display: none;
+    background-color: #333;
+    position: relative;
+  }
+  .mobile-nav-item:hover .mobile-dropdown-menu {
+    display: block;
+  }
+}
+
+/* IGV styling */
 #igv-container {
   border: 0.5px solid rgba(0, 0, 0, 0.50);
   border-radius: 3px;
