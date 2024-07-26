@@ -131,29 +131,6 @@ th.filter {
 th.filter:hover {
   background-color: rgba(0, 100, 200, 0.75);
 }
-
-/* Dropdown Header */
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: white;
-  border: 1px solid #ddd;
-  padding: 0;
-  margin: 0 auto;
-  overflow-y: auto;
-  width: 250px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-.dropdown-menu a {
-  display: block;
-  padding: 10px auto;
-  text-decoration: none;
-  color: black;
-}
-.dropdown-menu a:hover {
-  background-color: rgba(20, 20, 100, 0.1);
-}
 /* Search Input */
 #searchInput {
   font-size: 14px;
@@ -346,7 +323,6 @@ footer {
   background: linear-gradient(to right, rgba(25, 25, 25, 1.0), rgba(11, 41, 63, 1.0));
   display: flex;
   height: 35px;
-  left: 0;
   margin: 0;
   top: 50px;  
   position: fixed;
@@ -389,10 +365,13 @@ footer {
   text-decoration: underline;
 }
 .dropdown-menu {
-  background: rgba(10, 10, 10, 1.0);
+  background: rgba(0, 0, 0, 1.0);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   display: none;
   left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   position: absolute;
   top: 30px;
   width: fit-content;
@@ -403,12 +382,10 @@ footer {
 }
 .dropdown-menu a {
   color: white;
-  padding: 12px 0px; 
+  display: block;
+  padding: 10px auto; 
   text-decoration: none;
-  display: block;
-}
-.dropdown-menu.active {
-  display: block;
+  text-align: left;
 }
 .nav-item:hover .dropdown-menu {
   display: block;

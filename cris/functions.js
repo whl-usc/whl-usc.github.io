@@ -1,23 +1,26 @@
-// Navbar functions
-document.addEventListener('DOMContentLoaded', function() {
+// Function to set up hamburger menu event listeners
+function setupHamburgerMenu() {
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.getElementById('nav-menu');
 
-    // Handle hamburger menu click for mobile view
-    document.getElementById('hamburger-menu').addEventListener('click', function() {
-        var mobileMenu = document.getElementById('mobile-menu');
-        var navMenu = document.getElementById('nav-menu');
+            // Toggle mobile menu visibility by adding/removing 'active' class
+            mobileMenu.classList.toggle('active');
 
-        // Toggle mobile menu visibility by adding/removing 'active' class
-        mobileMenu.classList.toggle('active');
+            // Toggle desktop menu visibility
+            if (navMenu.style.display === 'none' || navMenu.style.display === '') {
+                navMenu.style.display = 'flex'; // Show desktop menu
+            } else {
+                navMenu.style.display = 'none'; // Hide desktop menu
+            }
+        });
+    }
+}
 
-        // Toggle desktop menu visibility
-        if (navMenu.style.display === 'none' || navMenu.style.display === '') {
-            navMenu.style.display = 'flex'; // Show desktop menu
-        } else {
-            navMenu.style.display = 'none'; // Hide desktop menu
-        }
-    });
-
-    // Handle dropdown menu functionality
+// Function to handle dropdown menu functionality
+function setupDropdownMenus() {
     document.querySelectorAll('.nav-item > a').forEach(function(navItem) {
         navItem.addEventListener('click', function(event) {
             // Prevent default link action
@@ -31,14 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }.bind(this));
 
             // Toggle the current dropdown menu
-            var dropdownMenu = this.nextElementSibling;
+            const dropdownMenu = this.nextElementSibling;
             if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
                 dropdownMenu.classList.toggle('active');
             }
         });
     });
+}
 
-    // Handle clicks outside of dropdown to close it
+// Function to handle clicks outside of dropdowns to close them
+function handleClickOutsideDropdowns() {
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.nav-item')) {
             document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
@@ -46,24 +51,41 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+}
 
-    // Stop propagation to prevent immediate closing when clicking inside dropdown
+// Function to stop propagation to prevent immediate closing when clicking inside dropdown
+function setupDropdownClick() {
     document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
         menu.addEventListener('click', function(event) {
             event.stopPropagation();
         });
     });
+}
 
-    // Close dropdown menu when clicking on a link inside the dropdown
+// Function to close dropdown menu when clicking on a link inside the dropdown
+function setupDropdownLinkClick() {
     document.querySelectorAll('.dropdown-menu a').forEach(function(link) {
         link.addEventListener('click', function() {
-            var dropdownMenu = this.closest('.dropdown-menu');
+            const dropdownMenu = this.closest('.dropdown-menu');
             if (dropdownMenu) {
                 dropdownMenu.classList.remove('active');
             }
         });
     });
-});
+}
+
+// Main initialization function
+function initNavbarFunctions() {
+    setupHamburgerMenu();
+    setupDropdownMenus();
+    handleClickOutsideDropdowns();
+    setupDropdownClick();
+    setupDropdownLinkClick();
+}
+
+// Initial call and setup resize listener
+document.addEventListener('DOMContentLoaded', initNavbarFunctions);
+window.addEventListener('resize', initNavbarFunctions);
 
 // Adds the header, sidenav, and footer sections to the document.
 document.addEventListener("DOMContentLoaded", function() {
