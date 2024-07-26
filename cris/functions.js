@@ -217,19 +217,3 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
-
-// Navigation bar function.
-document.getElementById('hamburger-menu').addEventListener('click', function() {
-    var mobileMenu = document.getElementById('mobile-menu');
-    var navMenu = document.getElementById('nav-menu');
-
-    // Toggle mobile menu visibility
-    mobileMenu.classList.toggle('active');
-
-    // Toggle desktop menu visibility based on its current display property
-    if (navMenu.style.display === 'none' || navMenu.style.display === '') {
-        navMenu.style.display = 'flex'; // Show desktop menu
-    } else {
-        navMenu.style.display = 'none'; // Hide desktop menu
-    }
-});
