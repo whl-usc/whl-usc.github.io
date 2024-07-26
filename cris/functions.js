@@ -1,5 +1,6 @@
 // Navbar functions
 document.addEventListener('DOMContentLoaded', function() {
+
     // Handle hamburger menu click for mobile view
     document.getElementById('hamburger-menu').addEventListener('click', function() {
         var mobileMenu = document.getElementById('mobile-menu');

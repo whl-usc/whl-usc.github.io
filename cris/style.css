@@ -374,7 +374,7 @@ footer {
   display: block;
   font-family: Tahoma, sans-serif;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: normal;
   margin: 0px;
   padding: 8px 10px;
   position: relative;
@@ -389,12 +389,12 @@ footer {
   text-decoration: underline;
 }
 .dropdown-menu {
-  background: rgba(50, 50, 50, 1.0);
+  background: rgba(10, 10, 10, 1.0);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   display: none;
   left: 0;
   position: absolute;
-  top: 20px;
+  top: 30px;
   width: fit-content;
   z-index: 200;
 }
@@ -484,7 +484,7 @@ footer {
     display: none;
   }
   .navbar {
-    top: 15px;
+    top: 65px;
   }
   .mobile-menu {
     display: none;
