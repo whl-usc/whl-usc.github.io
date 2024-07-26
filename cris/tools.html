@@ -19,10 +19,7 @@
 
 <body>
     <div data-include-html="navigation.html"></div>
-    <!-- Main Contents-->
     <main>
-        <!-- Tools we use -->
-        <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
         <div class="section-color">
             <h1>Bioinformatic Tools</h1><hr />
             <h2>Data Pre-processing</h2>
@@ -174,7 +171,6 @@
                 </div>
             <h3>Primary Read Extraction</h3>
                 <p>Samtools and awk examples.</p>
-
             <h2>CRSSANT</h2><hr />
                 <p>How to run CRSSANT</p>
                 <div class="separator-line"></div>
@@ -182,13 +178,14 @@
                 <p>Other tools and IGV browsing</p>            
                 <div class="separator-line"></div>
             <h2>IGV Browser</h2><hr />
-            <form id="uploadForm">
-                <label for="fileInput">Upload a file:</label>
-                <input type="file" id="fileInput" accept=".bam,.vcf,.bed,.gff,.gtf,.wig,.bigwig">
-            </form>
-            <div id="igv-container"></div>
-            <script src="https://cdn.jsdelivr.net/npm/igv@2.15.13/dist/igv.min.js"></script>
+                <form id="uploadForm">
+                    <label for="fileInput">Upload a file:</label>
+                    <input type="file" id="fileInput" accept=".bam,.vcf,.bed,.gff,.gtf,.wig,.bigwig">
+                </form>
+                <div id="igv-container"></div>
+                <script src="https://cdn.jsdelivr.net/npm/igv@2.15.13/dist/igv.min.js"></script>
         </div>
+        <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
     </main>
 </body>
 </html>
