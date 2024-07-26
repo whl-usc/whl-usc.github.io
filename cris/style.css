@@ -347,7 +347,7 @@ footer {
   display: flex;
   height: 35px;
   left: 0;
-  margin-top: 40px;
+  margin: 0;  
   position: fixed;
   width: 100%;
   z-index: 100;
