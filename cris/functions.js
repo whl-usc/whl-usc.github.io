@@ -65,23 +65,30 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Adds the header, sidenav, and footer sections to the document.
-async function includeHTML() {
-    const elements = document.querySelectorAll("[data-include-html]");
-    for (const el of elements) {
-        const file = el.getAttribute("data-include-html");
-        if (file) {
-            try {
-                const response = await fetch(file);
-                const data = await response.text();
-                el.innerHTML = data;
-                el.removeAttribute("data-include-html");
-            } catch (error) {
-                console.error("Error loading file:", error);
+document.addEventListener("DOMContentLoaded", function() {
+    function includeHTML() {
+        const elements = document.querySelectorAll("[data-include-html]");
+        elements.forEach(el => {
+            const file = el.getAttribute("data-include-html");
+            if (file) {
+                fetch(file)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok " + response.statusText);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        el.innerHTML = data;
+                        el.removeAttribute("data-include-html");
+                        // Optionally reinitialize any scripts or functions needed
+                    })
+                    .catch(error => console.error("Error loading file:", error));
             }
-        }
+        });
     }
-}
-document.addEventListener("DOMContentLoaded", includeHTML);
+    includeHTML();
+});
 
 // Dynamically updates the table based on the datasets.
 document.addEventListener("DOMContentLoaded", function () {
