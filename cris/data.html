@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+    <!-- Meta tags, CSS links, and other head content here -->
+    <title>CRIS Database</title>
+    <link rel="icon" type="image/x-icon" href="icons8-x-96.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CRIS: Crosslinking-based RNA Interactomes and Structurome">
+    <meta name="author" content="https://zhipenglulab.org/">
+    <meta name="keywords" content="RNA, PARIS, XLRNA, SHARC">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- JavaScript functions -->
+    <script src="functions.js"></script>
+</head>
+
+<body>
+    <div data-include-html="navigation.html"></div>
+    <!-- Main Contents-->
+    <main>
+        <!-- Datasets/Studies -->
+        <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
+        <div class="section-color">
+            <h1>PARIS: Psoralen Analysis of RNA Interactions and Structures</h1><hr />
+            <p>
+                Talk about the original idea behind PARIS. Discuss the improvements made in the pipeline. 
+            </p>
+            <div class="separator-line"></div>
+            <h1>SHARC: Spatial 2′-Hydroxyl Acylation Reversible Crosslinking</h1><hr />
+            <p>
+                Talk about the concept of 2'-OH acylation and how this analysis is slightly different.
+                Discuss the nuances in looking at the exo-trimmed samples.
+            </p>
+        </div>
+        <!-- Data Download Table -->
+        <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
+        <div class="section-color">
+            <div class="instructions">
+                <h1>Data Availability</h1>
+                <h2>Processed Data</h2>
+                    <p>
+                        All published data generated via the PARIS or SHARC methods is available in BAM format. The file prefixes are named with details of the experimental conditions as described below.
+                    </p>
+                        <div class="table-container">
+                            <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterTable()">
+                            <table id="dataSet">
+                                <thead>
+                                    <tr>
+                                        <th class="filter" id="datasetHeader">Dataset&nbsp;&nbsp;&nbsp;<i class="bi bi-caret-down-square-fill"></i>
+                                            <ul class="dropdown-menu" id="dropdownMenu">
+                                                <!-- Dropdown menu items are populated by the functions.js script -->
+                                            </ul>
+                                        </th>
+                                        <!-- Other headers if needed -->
+                                    </tr>
+                                    <tr>
+                                        <th>File Name</th>
+                                        <th>pri_crssant</th>
+                                        <th>prigap1</th>
+                                        <th>prigap1_filtered</th>
+                                        <th>prigapm</th>
+                                        <th>prigapm_filtered</th>
+                                        <th>prihomo</th>
+                                        <th>pritrans</th>
+                                        <th>gaplen</th>
+                                        <th>seglen</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody">
+                                    <!-- Rows are to be populated by the functions.js script -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                    <div class="dl-container">
+                        <dl>
+                            <dt>Species</dt>
+                                <dd>HS - Homo Sapiens </dd>
+                                <dd>MM - Mus Musculus</dd>
+                                <dd>VIR - Virus</dd>
+                                <dd>IV - In vitro</dd>                            
+                            <dt>Cell Type // Tissue // Strain</dt>
+                                <dd>Verbatim</dd>
+                            <dt>Crosslinker</dt>
+                                <dd>AMT - Aminomethyltrioxsalen</dd>
+                                <dd>Amo - Amotosalen</dd>
+                                <dd>DPI - 2,6-Pyridinedicarboxylic acid (SHARC)</dd>
+                                <dd>FA - Formaldehyde</dd>
+                                <dd><i>Note that crosslinker concentrations can be in either mg/mL or molar (M).</i><br />
+                                A rule of thumb is that the psoralens (AMT/Amo) are in mg/mL, while all other crosslinkers are in M.</dd>
+                            <dt>Proximity Ligase</dt>
+                                <dd>T4 - T4 RNA Ligase 1</dd>
+                                <dd>Mth - Mth RNA Ligase</dd>
+                            <dt>Ligation Incubation Time</dt>
+                                <dd>1, 2, 12, or 24 hours of incubation.</dd>
+                            <dt>Exonuclease Trimming Time</dt>
+                                <dd>0, 1, 2, 12, or 24 hours of incubation.</dd>
+                                <dd>Samples labeled exo-0h are considered "non-trimmed".</dd>
+                            <dt>File Suffixes (Types)</dt>
+                                <dd>pri_crssant - CRSSANT precursor file; prigap1_filtered + pritrans with "SA" tag column 21 removed.</dd>
+                                <dd>prigap1 - Non-continuous alignments, each with 1 gap.</dd>
+                                <dd>prigapm - Non-continuous alignments, each with more than 1 gap.</dd>
+                                <dd>"_filtered" - Reads filtered for short gaps (1-2nt) and splice junctions.</dd>
+                                <dd>prihomo - Non-continuous alignments, where 2 arms overlap each other.</dd>
+                                <dd>pritrans - Non-continuous alignments, with 2 arms on different strands or chromosomes.</dd>
+                                <dd>gaplen - Distribution of gap lengths among the alignments.</dd>
+                                <dd>seglen - Distribution of arm lengths among the alignments.</dd>
+                        </dl>
+                    </div>
+                <hr />
+                <h2>Raw Data</h2>
+                    <p><b>Option 1.</b>&nbsp;Bulk download data from a whole project via NCBI GEO accesion list.</p>
+                    <ul>
+                        <p>Use script <a href="https://github.com/whl-usc/cris_tools/blob/main/sra_grab.sh" target="_blank">sra_grab.sh</a> for rapid download and extraction of data via a GEO accession page.</p>
+                        <li>At the corresponding GEO Accession Display, select <i>SRA Run Selector</i>.</li>
+                        <li>Download the "Accession List", which should contain SRR<i>XXXXX</i> lines that correspond to the correct data.</li>
+                        <li>Modify the shell script sra_grab.sh <i>(lines 20, 21)</i> for input file path (SRR_LIST_FILE="SRR_Acc_List.txt") and output directory path (OUTPUT_DIR="./geo_rnaseq_data") if appropriate.</li>
+                    </ul>
+                    <p><br /><b>Option 2.</b>&nbsp;Individual sample (direct) download through NCBI GEO linked files.</p>
+                    <ul>
+                        <li>At the bottom of GEO Accession Display, select <i>SRA Run Selector</i>.</li>
+                        <li>In the run table, select the SRR<i>XXXXX</i> file in the <i>Run</i> column that corresponds to the correct data.</li>
+                        <li>Under the <i>FASTA/FASTQ</i> download tab, click to download directly.</li>
+                        <li>To download to a server, copy the link that opens in your browser upon clicking the <i>FASTQ</i> link; use wget or curl.</li>
+                    </ul>
+                    <p><i>WARNING: Always check to see if a study uses paired-end or single-end sequences. If downloading through Option 2, be sure to download both files of the pair.</i></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
