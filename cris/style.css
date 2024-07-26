@@ -274,7 +274,7 @@ dd {
 }
 /* Header section */
 header {
-  background: linear-gradient(to right, rgba(22, 83, 126, 0.95), rgba(22, 83, 126, 0.50));
+  background: rgba(22, 83, 126, 0.95);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
   color: rgba(255, 255, 255, 1);
   font-family: Tahoma, sans-serif;
@@ -343,11 +343,12 @@ footer {
 /* Styling the site navigation bar */
 .navbar {
   align-items: left;
-  background-color: rgba(0, 0, 0, 1.0);
+  background: linear-gradient(to left, rgba(22, 83, 126, 1.0), rgba(0, 0, 0, 1.0));
   display: flex;
   height: 35px;
   left: 0;
-  margin: 0;  
+  margin: 0;
+  top: 50px;  
   position: fixed;
   width: 100%;
   z-index: 100;
@@ -375,7 +376,7 @@ footer {
   font-size: 16px;
   font-weight: bold;
   margin: 0px;
-  padding: 0px 15px;
+  padding: 8px 10px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -383,7 +384,7 @@ footer {
 .nav-item a:hover,
 .nav-item p:hover,
 .dropdown-menu a:hover {
-  background-color: rgba(255, 255, 0, 0.50);
+  background-color: rgba(255, 255, 0, 0.75);
   color: rgba(255, 255, 255, 1.0);
   text-decoration: underline;
 }
