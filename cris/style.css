@@ -59,14 +59,14 @@ hr {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 12px;
 }
 .dot-container {
   align-items: center;
   display: flex;
   justify-content: center;
-  margin: 25px auto;
+  margin: 15px auto;
 }
 .separator-line {
   background: linear-gradient(to right, rgba(255, 255, 255, 1.0), rgba(0, 0, 0, 1.0), rgba(255, 255, 255, 1.0));
