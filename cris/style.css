@@ -208,7 +208,7 @@ th.filter:hover {
   color: black;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
   font-family: Tahoma, sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   padding: 25px 10px;
   text-align: center;
@@ -434,6 +434,12 @@ footer {
   }
   ul {
     font-size: 8px;
+  }
+  th, td, code, dl, .publications a {
+    font-size: 10px
+  }
+  .grid-item {
+    font-size: 8px
   }
   header {
     height: 55px;
