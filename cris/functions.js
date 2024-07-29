@@ -182,31 +182,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function toggleDropdown() {
-        const isVisible = dropdownMenu.style.display === "block";
-        dropdownMenu.style.display = isVisible ? "none" : "block";
-    }
-
-    datasetHeader.addEventListener("click", function () {
-        toggleDropdown();
-    });
-
-    dropdownMenu.addEventListener("click", function (event) {
-        if (event.target.tagName === "A") {
-            event.preventDefault();
-            const datasetName = event.target.dataset.dataset;
-            updateTable(datasetName);
-            dropdownMenu.style.display = "none";
-        }
-    });
-
-    document.addEventListener("click", function (event) {
-        // Close the dropdown if clicking outside of the dropdown and header
-        if (!datasetHeader.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.style.display = "none";
-        }
-    });
-
     // Initialize by showing all datasets in the dropdown
     populateDropdown();
     if (data.length > 0) {
