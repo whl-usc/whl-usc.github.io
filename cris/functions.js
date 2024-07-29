@@ -1,36 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu Toggle Functionality
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.getElementById('nav-menu');
 
+    if (!navMenu || !mobileMenu) {
+        console.error("Required elements not found in the DOM.");
+        return; // Stop execution if essential elements are missing
+    }
     function toggleMenu() {
         if (window.innerWidth < 768) {
             mobileMenu.classList.toggle('active');
             navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            console.log(`Menu toggled: ${navMenu.style.display}`);
         }
     }
-
     function closeMenu() {
         if (window.innerWidth < 768) {
             mobileMenu.classList.remove('active');
             navMenu.style.display = 'none';
+            console.log("Menu closed");
         }
     }
-
     if (hamburgerMenu) {
         hamburgerMenu.addEventListener('click', function(event) {
             event.stopPropagation();
             toggleMenu();
         });
     }
-
     document.addEventListener('click', function(event) {
         if (!event.target.closest('#hamburger-menu') && !event.target.closest('#nav-menu')) {
             closeMenu();
         }
     });
-
     window.addEventListener('resize', function() {
         const isMobile = window.innerWidth < 768;
         navMenu.style.display = isMobile ? 'none' : 'flex';
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         console.log(`Window resized: ${window.innerWidth}, navMenu display: ${navMenu.style.display}`);
     });
-    
+
     // Initial check on page load
     if (window.innerWidth >= 768) {
         navMenu.style.display = 'flex';
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     console.log(`Initial load: ${window.innerWidth}, navMenu display: ${navMenu.style.display}`);
 });
+
 
 // Include HTML Parts
 document.addEventListener('DOMContentLoaded', function() {
