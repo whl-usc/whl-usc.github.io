@@ -13,9 +13,9 @@ body {
   margin: 0px;
 }
 main {
-  flex: 1;
   margin-bottom: 120px;
   margin-top: 120px;
+  min-height: calc(100vh - 60px);
   overflow-y: auto;
   position: relative;
   z-index: 1;
@@ -282,14 +282,15 @@ header .display-4 {
 /* Footer section */
 footer {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.65));
-  bottom: 0px;
-  padding: 20px 0;
-  position: absolute;
+  bottom: 0;
+  padding: 10px 0;
+  position: relative;
   width: 100%;
   z-index: 100;
 }
 footer .container {
   margin: 0 auto;
+  max-width: 100%;
 }
 footer .row {
   display: flex;
@@ -390,16 +391,8 @@ label, button {
     margin: 0px;
     padding: 0px;
   }
-  footer .col-md-3 {
-    display: none;
-  }
-  footer p {
-    justify-content: center;
-    display: block;
-    text-align: center;
-  }
   footer {
-    height: 10px;
+    display: none;
   }
   .navbar {
     height: ;

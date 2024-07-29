@@ -1,12 +1,11 @@
 // Include HTML Parts
-function loadTemplate() {
+document.addEventListener("DOMContentLoaded", function() {
     fetch('template.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('template-container').innerHTML = data;
         });
-}
-window.onload = loadTemplate;
+});
 
 // Dynamically updates the table based on the datasets.
 document.addEventListener("DOMContentLoaded", function () {
