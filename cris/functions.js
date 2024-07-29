@@ -32,20 +32,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     window.addEventListener('resize', function() {
-        if (window.innerWidth >= 768) {
-            navMenu.style.display = 'flex';
+        const isMobile = window.innerWidth < 768;
+        navMenu.style.display = isMobile ? 'none' : 'flex';
+        if (!isMobile) {
             mobileMenu.classList.remove('active');
-        } else {
-            navMenu.style.display = 'none';
         }
+        console.log(`Window resized: ${window.innerWidth}, navMenu display: ${navMenu.style.display}`);
     });
-
+    
     // Initial check on page load
     if (window.innerWidth >= 768) {
         navMenu.style.display = 'flex';
     } else {
         navMenu.style.display = 'none';
     }
+    console.log(`Initial load: ${window.innerWidth}, navMenu display: ${navMenu.style.display}`);
 });
 
 // Include HTML Parts
