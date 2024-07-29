@@ -6,8 +6,7 @@ function loadTemplate() {
             document.getElementById('template-container').innerHTML = data;
         });
 }
-
-document.addEventListener('DOMContentLoaded', loadTemplate);
+window.onload = loadTemplate;
 
 // Dynamically updates the table based on the datasets.
 document.addEventListener("DOMContentLoaded", function () {
