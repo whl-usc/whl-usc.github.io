@@ -18,6 +18,6 @@ Here, DGs can be visualized using IGV, converted to stemloop groups, and have en
 
 [Zhipeng Lu](https://zhipenglulab.org)
 
-Project Link: [https://whl-usc.github.io/](https://whl-usc.github.io/)
+Project Link: [https://whl-usc.github.io/](https://whl-usc.github.io/cris/home.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
