@@ -283,29 +283,30 @@ header .display-4 {
 footer {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.65));
   bottom: 0;
-  padding: 10px 0;
   position: relative;
   width: 100%;
   z-index: 100;
 }
 footer .container {
-  justify-content: center;
-  padding-left: 0;
   max-width: 100%;
+  padding: 0px auto;
 }
+
+footer h5,
 footer .col-md-3 a {
   text-align: left;
   white-space: nowrap;
 }
-footer h5, .col-md-3 p {
-  text-align: left;
-}
-footer h5, footer p, footer a, footer ul {
+footer a, 
+footer h5, 
+footer p, 
+footer ul {
   color: rgba(255, 255, 255, 1.0);
   display: block;
   font-family: Tahoma, sans-serif;
   font-size: 12px;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
   text-decoration: none;
   white-space: normal;
 }
