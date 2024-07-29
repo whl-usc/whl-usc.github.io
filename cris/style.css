@@ -1,9 +1,19 @@
 /* Positioning and styling main body elements */
+#template-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+html, body {
+  height: 100%;
+  margin: 0px;
+}
 body {
   background: rgba(255, 255, 255, 1);
   margin: 0px;
 }
 main {
+  flex: 1;
   margin-bottom: 120px;
   margin-top: 120px;
   overflow-y: auto;
@@ -102,7 +112,6 @@ hr {
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
-
 /* Tables */
 .table-container {
   margin: 0 25px;
@@ -252,151 +261,108 @@ dd {
 /* Header section */
 header {
   background: rgba(22, 83, 126, 0.95);
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-  color: rgba(255, 255, 255, 1);
-  font-family: Tahoma, sans-serif;
-  height: 50px;
-  left: 0;
-  position: fixed;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);  
+  margin: 0px;
+  padding: 0px 10px;
   text-align: left;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.70);
-  top: 0;
-  width: 100%;
-  z-index: 100;
 }
-.title {
-  font-size: 36px;
-  font-weight: bold;
-  padding-left: 25px;
+header h1 {
+  color: rgba(255, 255, 255, 1);
+  margin: 0px;
+  padding: 0px 5px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.70);
-  white-space: nowrap;
+}
+header .display-4 {
+  font-family: Tahoma, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 0.4;
+  margin: 0px;
 }
 /* Footer section */
 footer {
-  background: linear-gradient(to bottom, rgba(0, 0 ,0, 1), rgba(0, 0, 0, 0.65));
-  bottom: 0;
-  color: rgba(255, 255, 255, 1);
-  font-family: Tahoma, sans-serif;
-  height: 75px;
-  left: 0;
-  padding: 2px 0px;
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-}
-.footer-background {
-  content: '';
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.65));
+  bottom: 0px;
+  padding: 20px 0;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.50);
-  z-index: -1;
-}
-.footer-block {
-  display: flex;
-  font-size: 14px;
-  justify-content: space-between;
-  margin-top: 5px;
-  padding: 0px 125px;
-}
-.footer-item a, .footer-item h3 {
-  align-items: flex-start;
-  color: rgba(255, 255, 255, 1);
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  margin: 0px 10px;
-  text-align: left;
-  text-decoration: none;
-}
-.footer-item p {
-  color: rgba(255, 255, 255, 1);
-  margin: 0px;
-  text-align: left;
-  white-space: nowrap;
-}
-/* Styling the site navigation bar */
-.navbar {
-  align-items: left;
-  background: linear-gradient(to right, rgba(25, 25, 25, 1.0), rgba(11, 41, 63, 1.0));
-  display: flex;
-  height: 35px;
-  margin: 0;
-  top: 50px;  
-  position: fixed;
   width: 100%;
   z-index: 100;
 }
-.navbar-container {
+footer .container {
+  margin: 0 auto;
+}
+footer .row {
   display: flex;
   justify-content: space-between;
-  width: 100%;
 }
-.nav-menu {
-  list-style: none;
-  padding: 0;
-  align-items: center;
+footer .col-md-3 {
+  box-sizing: border-box;
+  padding: 0px 15px;
+  flex: 1;
+  text-align: left;
+}
+footer h5, footer p, footer a, footer ul {
+  color: rgba(255, 255, 255, 1.0);
+  display: block;
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
   margin: 0;
-  display: flex;
+  text-decoration: none;
+  white-space: normal;
+}
+/* Navigation bar styling */
+.navbar {
+  background: linear-gradient(to right, rgba(25, 25, 25, 1.0), rgba(11, 41, 63, 0.75));
+  height: fit-content;
+  padding: 0px 15px;
+}
+.navbar-brand {
+  /* Modify this according to icon */
+}
+.navbar-brand:hover {
+  color: rgba(255, 255, 255, 1.0);
+}
+.navbar-nav, .nav-link {
+  color: rgba(255, 255, 255, 1.0);
+}
+.navbar-nav:hover, .nav-item:hover, .nav-link:hover {
+  color: rgba(255, 255, 0, 1.0);
 }
 .nav-item {
-  position: relative;
-}
-.nav-item a, .nav-item p {
-  color: rgba(255, 255, 255, 1);
-  display: block;
-  font-family: Tahoma, sans-serif;
   font-size: 16px;
-  font-weight: normal;
-  margin: 0px;
-  padding: 8px 10px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
 }
-.nav-item a:hover,
-.nav-item p:hover,
-.dropdown-menu li:hover {
-  background-color: rgba(255, 255, 0, 0.50);
+.dropdown-menu, .dropdown-item {
+  background-color: rgba(0, 0, 0, 1.0);
   color: rgba(255, 255, 255, 1.0);
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
-.dropdown-menu {
-  background: rgba(0, 0, 0, 1.0);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  display: none;
-  left: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 30px;
-  width: fit-content;
-  z-index: 200;
+.navbar-toggler-icon {
+  }
+.dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 1.0);
+  color: rgba(255, 255, 0, 1.0);
 }
-.dropdown-menu li {
-  width: 100px;
+/* IGV styling 
+#igv-container {
+  border: 0.5px solid rgba(0, 0, 0, 0.50);
+  border-radius: 3px;
+  margin: 10px 0;
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 10px;
+  width: 98.5%;
 }
-.dropdown-menu a {
-  color: white;
-  display: block;
-  padding: 10px auto; 
-  text-decoration: none;
-  text-align: left;
+.igv-ideogram-canvas {
+  max-height: 100px;
 }
-.nav-item:hover .dropdown-menu {
-  display: block;
+label, button {
+  color: rgba(0, 0, 0, 1);
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 25px;
 }
-.nav-item > a:hover, .mobile-nav-item > a:hover {
-  display: block;
-}
-.mobile-menu, .hamburger-menu {
-  display: none;
-}
-/* Media query for screens smaller than 768px */
-@media (max-width: 768px) {
+/* Media query for screens smaller than 900px */
+@media (max-width: 900px) {
   h1 {
     font-size: 20px;
   }
@@ -418,115 +384,24 @@ footer {
   .grid-item {
     font-size: 10px
   }
-  header {
-    height: 55px;
-    padding: 5px 0px;
-    text-align: left;
+  header .display-4 {
+    font-size: 22px;
+    line-height: 1;
+    margin: 0px;
+    padding: 0px;
   }
-  .title {
-    font-size: 24px;
-    padding: 0 20px;
-    white-space: normal;
-    word-wrap: break-word;
+  footer .col-md-3 {
+    display: none;
+  }
+  footer p {
+    justify-content: center;
+    display: block;
+    text-align: center;
   }
   footer {
-    height: 40px;
-  }
-  .footer-block {
-    align-items: center;
-    flex-direction: column;
-    padding: 0 20px;
-  }
-  .footer-item a, .footer-item h3 {
-    display: none;
-  }
-  .footer-item {
-    align-items: center;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  .footer-item p {
-    text-align: center;
-  }
-  .hamburger-menu {
-    color: whitesmoke;
-    cursor: pointer;
-    display: block;
-    margin-left: 15px;
-    font-size: 22px;
-    z-index: 200;
+    height: 10px;
   }
   .navbar {
-    top: 65px;
+    height: ;
   }
-  .nav-item, 
-  .mobile-menu,
-  .mobile-dropdown-menu {
-    display: none;
-  }
-  .mobile-menu.active {
-    background: rgba(0, 0, 0, 1.0);
-    display: block;
-    position: absolute;
-    top: 35px;
-    width: 100%;
-    z-index: 200;
-  }
-  .mobile-nav-menu {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    padding-left: 10px;
-    width: 100%;
-  }
-  .mobile-nav-item, 
-  .mobile-dropdown-menu {
-    width: 100%;
-  }
-  .mobile-dropdown-menu {
-    padding-left: 0px;
-    margin-left: 0px;
-  }
-  .mobile-nav-item a,
-  .mobile-dropdown-menu a {
-    color: rgba(255, 255, 255, 1.0);
-    display: block;
-    font-size: 18px;
-    padding: 2px;
-    text-align: left;
-    text-decoration: none;
-    width: 100%;
-  }
-  .mobile-nav-item:hover .mobile-dropdown-menu {
-    display: block;
-    position: relative;
-  }
-  .mobile-nav-item a:hover {
-    background-color: rgba(255, 255, 0, 0.50);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.70);
-  }
-  .mobile-dropdown-menu a:hover {
-    background-color: rgba(255, 0, 255, 0.50);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.70);
-  }
-}
-/* IGV styling */
-#igv-container {
-  border: 0.5px solid rgba(0, 0, 0, 0.50);
-  border-radius: 3px;
-  margin: 10px 0;
-  max-height: 600px;
-  overflow-y: auto;
-  padding: 10px;
-  width: 98.5%;
-}
-.igv-ideogram-canvas {
-  max-height: 100px;
-}
-label, button {
-  color: rgba(0, 0, 0, 1);
-  font-family: Tahoma, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  margin-left: 25px;
 }

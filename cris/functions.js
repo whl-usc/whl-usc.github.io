@@ -1,25 +1,13 @@
 // Include HTML Parts
-document.addEventListener('DOMContentLoaded', function() {
-    function includeHTML() {
-        const elements = document.querySelectorAll("[data-include-html]");
-        elements.forEach(el => {
-            const file = el.getAttribute("data-include-html");
-            if (file) {
-                fetch(file)
-                    .then(response => {
-                        if (!response.ok) throw new Error("Network response was not ok " + response.statusText);
-                        return response.text();
-                    })
-                    .then(data => {
-                        el.innerHTML = data;
-                        el.removeAttribute("data-include-html");
-                    })
-                    .catch(error => console.error("Error loading file:", error));
-            }
+function loadTemplate() {
+    fetch('template.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('template-container').innerHTML = data;
         });
-    }
-    includeHTML();
-});
+}
+
+document.addEventListener('DOMContentLoaded', loadTemplate);
 
 // Dynamically updates the table based on the datasets.
 document.addEventListener("DOMContentLoaded", function () {
