@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Menu Toggle Functionality
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.getElementById('nav-menu');
@@ -38,15 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.style.display = 'none';
         }
     });
-    
+
     // Initial check on page load
     if (window.innerWidth >= 768) {
         navMenu.style.display = 'flex';
     } else {
         navMenu.style.display = 'none';
     }
+});
 
-    // Include HTML parts
+// Include HTML Parts
+document.addEventListener('DOMContentLoaded', function() {
     function includeHTML() {
         const elements = document.querySelectorAll("[data-include-html]");
         elements.forEach(el => {
@@ -67,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     includeHTML();
 });
-
 
 // Dynamically updates the table based on the datasets.
 document.addEventListener("DOMContentLoaded", function () {
