@@ -398,13 +398,13 @@ footer {
 /* Media query for screens smaller than 900px */
 @media (max-width: 768px) {
   h1 {
-    font-size: 18px;
+    font-size: 20px;
   }
   h2 {
-    font-size: 14px;
+    font-size: 16px;
   }
   h3 {
-    font-size: 12px;
+    font-size: 14px;
   }
   p {
     font-size: 12px;
@@ -420,7 +420,7 @@ footer {
   }
   header {
     height: 55px;
-    padding-bottom: 10px;
+    padding: 5px 0px;
     text-align: left;
   }
   .title {

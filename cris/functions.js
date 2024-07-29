@@ -3,53 +3,55 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.getElementById('nav-menu');
 
-    if (!navMenu || !mobileMenu) {
+    if (!navMenu || !mobileMenu || !hamburgerMenu) {
         console.error("Required elements not found in the DOM.");
-        return; // Stop execution if essential elements are missing
+        return;
     }
+
     function toggleMenu() {
         if (window.innerWidth < 768) {
             mobileMenu.classList.toggle('active');
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-            console.log(`Menu toggled: ${navMenu.style.display}`);
+            console.log(`Mobile menu toggled: ${mobileMenu.classList.contains('active')}`);
         }
     }
+
     function closeMenu() {
         if (window.innerWidth < 768) {
             mobileMenu.classList.remove('active');
-            navMenu.style.display = 'none';
-            console.log("Menu closed");
+            console.log("Mobile menu closed");
         }
     }
-    if (hamburgerMenu) {
-        hamburgerMenu.addEventListener('click', function(event) {
-            event.stopPropagation();
-            toggleMenu();
-        });
-    }
+
+    // Event listener for hamburger menu
+    hamburgerMenu.addEventListener('click', function(event) {
+        event.stopPropagation();
+        toggleMenu();
+    });
+
+    // Event listener to close the menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (!event.target.closest('#hamburger-menu') && !event.target.closest('#nav-menu')) {
+        if (!event.target.closest('#hamburger-menu') && !event.target.closest('#mobile-menu')) {
             closeMenu();
         }
     });
+
+    // Event listener for window resize
     window.addEventListener('resize', function() {
         const isMobile = window.innerWidth < 768;
-        navMenu.style.display = isMobile ? 'none' : 'flex';
-        if (!isMobile) {
-            mobileMenu.classList.remove('active');
+        if (isMobile) {
+            mobileMenu.style.display = 'block';
+            navMenu.style.display = 'none';
+            closeMenu();
+        } else {
+            mobileMenu.style.display = 'none';
+            navMenu.style.display = 'flex';
         }
-        console.log(`Window resized: ${window.innerWidth}, navMenu display: ${navMenu.style.display}`);
+        console.log(`Window resized: ${window.innerWidth}, navMenu display: ${navMenu.style.display}, mobileMenu display: ${mobileMenu.style.display}`);
     });
 
     // Initial check on page load
-    if (window.innerWidth >= 768) {
-        navMenu.style.display = 'flex';
-    } else {
-        navMenu.style.display = 'none';
-    }
-    console.log(`Initial load: ${window.innerWidth}, navMenu display: ${navMenu.style.display}`);
+    window.dispatchEvent(new Event('resize'));
 });
-
 
 // Include HTML Parts
 document.addEventListener('DOMContentLoaded', function() {
