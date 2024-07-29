@@ -1,94 +1,52 @@
-// Function to set up hamburger menu event listeners
-function setupHamburgerMenu() {
+document.addEventListener('DOMContentLoaded', function() {
     const hamburgerMenu = document.getElementById('hamburger-menu');
-    if (hamburgerMenu) {
-        hamburgerMenu.addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navMenu = document.getElementById('nav-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
 
-            // Toggle mobile menu visibility by adding/removing 'active' class
+    function toggleMenu() {
+        if (window.innerWidth < 768) {
             mobileMenu.classList.toggle('active');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    }
 
-            // Toggle desktop menu visibility
-            if (navMenu.style.display === 'none' || navMenu.style.display === '') {
-                navMenu.style.display = 'flex'; // Show desktop menu
-            } else {
-                navMenu.style.display = 'none'; // Hide desktop menu
-            }
+    function closeMenu() {
+        if (window.innerWidth < 768) {
+            mobileMenu.classList.remove('active');
+            navMenu.style.display = 'none';
+        }
+    }
+
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', function(event) {
+            event.stopPropagation();
+            toggleMenu();
         });
     }
-}
 
-// Function to handle dropdown menu functionality
-function setupDropdownMenus() {
-    document.querySelectorAll('.nav-item > a').forEach(function(navItem) {
-        navItem.addEventListener('click', function(event) {
-            // Prevent default link action
-            event.preventDefault();
-
-            // Close all other dropdowns
-            document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-                if (menu !== this.nextElementSibling) {
-                    menu.classList.remove('active');
-                }
-            }.bind(this));
-
-            // Toggle the current dropdown menu
-            const dropdownMenu = this.nextElementSibling;
-            if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
-                dropdownMenu.classList.toggle('active');
-            }
-        });
-    });
-}
-
-// Function to handle clicks outside of dropdowns to close them
-function handleClickOutsideDropdowns() {
     document.addEventListener('click', function(event) {
-        if (!event.target.closest('.nav-item')) {
-            document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-                menu.classList.remove('active');
-            });
+        if (!event.target.closest('#hamburger-menu') && !event.target.closest('#nav-menu')) {
+            closeMenu();
         }
     });
-}
 
-// Function to stop propagation to prevent immediate closing when clicking inside dropdown
-function setupDropdownClick() {
-    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-        menu.addEventListener('click', function(event) {
-            event.stopPropagation();
-        });
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 768) {
+            navMenu.style.display = 'flex';
+            mobileMenu.classList.remove('active');
+        } else {
+            navMenu.style.display = 'none';
+        }
     });
-}
+    
+    // Initial check on page load
+    if (window.innerWidth >= 768) {
+        navMenu.style.display = 'flex';
+    } else {
+        navMenu.style.display = 'none';
+    }
 
-// Function to close dropdown menu when clicking on a link inside the dropdown
-function setupDropdownLinkClick() {
-    document.querySelectorAll('.dropdown-menu a').forEach(function(link) {
-        link.addEventListener('click', function() {
-            const dropdownMenu = this.closest('.dropdown-menu');
-            if (dropdownMenu) {
-                dropdownMenu.classList.remove('active');
-            }
-        });
-    });
-}
-
-// Main initialization function
-function initNavbarFunctions() {
-    setupHamburgerMenu();
-    setupDropdownMenus();
-    handleClickOutsideDropdowns();
-    setupDropdownClick();
-    setupDropdownLinkClick();
-}
-
-// Initial call and setup resize listener
-document.addEventListener('DOMContentLoaded', initNavbarFunctions);
-window.addEventListener('resize', initNavbarFunctions);
-
-// Adds the header, sidenav, and footer sections to the document.
-document.addEventListener("DOMContentLoaded", function() {
+    // Include HTML parts
     function includeHTML() {
         const elements = document.querySelectorAll("[data-include-html]");
         elements.forEach(el => {
@@ -96,15 +54,12 @@ document.addEventListener("DOMContentLoaded", function() {
             if (file) {
                 fetch(file)
                     .then(response => {
-                        if (!response.ok) {
-                            throw new Error("Network response was not ok " + response.statusText);
-                        }
+                        if (!response.ok) throw new Error("Network response was not ok " + response.statusText);
                         return response.text();
                     })
                     .then(data => {
                         el.innerHTML = data;
                         el.removeAttribute("data-include-html");
-                        // Optionally reinitialize any scripts or functions needed
                     })
                     .catch(error => console.error("Error loading file:", error));
             }
@@ -112,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     includeHTML();
 });
+
 
 // Dynamically updates the table based on the datasets.
 document.addEventListener("DOMContentLoaded", function () {
