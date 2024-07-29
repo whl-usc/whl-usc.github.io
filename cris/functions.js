@@ -1,11 +1,20 @@
-// Include HTML Parts
-document.addEventListener("DOMContentLoaded", function() {
+function loadTemplate() {
     fetch('template.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('template-container').innerHTML = data;
-        });
-});
+            const container = document.createElement('div');
+            container.innerHTML = data;
+
+            // Insert header, navigation, and footer into appropriate containers
+            document.getElementById('header-container').innerHTML = container.querySelector('header').outerHTML;
+            document.getElementById('navigation-container').innerHTML = container.querySelector('nav').outerHTML;
+            document.getElementById('footer-container').innerHTML = container.querySelector('footer').outerHTML;
+        })
+        .catch(error => console.error('Error loading template:', error));
+}
+
+// Load the template when the document is fully loaded
+document.addEventListener('DOMContentLoaded', loadTemplate);
 
 // Dynamically updates the table based on the datasets.
 document.addEventListener("DOMContentLoaded", function () {

@@ -18,7 +18,8 @@
 </head>
 
 <body>
-    <div id="template-container"></div>
+    <div id="header-container"></div>
+    <div id="navigation-container"></div>
     <!-- Main Contents-->
     <main>
         <div class="section-color">
@@ -117,15 +118,6 @@
             </div>
         </div>        
     </main>
-    <script>
-    // Include HTML Parts
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('template.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('template-container').innerHTML = data;
-            });
-    });
-    </script>
+    <div id="footer-container"></div>
 </body>
 </html>
