@@ -3,9 +3,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.getElementById('nav-menu');
 
-    if (!navMenu || !mobileMenu || !hamburgerMenu) {
-        console.error("Required elements not found in the DOM.");
-        return;
+    function updateMenuDisplay() {
+        const isMobile = window.innerWidth < 768;
+
+        if (isMobile) {
+            // Show hamburger menu, hide desktop nav menu
+            hamburgerMenu.style.display = 'block';
+            mobileMenu.style.display = 'block';
+            navMenu.style.display = 'none';
+
+            // Ensure mobile menu is closed
+            closeMenu();
+        } else {
+            // Hide hamburger menu, show desktop nav menu
+            hamburgerMenu.style.display = 'none';
+            mobileMenu.style.display = 'none';
+            navMenu.style.display = 'flex';
+        }
+        
+        console.log(`Window resized: ${window.innerWidth}, navMenu display: ${navMenu.style.display}, mobileMenu display: ${mobileMenu.style.display}`);
     }
 
     function toggleMenu() {
@@ -22,11 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Event listener for hamburger menu
-    hamburgerMenu.addEventListener('click', function(event) {
-        event.stopPropagation();
-        toggleMenu();
-    });
+    // Event listener for hamburger menu click
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', function(event) {
+            event.stopPropagation();
+            toggleMenu();
+        });
+    }
 
     // Event listener to close the menu when clicking outside
     document.addEventListener('click', function(event) {
@@ -36,21 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Event listener for window resize
-    window.addEventListener('resize', function() {
-        const isMobile = window.innerWidth < 768;
-        if (isMobile) {
-            mobileMenu.style.display = 'block';
-            navMenu.style.display = 'none';
-            closeMenu();
-        } else {
-            mobileMenu.style.display = 'none';
-            navMenu.style.display = 'flex';
-        }
-        console.log(`Window resized: ${window.innerWidth}, navMenu display: ${navMenu.style.display}, mobileMenu display: ${mobileMenu.style.display}`);
-    });
+    window.addEventListener('resize', updateMenuDisplay);
 
     // Initial check on page load
-    window.dispatchEvent(new Event('resize'));
+    updateMenuDisplay();
 });
 
 // Include HTML Parts
