@@ -289,11 +289,15 @@ footer {
   z-index: 100;
 }
 footer .container {
-  margin: 0 auto;
+  justify-content: center;
+  padding-left: 0;
   max-width: 100%;
 }
-footer .col-md-3 {
-  margin: 0px auto;
+footer .col-md-3 a {
+  text-align: left;
+  white-space: nowrap;
+}
+footer h5, .col-md-3 p {
   text-align: left;
 }
 footer h5, footer p, footer a, footer ul {
@@ -307,7 +311,7 @@ footer h5, footer p, footer a, footer ul {
 }
 /* Navigation bar styling */
 .navbar {
-  background: linear-gradient(to right, rgba(25, 25, 25, 1.0), rgba(11, 41, 63, 0.75));
+  background: linear-gradient(to right, rgba(0, 0, 0, 1.0), rgba(11, 41, 63, 0.95));
   height: fit-content;
   padding: 0px 15px;
 }
