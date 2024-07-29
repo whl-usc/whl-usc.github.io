@@ -1,65 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburgerMenu = document.getElementById('hamburger-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
-
-    function updateMenuDisplay() {
-        const isMobile = window.innerWidth < 768;
-
-        if (isMobile) {
-            // Show hamburger menu, hide desktop nav menu
-            hamburgerMenu.style.display = 'block';
-            mobileMenu.style.display = 'block';
-            navMenu.style.display = 'none';
-
-            // Ensure mobile menu is closed
-            closeMenu();
-        } else {
-            // Hide hamburger menu, show desktop nav menu
-            hamburgerMenu.style.display = 'none';
-            mobileMenu.style.display = 'none';
-            navMenu.style.display = 'flex';
-        }
-        
-        console.log(`Window resized: ${window.innerWidth}, navMenu display: ${navMenu.style.display}, mobileMenu display: ${mobileMenu.style.display}`);
-    }
-
-    function toggleMenu() {
-        if (window.innerWidth < 768) {
-            mobileMenu.classList.toggle('active');
-            console.log(`Mobile menu toggled: ${mobileMenu.classList.contains('active')}`);
-        }
-    }
-
-    function closeMenu() {
-        if (window.innerWidth < 768) {
-            mobileMenu.classList.remove('active');
-            console.log("Mobile menu closed");
-        }
-    }
-
-    // Event listener for hamburger menu click
-    if (hamburgerMenu) {
-        hamburgerMenu.addEventListener('click', function(event) {
-            event.stopPropagation();
-            toggleMenu();
-        });
-    }
-
-    // Event listener to close the menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('#hamburger-menu') && !event.target.closest('#mobile-menu')) {
-            closeMenu();
-        }
-    });
-
-    // Event listener for window resize
-    window.addEventListener('resize', updateMenuDisplay);
-
-    // Initial check on page load
-    updateMenuDisplay();
-});
-
 // Include HTML Parts
 document.addEventListener('DOMContentLoaded', function() {
     function includeHTML() {
@@ -81,6 +19,80 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     includeHTML();
+});
+
+// Navbar functions
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    // Utility function to determine if the viewport is mobile-sized
+    const isMobileViewport = () => window.innerWidth < 768;
+
+    // Function to update the menu display based on viewport size
+    const updateMenuDisplay = () => {
+        if (hamburgerMenu && mobileMenu && navMenu) {
+            if (isMobileViewport()) {
+                // Mobile view: Show hamburger menu, hide desktop nav menu
+                hamburgerMenu.style.display = 'block';
+                mobileMenu.style.display = 'none'; // Hide initially
+                navMenu.style.display = 'none';
+                
+                // Ensure mobile menu is closed initially
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                }
+            } else {
+                // Desktop view: Hide hamburger menu, show desktop nav menu
+                hamburgerMenu.style.display = 'none';
+                mobileMenu.style.display = 'none';
+                navMenu.style.display = 'flex';
+            }
+        }
+    };
+
+    // Function to toggle the mobile menu
+    const toggleMenu = () => {
+        if (isMobileViewport() && mobileMenu) {
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                console.log("Mobile menu closed");
+            } else {
+                mobileMenu.classList.add('active');
+                console.log("Mobile menu opened");
+            }
+        }
+    };
+
+    // Function to close the mobile menu
+    const closeMenu = () => {
+        if (isMobileViewport() && mobileMenu) {
+            mobileMenu.classList.remove('active');
+            console.log("Mobile menu closed");
+        }
+    };
+
+    // Function to handle clicks outside of the menu to close it
+    const handleClickOutside = (event) => {
+        if (!event.target.closest('#hamburger-menu') && !event.target.closest('#mobile-menu')) {
+            closeMenu();
+        }
+    };
+
+    // Attach event listeners
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', (event) => {
+            event.stopPropagation();
+            toggleMenu();
+        });
+    }
+
+    document.addEventListener('click', handleClickOutside);
+    window.addEventListener('resize', updateMenuDisplay);
+
+    // Initial display setup
+    updateMenuDisplay();
 });
 
 // Dynamically updates the table based on the datasets.

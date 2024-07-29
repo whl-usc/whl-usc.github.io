@@ -395,7 +395,7 @@ footer {
 .mobile-menu, .hamburger-menu {
   display: none;
 }
-/* Media query for screens smaller than 900px */
+/* Media query for screens smaller than 768px */
 @media (max-width: 768px) {
   h1 {
     font-size: 20px;
@@ -459,9 +459,8 @@ footer {
   .navbar {
     top: 65px;
   }
-  .nav-menu, 
   .nav-item, 
-  .mobile-menu, 
+  .mobile-menu,
   .mobile-dropdown-menu {
     display: none;
   }
@@ -490,7 +489,6 @@ footer {
   }
   .mobile-nav-item a,
   .mobile-dropdown-menu a {
-    box-sizing: border-box;
     color: rgba(255, 255, 255, 1.0);
     display: block;
     font-size: 18px;
