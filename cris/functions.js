@@ -7,7 +7,7 @@ function loadTemplate() {
             container.innerHTML = data;
 
             // Insert header, navigation, and footer into appropriate containers
-            document.getElementById('header-container').innerHTML = container.querySelector('header').outerHTML;
+            // document.getElementById('header-container').innerHTML = container.querySelector('header').outerHTML;
             document.getElementById('navigation-container').innerHTML = container.querySelector('nav').outerHTML;
             document.getElementById('footer-container').innerHTML = container.querySelector('footer').outerHTML;
         })
