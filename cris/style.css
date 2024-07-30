@@ -291,8 +291,9 @@ footer {
   z-index: 100;
 }
 footer .container {
+  justify-content: left;
   max-width: 100%;
-  padding: 0px auto;
+  padding: 0px;
 }
 footer h5,
 footer .col-md-3 a {
@@ -304,14 +305,15 @@ footer h5,
 footer p, 
 footer ul {
   color: rgba(255, 255, 255, 1.0);
-  display: block;
+  display: flex;
+  flex-direction: column;
   font-family: Tahoma, sans-serif;
   font-size: 12px;
   line-height: 14px;
   margin: 0;
-  padding: 0px 25px;
+  padding: 0px 10px;
   text-decoration: none;
-  white-space: nowrap;
+  white-space: normal;
 }
 /* Navigation bar styling */
 .navbar-brand {
@@ -319,14 +321,15 @@ footer ul {
   font-family: Tahoma, sans-serif;
   margin: 0px;
   padding-left: 5px;
+  padding-right: 10px;
   font-size: 16px;
   font-weight: bold;
-  color: white;
-  text-shadow:  2px 2px 0 #000, 
-                -2px -2px 0 #000, 
-                2px -2px 0 #000, 
-                -2px 2px 0 #000,
-                2px 2px 5px yellow;
+  text-shadow: 
+    1px 1px 0 #000, 
+    -1px -1px 0 #000, 
+    1px -1px 0 #000, 
+    -1px 1px 0 #000, 
+    2px 2px 5px yellow;
 }
 .navbar-brand:hover {
   color: rgba(128, 128, 128, 1.0);
@@ -349,6 +352,11 @@ footer ul {
 }
 .nav-item {
   font-size: 16px;
+  text-shadow:   
+    1px 1px 5 #000, 
+    -1px -1px 5 #000, 
+    1px -1px 5 #000, 
+    -1px 1px 5 #000;
 }
 .nav-item,
 .dropdown-item {
@@ -385,8 +393,8 @@ label, button {
   font-weight: normal;
   margin-left: 25px;
 }
-/* Media query for screens smaller than 900px */
-@media (max-width: 900px) {
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
   h1 {
     font-size: 20px;
   }
@@ -415,20 +423,6 @@ label, button {
   header .display-4 {
     font-size: 22px;
     margin: 0px;
-  }
-  footer .container {
-    text-align: left;
-  }
-  footer a, 
-  footer h5, 
-  footer p, 
-  footer ul {
-    display: inline-flex;
-    font-size: 10px;
-    padding: 0px auto;
-  }
-  footer .mailing-address {
-    display: none;
   }
   .navbar-nav {
     margin: 0;
@@ -468,5 +462,19 @@ label, button {
   }
   .navbar-toggler:not(.collapsed) .bi-x {
     display: block;
+  }
+}
+@media (max-width: 1080px) {
+  footer .container {
+    text-align: left;
+  }
+  footer a, 
+  footer h5, 
+  footer p, 
+  footer ul {
+    display: flex;
+    font-size: 10px;
+    padding: 0px 20px;
+    white-space: normal;
   }
 }
