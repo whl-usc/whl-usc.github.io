@@ -316,6 +316,11 @@ footer ul {
   white-space: normal;
 }
 /* Navigation bar styling */
+.brand-logo {
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+}
 .navbar-brand {
   color: rgba(255, 255, 255, 1.0);
   font-family: Tahoma, sans-serif;
