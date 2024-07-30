@@ -103,7 +103,7 @@
             // Close the menu if clicking outside
             document.addEventListener('click', function (event) {
                 if (!navbarCollapse.contains(event.target) && !toggler.contains(event.target) && !toggler.classList.contains('collapsed')) {
-                    $(toggler).click(); // Trigger the toggle button click
+                    $(toggler).click();
                 }
             });
         });
