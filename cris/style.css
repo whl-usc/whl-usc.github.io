@@ -254,32 +254,6 @@ dd {
   justify-content: left;
   margin-left: 25px;
 }
-/* Header section */
-header {
-  background: rgba(22, 83, 126, 0.95);
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);  
-  margin: 0px;
-  padding: 5px 10px;
-  text-align: left;
-}
-header h1 {
-  color: rgba(255, 255, 255, 1);
-  margin: 0px;
-  padding: 0px 5px;
-  text-shadow:  1px 1px 0 #000, 
-                -1px -1px 0 #000, 
-                1px -1px 0 #000, 
-                -1px 1px 0 #000, 
-                2px 2px 5px black;
-}
-header .display-4 {
-  font-family: Tahoma, sans-serif;
-  font-size: 32px;
-  font-weight: bold;
-  line-height: 1.2;
-  margin: 0;
-  padding: 10px auto;
-}
 /* Footer section */
 footer {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.65));
@@ -317,7 +291,7 @@ footer ul {
 }
 /* Navigation bar styling */
 .brand-logo {
-  height: 30px;
+  height: 40px;
   max-width: 100%;
 }
 .navbar-brand {
