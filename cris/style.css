@@ -13,8 +13,8 @@ body {
   margin: 0px;
 }
 main {
-  margin-bottom: 120px;
-  margin-top: 15px;
+  margin-bottom: 50px;
+  margin-top: 5px;
   min-height: calc(100vh - 60px);
   overflow-y: auto;
   position: relative;
@@ -263,7 +263,7 @@ header {
   background: rgba(22, 83, 126, 0.95);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);  
   margin: 0px;
-  padding: 0px 10px;
+  padding: 5px 10px;
   text-align: left;
 }
 header h1 {
@@ -314,6 +314,7 @@ footer ul {
 .navbar {
   background: linear-gradient(to right, rgba(0, 0, 0, 1.0), rgba(11, 41, 63, 0.95));
   height: fit-content;
+  margin: 0;
   padding: 0px 15px;
 }
 .navbar-brand {
@@ -335,6 +336,7 @@ footer ul {
 .dropdown-item {
   font-size: 16px;
   color: rgba(255, 255, 255, 1.0);
+  padding: 0;
 }
 .dropdown-menu,
 .dropdown-item:hover {
