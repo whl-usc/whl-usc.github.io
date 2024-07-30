@@ -14,7 +14,7 @@ body {
 }
 main {
   margin-bottom: 120px;
-  margin-top: 120px;
+  margin-top: 15px;
   min-height: calc(100vh - 60px);
   overflow-y: auto;
   position: relative;
@@ -292,7 +292,6 @@ footer .container {
   max-width: 100%;
   padding: 0px auto;
 }
-
 footer h5,
 footer .col-md-3 a {
   text-align: left;
