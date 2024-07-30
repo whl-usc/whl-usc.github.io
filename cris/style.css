@@ -317,8 +317,7 @@ footer ul {
 }
 /* Navigation bar styling */
 .brand-logo {
-  height: 40px;
-  width: auto;
+  height: 30px;
   max-width: 100%;
 }
 .navbar-brand {
