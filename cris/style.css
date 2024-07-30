@@ -266,7 +266,11 @@ header h1 {
   color: rgba(255, 255, 255, 1);
   margin: 0px;
   padding: 0px 5px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.70);
+  text-shadow:  1px 1px 0 #000, 
+                -1px -1px 0 #000, 
+                1px -1px 0 #000, 
+                -1px 1px 0 #000, 
+                2px 2px 5px black;
 }
 header .display-4 {
   font-family: Tahoma, sans-serif;
@@ -281,7 +285,7 @@ footer {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.65));
   border-radius: 10px 10px 0 0;
   bottom: 0;
-  padding: 10px 0px;
+  padding: 5px 0px;
   position: relative;
   width: 100%;
   z-index: 100;
@@ -303,24 +307,36 @@ footer ul {
   display: block;
   font-family: Tahoma, sans-serif;
   font-size: 12px;
+  line-height: 14px;
   margin: 0;
-  padding: 0;
+  padding: 0px 25px;
   text-decoration: none;
-  white-space: normal;
+  white-space: nowrap;
 }
 /* Navigation bar styling */
+.navbar-brand {
+  color: rgba(255, 255, 255, 1.0);
+  font-family: Tahoma, sans-serif;
+  margin: 0px;
+  padding-left: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-shadow:  2px 2px 0 #000, 
+                -2px -2px 0 #000, 
+                2px -2px 0 #000, 
+                -2px 2px 0 #000,
+                2px 2px 5px yellow;
+}
+.navbar-brand:hover {
+  color: rgba(128, 128, 128, 1.0);
+}
 .navbar {
   background: linear-gradient(to right, rgba(0, 0, 0, 1.0), rgba(11, 41, 63, 0.95));
   border-radius: 0 0 10px 10px;
   height: fit-content;
   margin: 0;
-  padding: 0px 15px;
-}
-.navbar-brand {
-  /* Modify this according to icon */
-}
-.navbar-brand:hover {
-  color: rgba(255, 255, 255, 1.0);
+  padding: 0px 10px;
 }
 .navbar-nav, .nav-link {
   color: rgba(255, 255, 255, 1.0);
@@ -349,7 +365,7 @@ footer ul {
 .dropdown-item:hover {
   background-color: rgba(11, 41, 63, 1.0);
 }
-/* IGV styling 
+ IGV styling 
 #igv-container {
   border: 0.5px solid rgba(0, 0, 0, 0.50);
   border-radius: 3px;
@@ -392,11 +408,26 @@ label, button {
   .grid-item {
     font-size: 10px
   }
+  .separator-dots {
+    font-size: 8px;
+    letter-spacing: 8px;
+  }
   header .display-4 {
     font-size: 22px;
     margin: 0px;
   }
-  footer {
+  footer .container {
+    text-align: left;
+  }
+  footer a, 
+  footer h5, 
+  footer p, 
+  footer ul {
+    display: inline-flex;
+    font-size: 10px;
+    padding: 0px auto;
+  }
+  footer .mailing-address {
     display: none;
   }
   .navbar-nav {
@@ -404,23 +435,19 @@ label, button {
     width: 100%;
   }
   .nav-item a {
-    padding: 5px 0;
+    margin: 0;
+    padding: 0px 10px;
   }
   .dropdown-menu {
     background-color: transparent;
+    margin-left: 0px;
+    padding: 0px 10px;
   }
   .nav-item a:hover,
   .dropdown-menu a:hover {
-    background-color: rgba(128, 128, 128, 0.25);
-    background-color: rgba(128, 128, 128, 0.25);
+    background-color: rgba(128, 128, 128, 0.55);
   }
-  .dropdown-item,
-  .dropdown-item a,
-  .dropdown-menu, {
-    margin-left: 0;
-    padding: 0;
-  }
-  /* Style the menu toggle button  */
+  /*  Style the menu toggle button  */
   .navbar-toggler {
     border: none;
     background: transparent;
