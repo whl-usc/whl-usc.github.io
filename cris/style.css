@@ -276,8 +276,9 @@ header .display-4 {
   font-family: Tahoma, sans-serif;
   font-size: 32px;
   font-weight: bold;
-  line-height: 0.4;
-  margin: 0px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 10px auto;
 }
 /* Footer section */
 footer {
@@ -325,21 +326,20 @@ footer ul {
 .navbar-nav, .nav-link {
   color: rgba(255, 255, 255, 1.0);
 }
-.navbar-nav:hover, .nav-item:hover, .nav-link:hover {
+.navbar-nav:hover, 
+.nav-item:hover, 
+.nav-link:hover,
+.dropdown-item:hover {
   color: rgba(255, 255, 0, 1.0);
 }
-.nav-item {
+.nav-item,
+.dropdown-item {
   font-size: 16px;
-}
-.dropdown-menu, .dropdown-item {
-  background-color: rgba(0, 0, 0, 1.0);
   color: rgba(255, 255, 255, 1.0);
 }
-.navbar-toggler-icon {
-  }
+.dropdown-menu,
 .dropdown-item:hover {
-  background-color: rgba(0, 0, 0, 1.0);
-  color: rgba(255, 255, 0, 1.0);
+  background-color: rgba(11, 41, 63, 1.0);
 }
 /* IGV styling 
 #igv-container {
@@ -386,14 +386,52 @@ label, button {
   }
   header .display-4 {
     font-size: 22px;
-    line-height: 1;
     margin: 0px;
-    padding: 0px;
   }
   footer {
     display: none;
   }
-  .navbar {
-    height: ;
+  .navbar-nav {
+    margin: 0;
+    width: 100%;
+  }
+  .nav-item a {
+    padding: 5px 0;
+  }
+  .dropdown-menu {
+    background-color: transparent;
+  }
+  .nav-item a:hover,
+  .dropdown-menu a:hover {
+    background-color: rgba(128, 128, 128, 0.25);
+    background-color: rgba(128, 128, 128, 0.25);
+  }
+  .dropdown-item,
+  .dropdown-item a,
+  .dropdown-menu, {
+    margin-left: 0;
+    padding: 0;
+  }
+  /* Style the menu toggle button  */
+  .navbar-toggler {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(10, 10, 0, 0.50);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.50);
+    transition: color 0.3s ease;
+  }
+  .navbar-toggler .bi-list {
+    display: none;
+  }
+  .navbar-toggler .bi-x {
+    display: none;
+  }
+  .navbar-toggler.collapsed .bi-list {
+    display: block;
+  }
+  .navbar-toggler:not(.collapsed) .bi-x {
+    display: block;
   }
 }

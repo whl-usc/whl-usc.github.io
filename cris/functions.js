@@ -1,3 +1,4 @@
+// Load the template.html for header, navbar, footer.
 function loadTemplate() {
     fetch('template.html')
         .then(response => response.text())
@@ -12,8 +13,6 @@ function loadTemplate() {
         })
         .catch(error => console.error('Error loading template:', error));
 }
-
-// Load the template when the document is fully loaded
 document.addEventListener('DOMContentLoaded', loadTemplate);
 
 // Dynamically updates the table based on the datasets.

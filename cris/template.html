@@ -3,12 +3,12 @@
 <head>
     <title>CRIS Database Template</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header Container -->
-    <header class="display-4 py-3">
+    <header class="display-4">
         <h1 class="display-4">
             <u>C</u>rosslinking-based <u>R</u>NA <u>I</u>nteractomes and <u>S</u>tructuromes
         </h1>
@@ -16,8 +16,9 @@
     <!-- Navigation Container -->
     <nav class="navbar navbar-expand-md">
         <a class="navbar-brand" href="https://whl-usc.github.io/cris/home.html">CRIS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-list"></i>
+            <i class="bi bi-x"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
@@ -54,7 +55,7 @@
         </div>
     </nav>
     <!-- Footer Container -->
-    <footer class="py-4">
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -92,5 +93,20 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to handle icon toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('#navbarNav');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Close the menu if clicking outside
+            document.addEventListener('click', function (event) {
+                if (!navbarCollapse.contains(event.target) && !toggler.contains(event.target) && !toggler.classList.contains('collapsed')) {
+                    $(toggler).click(); // Trigger the toggle button click
+                }
+            });
+        });
+    </script>
 </body>
 </html>
