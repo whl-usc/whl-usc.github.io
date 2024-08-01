@@ -41,7 +41,7 @@
                     <i>Note that the described parameters are specific to this pipeline. For instance, the reads from PARIS and SHARC-based experiments are single-ended, therefore only one set of input and output files is specified.</i> The processing steps (trimming, cropping, adapter clipping, etc.) are specified as additional arguments after the input/output files. Multiple steps can be specified as required, by using additional arguments at the end as described in the section processing steps (separated by a single space). For input and output files, adding .gz/.bz2 as an extension tells Trimmomatic that the file is provided in gzip/bzip2 format or that Trimmomatic should gzip/bzip2 the file, respectively. Note that most processing steps take one or more settings, delimited by ':' (colon). 
                 </p>
                 <div class="container">
-                    <code>java -jar &lt;trimmomatic.jar&gt; SE [-threads&lt;threads&gt;] [-phred33 | -phred64] &lt;input.fastq.gz&gt; &lt;output.fastq.gz&gt; ILLUMINACLIP:&lt;adapters.fa&gt;:&lt;seed mismatches&gt;:&lt;palindrome clip threshold&gt;:&lt;simple clip threshold&gt; SLIDINGWINDOW:&lt;windowSize&gt;:&lt;requiredQuality&gt; MINLEN:&lt;length&gt;</code>
+                    <code>java -jar &lt;trimmomatic.jar&gt; SE [-threads &lt;threads&gt;] [-phred33 | -phred64] &lt;input.fastq.gz&gt; &lt;output.fastq.gz&gt; ILLUMINACLIP:&lt;adapters.fa&gt;:&lt;seed mismatches&gt;:&lt;palindrome clip threshold&gt;:&lt;simple clip threshold&gt; SLIDINGWINDOW:&lt;windowSize&gt;:&lt;requiredQuality&gt; MINLEN:&lt;length&gt;</code>
                 </div>
                 <div class="dl-container">
                     <dl>
