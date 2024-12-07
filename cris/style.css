@@ -155,7 +155,7 @@ th.filter:hover {
 .publications a {
   color: rgba(0, 0, 0, 1);
   font-family: Tahoma, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: normal;
   justify-content: left;
   text-decoration: underline;
@@ -164,10 +164,11 @@ th.filter:hover {
   color: rgba(0, 0, 255, 1);
 }
 .publications li {
+  font-size: 12px;
   list-style-position: outside;
   list-style-type: number;
   margin-bottom: 10px;
-  max-width: 90%;
+  max-width: 95%;
   width: fit-content;
 }
 /* Create a grid system for items */
@@ -237,7 +238,7 @@ dl {
   font-family: Tahoma, sans-serif;
   font-size: 14px;
   font-weight: normal;
-  max-width: 75%;
+  max-width: 85%;
   padding: 10px;
   width: fit-content;
 }
