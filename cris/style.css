@@ -210,7 +210,7 @@ code {
   border: 0.5px solid rgba(0, 0, 0, 0.50);
   border-radius: 3px;
   font-family: Courier New;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: normal;
   margin: 10px 45px;
   max-width: 80%;
@@ -225,6 +225,14 @@ code {
 code.example {
   background: rgba(144, 238, 144, 0.25);
 }
+
+code.faq-example {
+  background: rgba(144, 144, 144, 0.25);
+  font-size: 11px;
+  margin-left: 0px;
+  padding: 5px;  
+}
+
 .code-block {
   text-align: left;
   width: fit-content;
