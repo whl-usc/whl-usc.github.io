@@ -97,23 +97,36 @@ document.addEventListener('DOMContentLoaded', loadTemplate);
 //     populateTable();
 // });
 
-// JavaScript to fetch CSV file and parse the data
-fetch('https://github.com/whl-usc/whl-usc.github.io/tree/main/cris/links/datasets.csv') // Update any path to the CSV file
-    .then(response => response.text())
+// JavaScript to fetch DATASETS.CSV file
+fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/links/datasets.csv') // Use the raw file URL
+    .then(response => {
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        return response.text();
+    })
     .then(csvText => {
-        const rows = csvText.split("\n"); // Split CSV into rows
-        const tableBody = document.querySelector('#data-table tbody'); // Table body to insert rows
+        const rows = csvText.trim().split("\n");
+        const tableBody = document.querySelector('#data-table tbody');
 
-        // Loop through the rows (skip the header row, so start from index 1)
         rows.forEach((row, index) => {
-            if (index === 0) return;
+            if (index === 0) return; // Skip header row
 
             const cols = row.split(",");
             if (cols.length === 11) {
                 const tr = document.createElement('tr');
                 cols.forEach(col => {
                     const td = document.createElement('td');
-                    td.textContent = col;
+                    
+                    // Check if the cell content is a URL
+                    if (col.startsWith("http://") || col.startsWith("https://")) {
+                        const icon = document.createElement('a');
+                        icon.href = col;
+                        icon.target = "_blank";
+                        icon.innerHTML = "&#128190;"; // Unicode for download icon (💾)
+                        td.appendChild(icon);
+                    } else {
+                        td.textContent = col; // For non-URL content, add plain text
+                    }
+
                     tr.appendChild(td);
                 });
 
@@ -122,6 +135,46 @@ fetch('https://github.com/whl-usc/whl-usc.github.io/tree/main/cris/links/dataset
         });
     })
     .catch(error => console.error("Error loading CSV:", error));
+
+// JavaScript to fetch REFERENCES.CSV file
+fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/links/references.csv') // Use the raw file URL
+    .then(response => {
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        return response.text();
+    })
+    .then(csvText => {
+        const rows = csvText.trim().split("\n");
+        const tableBody = document.querySelector('#refgenome-table tbody');
+
+        rows.forEach((row, index) => {
+            if (index === 0) return; // Skip header row
+
+            const cols = row.split(",");
+            if (cols.length === 11) {
+                const tr = document.createElement('tr');
+                cols.forEach(col => {
+                    const td = document.createElement('td');
+                    
+                    // Check if the cell content is a URL
+                    if (col.startsWith("http://") || col.startsWith("https://")) {
+                        const icon = document.createElement('a');
+                        icon.href = col;
+                        icon.target = "_blank";
+                        icon.innerHTML = "&#128190;"; // Unicode for download icon (💾)
+                        td.appendChild(icon);
+                    } else {
+                        td.textContent = col; // For non-URL content, add plain text
+                    }
+
+                    tr.appendChild(td);
+                });
+
+                tableBody.appendChild(tr);
+            }
+        });
+    })
+    .catch(error => console.error("Error loading CSV:", error));
+
 
 // Add IGV embed into the webpage.
 document.addEventListener("DOMContentLoaded", function() {

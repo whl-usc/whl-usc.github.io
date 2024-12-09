@@ -110,26 +110,28 @@ hr {
 }
 /* Tables */
 .table-container {
-  margin: 0 25px;
-  max-width: 95%;
+  display: flex;
+  justify-content: center;
+  margin: 25px auto;
+  max-width: fit-content;
   overflow-x: auto;
 }
 table {
   border-collapse: collapse;
+  table-layout: auto;
+  width: auto;
 }
 th, td {
   border: 1px solid #ddd;
   font-family: Tahoma, sans-serif;
   font-size: 14px;
-  padding: 5px 5px;
+  padding: 5px 10px;
   text-align: left;
   width: 150px;
+  white-space: nowrap;
 }
 th {
   background-color: rgba(0, 100, 200, 0.45);
-}
-table td:first-child {
-  white-space: nowrap
 }
 table td:not(:first-child), th:not(:first-child){
   text-align: center;  
