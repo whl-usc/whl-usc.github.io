@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 pritrans: "https://example.com/path/to/pritrans.bam",
                 gaplen: "https://example.com/path/to/gaplen.bam",
                 seglen: "https://example.com/path/to/seglen.bam",
+                fastqc: "https://example.com/path/to/fastqc.html",
             }
         },
         {
@@ -44,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 pritrans: "https://example.com/path/to/pritrans.bam",
                 gaplen: "https://example.com/path/to/gaplen.bam",
                 seglen: "https://example.com/path/to/seglen.bam",
+                fastqc: "https://example.com/path/to/fastqc.html",
             }
         },
         {
@@ -58,27 +60,69 @@ document.addEventListener("DOMContentLoaded", function () {
                 pritrans: "test",
                 gaplen: "test",
                 seglen: "test",
+                fastqc: "https://example.com/path/to/fastqc.html",
             }
         },
         // Add more dataset objects here
     ];
 
-    const dropdownMenu = document.getElementById("dropdownMenu");
-    const datasetHeader = document.getElementById("datasetHeader");
     const tableBody = document.getElementById("tableBody");
 
-    function populateDropdown() {
-        dropdownMenu.innerHTML = ''; // Clear existing items
+    function populateTable() {
         data.forEach(dataset => {
-            const li = document.createElement("li");
-            const a = document.createElement("a");
-            a.href = "#";
-            a.textContent = dataset.name;
-            a.dataset.dataset = dataset.name;
-            li.appendChild(a);
-            dropdownMenu.appendChild(li);
+            const row = document.createElement("tr");
+
+            // Add the dataset name
+            const datasetCell = document.createElement("td");
+            datasetCell.textContent = dataset.name;
+            row.appendChild(datasetCell);
+
+            // Add the links
+            Object.keys(dataset.links).forEach(key => {
+                const cell = document.createElement("td");
+                const link = document.createElement("a");
+                link.href = dataset.links[key];
+                link.download = `${dataset.name}_${key}.bam`;
+                link.target = "_blank";
+                link.innerHTML = '<i class="bi bi-download"></i>'; // Replace with your desired text/icon
+                cell.appendChild(link);
+                row.appendChild(cell);
+            });
+
+            tableBody.appendChild(row);
         });
     }
+
+    // Initialize table
+    populateTable();
+});
+
+// Dynamically updates the table based on the reference genomes.
+document.addEventListener("DOMContentLoaded", function () {
+    const data = [
+        {
+            name: "HS-HeLa_Amo-1_T4-24h_exo-0h",
+            links: {
+                pri_crssant: "https://Documents/CRIS/data/PARIS/PARIS1/HS-HEK293T_AMT-0.5_T4-24h_exo-0h/HS-HEK293T_AMT-0.5_T4-24h_exo-0h_pri_crssant.bam?csf=1&web=1&e=YzEpYc",
+            }
+        },
+        {
+            name: "HS-HeLa_Amo-1_T4-24h_exo-2h",
+            links: {
+                pri_crssant: "https://Documents/CRIS/data/PARIS/PARIS1/HS-HEK293T_AMT-0.5_T4-24h_exo-0h/HS-HEK293T_AMT-0.5_T4-24h_exo-0h_pri_crssant.bam?csf=1&web=1&e=YzEpYc",
+            }
+        },
+        {
+            name: "HS-HeLa_Amo-1_T4-24h_exo-12h",
+            links: {
+                pri_crssant: "test",
+            }
+        },
+        // Add more dataset objects here
+    ];
+
+    const datasetHeader = document.getElementById("datasetHeader");
+    const tableBody = document.getElementById("tableBody");
 
     function updateTable(datasetName) {
         tableBody.innerHTML = ''; // Clear existing rows
@@ -101,13 +145,8 @@ document.addEventListener("DOMContentLoaded", function () {
             tableBody.appendChild(row);
         }
     }
-
-    // Initialize by showing all datasets in the dropdown
-    populateDropdown();
-    if (data.length > 0) {
-        updateTable(data[0].name);
-    }
 });
+
 
 // Add IGV embed into the webpage.
 document.addEventListener("DOMContentLoaded", function() {

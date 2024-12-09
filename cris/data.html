@@ -39,25 +39,16 @@
         <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
         <div class="section-color">
             <div class="instructions">
-            <h1>Data Availability</h1>
+            <h1>Data Availability</h1><hr />
             <h2>Processed Data</h2>
                 <p>
-                    All published data generated via the PARIS or SHARC methods is available in BAM format. The file prefixes are named with details of the experimental conditions as described below.
+                    All published data generated via the PARIS or SHARC methods is available in BAM format. File prefixes are annotations of details corresponding to the experimental conditions as described in the table below.
                 </p>
                 <div class="table-container">
-                    <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterTable()">
                     <table id="dataSet">
                         <thead>
                             <tr>
-                                <th class="filter" id="datasetHeader">Dataset&nbsp;&nbsp;&nbsp;<i class="bi bi-caret-down-square-fill"></i>
-                                    <ul class="dropdown-menu" id="dropdownMenu">
-                                        <!-- Dropdown menu items are populated by the functions.js script -->
-                                    </ul>
-                                </th>
-                                <!-- Other headers if needed -->
-                            </tr>
-                            <tr>
-                                <th>File Name</th>
+                                <th>Name</th>
                                 <th>pri_crssant</th>
                                 <th>prigap1</th>
                                 <th>prigap1_filtered</th>
@@ -67,14 +58,14 @@
                                 <th>pritrans</th>
                                 <th>gaplen</th>
                                 <th>seglen</th>
+                                <th>fastqc</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody">
                             <!-- Rows are to be populated by the functions.js script -->
                         </tbody>
-                    </table>
+                    </table><br />
                 </div>
-                <br /><br />
                 <div class="dl-container">
                     <dl>
                         <dt>Species</dt>
@@ -89,8 +80,8 @@
                             <dd>Amo - Amotosalen</dd>
                             <dd>DPI - 2,6-Pyridinedicarboxylic acid (SHARC)</dd>
                             <dd>FA - Formaldehyde</dd>
-                            <dd><i>Note that crosslinker concentrations can be in either mg/mL or molar (M).</i><br />
-                            A rule of thumb is that the psoralens (AMT/Amo) are in mg/mL, while all other crosslinkers are in M.</dd>
+                            <dd><strong><i>Crosslinker concentrations are described in either mg/mL or molar (M).</i></strong><br /> 
+                            A rule of thumb is that the psoralens (AMT/Amo) are prepared in mg/mL, other crosslinkers are in M.</dd>
                         <dt>Proximity Ligase</dt>
                             <dd>T4 - T4 RNA Ligase 1</dd>
                             <dd>Mth - Mth RNA Ligase</dd>
@@ -110,7 +101,59 @@
                             <dd>seglen - Distribution of arm lengths among the alignments.</dd>
                     </dl>
                 </div>
-            <hr />
+                <div class="separator-line"></div>
+            <h2>Reference Genomes</h2>
+                <p>
+                    The reference genomes used for alignment and annotation are provided below for convenience.
+                    Normal genome references are the version directly accessed 
+                </p>
+                <p><b>Normal Genomes</b></p>
+                    <div class="table-container">
+                        <table id="dataSet">
+                            <thead>
+                                <tr>
+                                    <th>Human</th>
+                                    <th>Mouse</th>
+                                    <th>Yeast</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!-- Rows are to be populated by the functions.js script -->
+                            </tbody>
+                        </table>
+                    </div>
+                <p><b>Curated Genomes</b></p>
+                    <div class="table-container">
+                        <table id="dataSet">
+                            <thead>
+                                <tr>
+                                    <th>starhg38mask14add</th>
+                                    <th>starmm10mask16add</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!-- Rows are to be populated by the functions.js script -->
+                            </tbody>
+                        </table>
+                    </div>
+                <p><b>Special Genomes</b></p>
+                <div class="table-container">
+                    <table id="dataSet">
+                            <thead>
+                                <tr>
+                                    <th>RNA_1-RNA_2</th>
+                                    <th>RNA_1-RNA_3</th>
+                                    <th>RNA_2-RNA_3</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!-- Rows are to be populated by the functions.js script -->
+                            </tbody>
+                        </table>
+                    </div>
+                <br />
+                <div class="separator-line"></div>
+
             <h2>Raw Data</h2>
                 <p><b>Option 1.</b>&nbsp;Bulk download data from a whole project via NCBI GEO accesion list.</p>
                 <ul>

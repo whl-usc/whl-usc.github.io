@@ -126,15 +126,13 @@ th, td {
   width: 150px;
 }
 th {
-  background-color: rgba(0, 100, 200, 0.50);
+  background-color: rgba(0, 100, 200, 0.45);
 }
-th.filter {
-  position: relative;
-  padding: 0px auto;
-  width: 400px;
+table td:first-child {
+  white-space: nowrap
 }
-th.filter:hover {
-  background-color: rgba(0, 100, 200, 0.75);
+table td:not(:first-child), th:not(:first-child){
+  text-align: center;  
 }
 /* Search Input */
 #searchInput {
