@@ -108,20 +108,19 @@
                 </p>
                 <div class="dl-container">
                     <dl>
-                        <dt>"Normal"</dt>
-                            <dd>Default version of a reference genome maintained by the Genome Reference Consortium (GRC).</dd>
-                        <dt>"Curated"</dt>    
-                            <dd>Repeated and abundant RNA regions were masked with "N" and added as separate "chromosomes".</dd>
-                        <dt>"Special"</dt>
-                            <dd>Concatenation of two RNA genes that have an interaction(s).</dd>
+                        <dt>Normal</dt>
+                            <dd>Default version of a reference genome maintained by the Genome Reference Consortium (GRC). These genomes are used as a baseline for most genomic analyses such as gene annotation, variant calling, and comparative genomics. They represent a typical species sequence, useful in general-purpose applications.</dd>
+                        <dt>Curated</dt>    
+                            <dd>These genomes have had specific repeated and abundant RNA regions masked with "N" and added as separate "chromosomes". Curated genomes are particularly useful in studies focusing on structural variants, offering more accurate results in these areas. These references may also undergo manual review for better representation of complex genomic regions.</dd>
+                        <dt>Special</dt>    
+                            <dd>Special reference genomes are created by concatenating two or more RNA genes known to have interactions, focusing on specific biological processes.</dd>
                     </dl>
                 </div>
                 <div class="table-container">
                     <table id="normal-table">
                         <thead>
                             <tr>
-                                <th>Normal Reference</th>
-                                <th></th>
+                                <th colspan="2">Normal Reference</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -133,8 +132,7 @@
                     <table id="curated-table">
                         <thead>
                             <tr>
-                                <th>Curated Reference</th>
-                                <th></th>
+                                <th colspan="2">Curated Reference</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody">
@@ -146,8 +144,7 @@
                     <table id="special-table">
                         <thead>
                             <tr>
-                                <th>Special Reference</th>
-                                <th></th>
+                                <th colspan="2">Special Reference</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody">

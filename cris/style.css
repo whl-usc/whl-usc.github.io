@@ -123,9 +123,9 @@ th, td {
   border: 1px solid #ddd;
   font-family: Tahoma, sans-serif;
   font-size: 14px;
-  padding: 5px 10px;
+  padding: 2px 5px;
   text-align: left;
-  width: 150px;
+  width: 120px;
   white-space: nowrap;
 }
 th {
