@@ -104,53 +104,57 @@
                 <div class="separator-line"></div>
             <h2>Reference Genomes</h2>
                 <p>
-                    The reference genomes used for alignment and annotation are provided below for convenience.
-                    Normal genome references are the version directly accessed 
+                    The reference genomes used for alignment and annotation are provided below for convenience.<br />
                 </p>
-                <p><b>Normal Genomes</b></p>
+                <div class="dl-container">
+                    <dl>
+                        <dt>"Normal"</dt>
+                            <dd>Default version of a reference genome maintained by the Genome Reference Consortium (GRC).</dd>
+                        <dt>"Curated"</dt>    
+                            <dd>Repeated and abundant RNA regions were masked with "N" and added as separate "chromosomes".</dd>
+                        <dt>"Special"</dt>
+                            <dd>Concatenation of two RNA genes that have an interaction(s).</dd>
+                    </dl>
+                </div>
                 <div class="table-container">
-                    <table id="refgenome-table">
+                    <table id="normal-table">
                         <thead>
                             <tr>
-                                <th>Human</th>
-                                <th>Mouse</th>
-                                <th>Yeast</th>
+                                <th>Normal Reference</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Rows are to be populated by the functions.js script -->
                         </tbody>
-                    </table><br />
-                <p><b>Curated Genomes</b></p>
-                    <div class="table-container">
-                        <table id="dataSet">
-                            <thead>
-                                <tr>
-                                    <th>starhg38mask14add</th>
-                                    <th>starmm10mask16add</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                                <!-- Rows are to be populated by the functions.js script -->
-                            </tbody>
-                        </table>
-                    </div>
-                <p><b>Special Genomes</b></p>
+                    </table>
+                </div><br />
                 <div class="table-container">
-                    <table id="dataSet">
-                            <thead>
-                                <tr>
-                                    <th>RNA_1-RNA_2</th>
-                                    <th>RNA_1-RNA_3</th>
-                                    <th>RNA_2-RNA_3</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                                <!-- Rows are to be populated by the functions.js script -->
-                            </tbody>
-                        </table>
-                    </div>
-                <br />
+                    <table id="curated-table">
+                        <thead>
+                            <tr>
+                                <th>Curated Reference</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Rows are to be populated by the functions.js script -->
+                        </tbody>
+                    </table>
+                </div><br />
+                <div class="table-container">
+                    <table id="special-table">
+                        <thead>
+                            <tr>
+                                <th>Special Reference</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Rows are to be populated by the functions.js script -->
+                        </tbody>
+                    </table>
+                </div><br />
                 <div class="separator-line"></div>
 
             <h2>Raw Data</h2>

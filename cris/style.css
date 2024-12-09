@@ -110,9 +110,7 @@ hr {
 }
 /* Tables */
 .table-container {
-  display: flex;
-  justify-content: center;
-  margin: 25px auto;
+  margin: 0 25px;
   max-width: fit-content;
   overflow-x: auto;
 }

@@ -124,7 +124,7 @@ fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/lin
                         icon.innerHTML = "&#128190;"; // Unicode for download icon (💾)
                         td.appendChild(icon);
                     } else {
-                        td.textContent = col; // For non-URL content, add plain text
+                        td.textContent = col;
                     }
 
                     tr.appendChild(td);
@@ -137,44 +137,57 @@ fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/lin
     .catch(error => console.error("Error loading CSV:", error));
 
 // JavaScript to fetch REFERENCES.CSV file
-fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/links/references.csv') // Use the raw file URL
+fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/links/reference_genomes.csv') // Use the raw CSV URL
     .then(response => {
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         return response.text();
     })
     .then(csvText => {
-        const rows = csvText.trim().split("\n");
-        const tableBody = document.querySelector('#refgenome-table tbody');
+        const rows = csvText.trim().split("\n").slice(1); // Remove header row
+        const tableBodies = {
+            normal: document.querySelector('#normal-table tbody'),
+            curated: document.querySelector('#curated-table tbody'),
+            special: document.querySelector('#special-table tbody')
+        };
 
-        rows.forEach((row, index) => {
-            if (index === 0) return; // Skip header row
-
+        rows.forEach(row => {
             const cols = row.split(",");
-            if (cols.length === 11) {
-                const tr = document.createElement('tr');
-                cols.forEach(col => {
-                    const td = document.createElement('td');
-                    
-                    // Check if the cell content is a URL
-                    if (col.startsWith("http://") || col.startsWith("https://")) {
-                        const icon = document.createElement('a');
-                        icon.href = col;
-                        icon.target = "_blank";
-                        icon.innerHTML = "&#128190;"; // Unicode for download icon (💾)
-                        td.appendChild(icon);
-                    } else {
-                        td.textContent = col; // For non-URL content, add plain text
-                    }
 
-                    tr.appendChild(td);
-                });
+            // Extract columns for each table
+            const [normalName, normalLink, curatedName, curatedLink, specialName, specialLink] = cols;
+
+            // Helper function to create and append a row
+            const appendRow = (tableBody, name, link) => {
+                const tr = document.createElement('tr');
+
+                // Name cell
+                const nameCell = document.createElement('td');
+                nameCell.textContent = name || "N/A";
+                tr.appendChild(nameCell);
+
+                // Link cell
+                const linkCell = document.createElement('td');
+                if (link && (link.startsWith("http://") || link.startsWith("https://"))) {
+                    const anchor = document.createElement('a');
+                    anchor.href = link;
+                    anchor.target = "_blank";
+                    anchor.innerHTML = "&#128190;"; // Unicode for download icon
+                    linkCell.appendChild(anchor);
+                } else {
+                    linkCell.textContent = "N/A";
+                }
+                tr.appendChild(linkCell);
 
                 tableBody.appendChild(tr);
-            }
+            };
+
+            // Add rows to respective tables
+            if (normalName || normalLink) appendRow(tableBodies.normal, normalName, normalLink);
+            if (curatedName || curatedLink) appendRow(tableBodies.curated, curatedName, curatedLink);
+            if (specialName || specialLink) appendRow(tableBodies.special, specialName, specialLink);
         });
     })
     .catch(error => console.error("Error loading CSV:", error));
-
 
 // Add IGV embed into the webpage.
 document.addEventListener("DOMContentLoaded", function() {
