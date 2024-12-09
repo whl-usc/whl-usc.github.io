@@ -101,30 +101,25 @@ document.addEventListener('DOMContentLoaded', loadTemplate);
 fetch('https://github.com/whl-usc/whl-usc.github.io/tree/main/cris/links/datasets.csv') // Update any path to the CSV file
     .then(response => response.text())
     .then(csvText => {
-        const rows = csvText.split("\n");
-        const dataset = [];
+        const rows = csvText.split("\n"); // Split CSV into rows
+        const tableBody = document.querySelector('#data-table tbody'); // Table body to insert rows
 
-        rows.forEach(row => {
+        // Loop through the rows (skip the header row, so start from index 1)
+        rows.forEach((row, index) => {
+            if (index === 0) return;
+
             const cols = row.split(",");
-            const entry = {
-                name: cols[0], // Dataset name
-                links: {
-                    pri_crssant: cols[1],
-                    prigap1: cols[2],
-                    prigap1_filtered: cols[3],
-                    prigapm: cols[4],
-                    prigapm_filtered: cols[5],
-                    prihomo: cols[6],
-                    pritrans: cols[7],
-                    gaplen: cols[8],
-                    seglen: cols[9],
-                    fastqc: cols[10]
-                }
-            };
-            dataset.push(entry);
-        });
+            if (cols.length === 11) {
+                const tr = document.createElement('tr');
+                cols.forEach(col => {
+                    const td = document.createElement('td');
+                    td.textContent = col;
+                    tr.appendChild(td);
+                });
 
-        console.log(dataset);
+                tableBody.appendChild(tr);
+            }
+        });
     })
     .catch(error => console.error("Error loading CSV:", error));
 
