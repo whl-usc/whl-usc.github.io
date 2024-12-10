@@ -110,7 +110,7 @@ hr {
 }
 /* Tables */
 .table-container {
-  border: 1.5px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
   margin: 0 25px;
   max-height: 300px;
@@ -352,6 +352,9 @@ footer ul {
     1px -1px 5 #000, 
     -1px 1px 5 #000;
 }
+.game {
+  color: rgba(150, 250, 250, 1)
+}
 .nav-item,
 .dropdown-item {
   color: rgba(255, 255, 255, 1.0);
@@ -367,7 +370,7 @@ footer ul {
 .dropdown-item:hover {
   background-color: rgba(11, 41, 63, 1.0);
 }
- IGV styling 
+/* IGV styling */
 #igv-container {
   border: 0.5px solid rgba(0, 0, 0, 0.50);
   border-radius: 3px;
@@ -431,10 +434,10 @@ label, button {
     margin-left: 0px;
     padding: 0px 10px;
   }
-  .nav-item a:hover,
+/*  .nav-item a:hover,
   .dropdown-menu a:hover {
     background-color: rgba(128, 128, 128, 0.55);
-  }
+  }*/
   /*  Style the menu toggle button  */
   .navbar-toggler {
     border: none;
