@@ -110,9 +110,13 @@ hr {
 }
 /* Tables */
 .table-container {
+  border: 1.5px solid rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
   margin: 0 25px;
+  max-height: 300px;
   max-width: fit-content;
   overflow-x: auto;
+  overflow-y: auto;
 }
 table {
   border-collapse: collapse;
@@ -130,6 +134,11 @@ th, td {
 }
 th {
   background-color: rgba(0, 100, 200, 0.45);
+}
+thead {
+  background-color: white;
+  position: sticky;
+  top: 0;
 }
 table td:not(:first-child), th:not(:first-child){
   text-align: center;  
