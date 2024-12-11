@@ -5,7 +5,7 @@ html, body {
   overflow-x: hidden;
 }
 body {
-  background-color: rgba(240, 240, 240, 1.0);
+  background: rgba(240, 240, 240, 1.0);
   margin: 0px;
 }
 main {
@@ -183,7 +183,7 @@ table td:not(:first-child), th:not(:first-child){
 }
 /* Create a grid system for items */
 .grid-container {
-  background-color: rgba(174, 214, 241, 0.20);
+  background: rgba(174, 214, 241, 0.20);
   border: 0.5px solid rgba(0, 0, 0, 1);
   border-radius: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
@@ -195,7 +195,7 @@ table td:not(:first-child), th:not(:first-child){
   width: fit-content;
 }
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.75);
   border: 0.5px solid rgba(0, 0, 0, .5);
   border-radius: 5px;
   color: black;
@@ -431,13 +431,13 @@ label, button {
     padding: 0px 10px;
   }
   .dropdown-menu {
-    background-color: transparent;
+    background: transparent;
     margin-left: 0px;
     padding: 0px 10px;
   }
 /*  .nav-item a:hover,
   .dropdown-menu a:hover {
-    background-color: rgba(128, 128, 128, 0.55);
+    background: rgba(128, 128, 128, 0.55);
   }*/
   .table-container {
     overflow-x: auto;
