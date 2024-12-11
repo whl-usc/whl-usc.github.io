@@ -7,6 +7,8 @@ CRIS A database of crosslinking-based RNA interactomes and structurome, containi
 <!-- ABOUT THE PROJECT -->
 ## About the Project
 
+SEE PROJECT HERE: [https://whl-usc.github.io/](https://whl-usc.github.io/cris/home)
+
 Advancements in the field of RNA structure and interaction studies have enabled high throughput analysis of RNAs, revealing base pairing and higher order interactions. Despite the progress on the experimental methods for studying RNA secondary and intermolecular complexes, computational analysis of such data generated has remained a challenge. One subset of such experimental methods, the crosslinking- and proximity-ligation based approaches generates non-continuous reads that indicate specific RNA structures and interactions. Here, we provide a resource that details the results of the computational analysis from a variety of methods that employ the crosslinking-ligation principle (*see* [PARIS](https://pubmed.ncbi.nlm.nih.gov/27180905/), [PARIS2](https://www.nature.com/articles/s41467-021-22552-y), [SHARC](https://www.nature.com/articles/s41467-022-28602-3)). 
 
 Briefly, the pipeline functions as follows: Raw data were processed to remove sequencing adapters and PCR duplicates (and if applicable. separated by barcode). All reads were permissively mapped to a custom reference genome (Hg38 with masked repeat regions) using STAR. Primary alignments were extracted, classified, and assembled to duplex groups (DGs), non-overlapping (NGs), or tri-segment groups (TGs). 
@@ -17,7 +19,5 @@ Here, DGs can be visualized using IGV, converted to stemloop groups, and have en
 ## Contact
 
 [Zhipeng Lu](https://zhipenglulab.org)
-
-Project Link: [https://whl-usc.github.io/](https://whl-usc.github.io/cris/home.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
