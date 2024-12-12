@@ -85,40 +85,43 @@
                 </p>
             <div class="separator-line"></div>
             <h2>Configuring samtools</h2>
-                <ol class="instructions">
+            <div class="container">
+                <ul>
                     <li>
-                        Load the conda module:<br/><code class="faq-example">module load conda</code>
+                        Load the conda module.<br />
+                        <code class="faq-example">module load conda</code>
                     </li>
                     <li>
-                        Create a new conda environment:<br/><code class="faq-example">conda create -n samtools_env ncurses zlib</code>
+                        Create a new conda environment.<br />
+                        <code class="faq-example">conda create -n samtools_env ncurses zlib</code>
                     </li>
                     <li>
-                        Install required packages:<br/><code class="faq-example">conda install ncurses zlib</code>
+                        Install required packages.<br />
+                        <code class="faq-example">conda install ncurses zlib</code><br/>
                     </li>
                     <li>
-                        Install bzip2:<br/><code class="faq-example">conda install bzip2</code>
+                        Install bzip2.<br />
+                        <code class="faq-example">conda install bzip2</code><br/>
                     </li>
                     <li>
-                        Activate the environment:<br/><code class="faq-example">conda activate samtools_env</code>
+                        Activate the environment.<br />
+                        <code class="faq-example">conda activate samtools_env</code><br/>
                     </li>
                     <li>
-                        Set environment variables:<br/><code class="faq-example">export CPPFLAGS="-I$CONDA_PREFIX/include" && export LDFLAGS="-L$CONDA_PREFIX/lib"</code>
+                        Set environment variables.<br />
+                        <code class="faq-example">export CPPFLAGS="-I$CONDA_PREFIX/include" && export LDFLAGS="-L$CONDA_PREFIX/lib"</code><br/>
                     </li>
                     <li>
-                        Configure and install Samtools:<br/><code class="faq-example">./configure --prefix=PATH/bin/samtools --with-ncurses=$CONDA_PREFIX --with-zlib=$CONDA_PREFIX</code> 
+                        Configure and install samtools.<br />
+                        <code class="faq-example">./configure --prefix=PATH/bin/samtools --with-ncurses=$CONDA_PREFIX --with-zlib=$CONDA_PREFIX</code><br/>
                     </li>
                     <li>
-                        Execute the program:<br/><code class="faq-example">make && make install</code>
+                        Execute the program.<br />
+                        <code class="faq-example">make && make install</code><br/><br/>
                     </li>
-                        <br/>
-                </ol>
-            <div class="separator-line"></div>
+                </ul>
+            </div>
         </div>
-        <!-- <h2></h2>
-            <ul>
-                <li>
-                </li>
-            </ul> -->
         <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
     </main>
     <div id="footer-container"></div>

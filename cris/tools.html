@@ -120,7 +120,6 @@
             <h3>FastQC</h3>
                 <p>
                     After pre-processing, data must be checked for quality.
-                    Show examples of the data quality.
                 </p>
                 <div class="separator-line"></div>
             <h2>Alignment to reference genome</h2><hr />
@@ -156,14 +155,142 @@
                         --chimNonchimScoreDropMin 20<br />
                     </code>
                 </div>
-            <h3>Primary Read Extraction</h3>
-                <p>Samtools and awk examples.</p>
+            <h2>Primary Read Extraction and Classification</h2><hr />
+            <h3>Extraction by samtools</h3>
+                <div class="container">
+                    <code class="code-block example">
+                        samtools view -h x_Aligned.sortedByCoord.out.bam | awk '$1~/^@/ || NF<21' > x_nonchimeric_temp.sam<br />
+                        samtools view -h x_Aligned.sortedByCoord.out.bam | awk '$1!~/^@/ && NF==21'> x_chimeric_temp.sam'<br />
+                        samtools view -bS -F 0x900 -o x_nonchimeric_pri.bam x_nonchimeric_temp.sam<br />
+                        samtools view -h x_nonchimeric_pri.bam > x_nonchimeric_pri.sam<br />
+                        cat x_nonchimeric_pri.sam x_chimeric_temp.sam > x_1_pri.sam<br />
+                        rm -f x_nonchimeric_temp.sam x_chimeric_temp.sam x_nonchimeric_pri.bam x_nonchimeric_pri.sam<br />
+                    </code>
+                </div>
+            <h3>Classifying Primary Reads</h3>
+                <div class="container">
+                    <code class="code-block example">python3 gaptypes.py x_1_pri.sam x_1_pri -1 15 1</code>
+                </div>
+            <h3>Rearrange Softclipped Continuous Reads</h3>
+                <div class="container">
+                    <code class="code-block example">python softreverse_v2.py x_1_pricont.sam softrev.fastq</code>
+                </div>
+                <p>
+                    Repeat STAR mapping with the softrev.fastq as input file, then extract and classify the alignments.
+                </p>
+            <h3>Combine output from the two rounds of STAR mapping</h3>
+                <div class="container">
+                    <code class="code-block example">
+                        python3 merger_sams.py x_1_prigap1.sam x_2_prigap1.sam x gap1 x_prigap1.tmp<br />
+                        python3 merger_sams.py x_1_prigapm.sam x_2_prigapm.sam x gapm x_prigapm.tmp<br />
+                        python3 merger_sams.py x_1_prihomo.sam x_2_prihomo.sam x homo x_prihomo.tmp<br />
+                        python3 merger_sams.py x_1_pritrans.sam x_2_pritrans.sam x trans x_pritrans.tmp<br /><br />
+                        samtools view -H x_1_Aligned.sortedByCoord.out.bam > header<br /><br />
+                        cat header x_prigap1.tmp > x_prigap1.sam<br />
+                        cat header x_prigapm.tmp > x_prigapm.sam<br />
+                        cat header x_prihomo.tmp > x_prihomo.sam<br /> 
+                        cat header x_pritrans.tmp > x_pritrans.sam<br />
+                        rm -f header *.tmp<br />
+                    </code>
+                </div>
+            <h3>Filter splices and short gapped reads</h3>
+                <div class="container">
+                    <code class="code-block example">
+                        python gapfilter.py Gtf x_prigap1.sam x_prigap1_filtered.sam 13 yes<br />
+                        python gapfilter.py Gtf x_prigapm.sam x_prigapm_filtered.sam 13 yes<br />
+                    </code>
+                </div>
+            <h2>Generate Alignment Statistics</h2><hr />
+            <h3>Gap Length</h3>
+                <div class="container">
+                    <code class="code-block example">
+                        cat x_prigap1_filtered.sam x_prigapm_filtered.sam > x_prigaps_filtered.sam<br/>
+                        python gaplendist.py x_prigaps_filtered.sam sam x.list all<br/>
+                        python gaplendist.py x.list list x_gaplen.pdf all<br/>
+                        rm -f x_prigaps_filtered.sam x.list<br/>
+                    </code>
+                </div>
+            <h3>Arm Length</h3>
+                <div class="container">
+                    <code class="code-block example">
+                        cat x_prigap1_filtered.sam x_prigapm_filtered.sam x_pritrans.sam > x_prifiltered.sam<br />
+                        python seglendist.py x_prifiltered.sam sam x_prifiltered.list<br />
+                        python seglendist.py x_prifiltered.list list x_seglen.pdf<br />
+                        rm -f x_prifiltered.sam x_prifiltered.list<br />
+                    </code>
+                </div>
+            <h2>Read Counting</h2><hr />
+                <div class="container">
+                    <code class="code-block example">
+                        samtools view -bS -o x_prigap1.bam x_prigap1.sam<br />
+                        python CountCdsUtr.py x_prigap1.bam CdsUtr.bed none x_pri<br />
+                    </code>
+                </div>
+                <div class="container">
+                    <code class="code-block example">
+                        bedtools bamtobed -i x_prigap1.bam > x.bed<br />
+                        sort -k1,1 -k2,2n x.bed > x_sorted.bed<br />
+                        rm x.bed<br />
+                        bedtools coverage -g chrNameLength_sorted.txt -a reference.bed -b x_sorted.bed -counts -sorted -nonamecheck > x_coverage.txt<br />
+                    </code>
+                </div>
             <h2>CRSSANT</h2><hr />
-                <p>How to run CRSSANT</p>
                 <div class="separator-line"></div>
-            <h2>DG Analysis</h2><hr />
-                <p>Other tools and IGV browsing</p>            
-                <div class="separator-line"></div>
+            <h3>Input file preparation</h3>
+                <div class="container">
+                    <code class="code-block example">
+                        python merger.py x_prigap1_filtered.sam x_pritrans.sam x_pri_crssant.sam<br />
+                    </code>
+                </div>
+            <h3>OPTIONAL: Tag with unique identifier</h3>
+                <p>
+                    Prepare the files for CRSSANT DG/NG assembly, tagging with a label.
+                </p>
+                <div class="container">
+                    <code class="code-block example">
+                        awk '$0!~/^@/ {printf $1"-TAG1\t"; for(i=2;i<=NF;++i) printf $i "\t"; printf"\n"}' x_pri_crssant.sam > x_pri_crssant_TAG1_tmp.sam<br />
+                        awk '$0!~/^@/ {printf $1"-TAG2\t"; for(i=2;i<=NF;++i) printf $i "\t"; printf"\n"}' x_pri_crssant.sam > x_pri_crssant_TAG2_tmp.sam<br />
+                        samtools view -H x_pri_crssant.sam > header<br />
+                        cat header x_pri_crssant_TAG1_tmp.sam x_pri_crssant_TAG2_tmp.sam > x_pri_crssant.sam<br />
+                        rm -f header x_pri_crssant_TAG1_tmp.sam x_pri_crssant_TAG2_tmp.sam<br />
+                    </code>
+                </div>
+                <p>
+                    Separate the alignments by the tagged identifier.
+                </p>
+                <div class="container">
+                    <code class="code-block example">
+                        awk '$0~/^@/ || $1~/-TAG/' x_pri_crssant.cliques.t_o0.2.sam > x_ crssant_TAG1.sam
+                    </code>
+                </div>
+
+            <h3>Build "genesfile" in BED format</h3>
+                <div class="container">
+                    <code class="code-block example">
+                        python genes2bed.py x_ReadCount.txt CdsUtr.bed min_reads outname<br />
+                    </code>
+                </div>
+            <h3>Generate bedgraphs</h3>
+                <div class="container">
+                    <code class="code-block example">
+                        bedtools genomecov -bg -split -strand + -ibam x_pri_crssant.bam -g staridxPath/chrNameLength.txt > x_plus.bedgraph<br />
+                        bedtools genomecov -bg -split -strand - -ibam x_pri_crssant.bam -g staridxPath/chrNameLength.txt > x_minus.bedgraph<br />
+                    </code>
+                </div>
+            <h3>DG and NG assembly</h3><hr />
+                <div class="container">
+                    <code class="code-block example">
+                        python crssant.py -cluster cliques -t_o 0.2 -out ./ x_pri_crssant.sam $Bed x_plus.bedgraph,x_minus.bedgraph<br />
+                    </code>
+                </div>
+            <h3>TG assembly</h3><hr />
+                <div class="container">
+                    <code class="code-block example">
+                        python gapmcluster.py x.bedpe x_gapm.sam
+                    </code>
+                </div>
+            <div class="separator-line"></div>
+
             <h2>IGV Browser</h2><hr />
                 <form id="uploadForm">
                     <label for="fileInput">Upload a file:</label>
