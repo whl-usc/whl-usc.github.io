@@ -189,6 +189,129 @@ fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/lin
     })
     .catch(error => console.error("Error loading CSV:", error));
 
+// JavaScript to fetch STATISTICS
+const directoryCsv = 'https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/links/statistics.csv';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const datasetSelect = document.getElementById('dataset');
+    const categorySelect = document.getElementById('category');
+    const columnSelect = document.getElementById('column');
+    const filterInput = document.getElementById('filter-input');
+    const table = document.getElementById('stats-table');
+    let currentData = [];
+    let categories = [];
+
+    // Load directory CSV and populate datasets
+    fetch(directoryCsv)
+        .then(response => response.text())
+        .then(data => {
+            const datasets = parseCSV(data);
+            populateDatasetSelect(datasets);
+        });
+
+    // Parse CSV into array of objects
+    function parseCSV(data) {
+        const rows = data.split('\n').map(row => row.split(','));
+        const headers = rows[0];
+        return rows.slice(1).map(row => Object.fromEntries(headers.map((h, i) => [h.trim(), row[i].trim()])));
+    }
+
+    // Populate dataset dropdown
+    function populateDatasetSelect(datasets) {
+        datasets.forEach(dataset => {
+            const option = document.createElement('option');
+            option.value = dataset.Link;
+            option.textContent = dataset.Name;
+            datasetSelect.appendChild(option);
+        });
+
+        // Load the first dataset by default
+        if (datasets.length > 0) {
+            loadDataset(datasets[0].Link);
+        }
+    }
+
+    // Load selected dataset and populate category select
+    datasetSelect.addEventListener('change', (e) => {
+        const datasetLink = e.target.value;
+        loadDataset(datasetLink);
+    });
+
+    // Fetch and process the selected dataset
+    function loadDataset(link) {
+        fetch(link)
+            .then(response => response.text())
+            .then(data => {
+                currentData = parseCSV(data);
+                categories = Object.keys(currentData[0]).slice(1); // Skip "Name" column
+                populateCategorySelect(categories);
+                renderTable(currentData, categories[0]);
+            });
+    }
+
+    // Populate category dropdown
+    function populateCategorySelect(categories) {
+        categorySelect.innerHTML = '';
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            categorySelect.appendChild(option);
+        });
+
+        // Populate column select for the first category
+        updateColumnSelect(categories[0]);
+    }
+
+    // Populate column dropdown
+    function updateColumnSelect(category) {
+        columnSelect.innerHTML = '';
+        currentData.forEach((row, index) => {
+            const option = document.createElement('option');
+            option.value = index;
+            option.textContent = `Column ${index + 2}`;
+            columnSelect.appendChild(option);
+        });
+    }
+
+    // Filter table rows
+    filterInput.addEventListener('input', (e) => {
+        const filterText = e.target.value.toLowerCase();
+        renderTable(currentData, categorySelect.value, filterText);
+    });
+
+    // Render table
+    function renderTable(data, category, filterText = '') {
+        const tbody = table.querySelector('tbody');
+        const thead = table.querySelector('thead');
+        tbody.innerHTML = '';
+        thead.innerHTML = '';
+
+        // Render headers
+        const headers = ['Name', category];
+        const headerRow = document.createElement('tr');
+        headers.forEach(header => {
+            const th = document.createElement('th');
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+
+        // Render rows
+        data.forEach(row => {
+            if (filterText && !row[category].toLowerCase().includes(filterText)) return;
+            const tr = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            nameCell.textContent = row.Name;
+            const categoryCell = document.createElement('td');
+            categoryCell.textContent = row[category];
+            tr.appendChild(nameCell);
+            tr.appendChild(categoryCell);
+            tbody.appendChild(tr);
+        });
+    }
+});
+
 // Add IGV embed into the webpage.
 document.addEventListener("DOMContentLoaded", function() {
     const igvContainer = document.getElementById("igv-container");
