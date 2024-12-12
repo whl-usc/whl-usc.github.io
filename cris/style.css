@@ -95,11 +95,11 @@ hr {
   margin-left: 10px;
   text-align: center;
 }
-.container ul {
+faq-container ul {
   padding-left: 15px;
 }
-.container li {
-  margin-bottom: 5px;
+faq-container li {
+  margin-bottom: 10px;
 }
 /* Linked images and sources */
 .link-hover a:hover, .link-hover p:hover {
