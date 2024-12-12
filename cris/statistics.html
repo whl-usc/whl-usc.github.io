@@ -25,42 +25,50 @@
     <main>        
         <div class="section-color">
             <h1>Statistics</h1><hr />
-            <div class="controls">
-                <label for="dataset">Select Dataset:</label>
-                <select id="dataset">
-                    <!-- Options dynamically populated from the "directory" CSV -->
-                </select>
+            <p>
+                Detailed metrics of each available dataset is presented here. Select up to four different datasets at once for comparison.
+            </p>
+            <div class="stats-table">
+                <div>
+                    <label for="study-name">Study Name:</label>
+                    <select id="study-name"></select>
+                    <button id="clear-all">Clear All</button>
+                
+                </div>
+
+                <!-- Dataset 1 -->
+                <div>
+                    <label for="dataset1">Dataset 1:</label>
+                    <select id="dataset1"></select>
+                    <button id="clear-dataset1">Clear</button>
+                </div>
+
+                <!-- Dataset 2 -->
+                <div>
+                    <label for="dataset2">Dataset 2:</label>
+                    <select id="dataset2"></select>
+                    <button id="clear-dataset2">Clear</button>
+                </div>
+
+                <!-- Dataset 3 -->
+                <div>
+                    <label for="dataset3">Dataset 3:</label>
+                    <select id="dataset3"></select>
+                    <button id="clear-dataset3">Clear</button>
+                </div>
+
+                <!-- Dataset 4 -->
+                <div>
+                    <label for="dataset4">Dataset 4:</label>
+                    <select id="dataset4"></select>
+                    <button id="clear-dataset4">Clear</button>
+                </div>
+                <!-- Table -->
+                <table id="stats-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
             </div>
-
-            <div class="controls">
-                <label for="category">Select Category:</label>
-                <select id="category">
-                    <!-- Categories will depend on the selected dataset -->
-                </select>
-
-                <label for="column">Select Column:</label>
-                <select id="column">
-                    <!-- Columns dynamically populated based on dataset -->
-                </select>
-            </div>
-
-            <div class="filter">
-                <label for="filter-input">Filter Rows:</label>
-                <input type="text" id="filter-input" placeholder="Search...">
-            </div>
-
-            <table id="stats-table">
-                <thead>
-                    <tr>
-                        <!-- Headers dynamically added -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Table rows dynamically generated -->
-                </tbody>
-            </table>
-        </div>
-
         <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
     </main>
     <div id="footer-container"></div>

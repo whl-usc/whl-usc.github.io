@@ -152,12 +152,50 @@ table td:not(:first-child), th:not(:first-child) {
 #data-table td:first-child {
   background-color: rgba(245, 245, 245, 1);
 }
-/* Search Input */
-#searchInput {
-  font-size: 14px;
-  margin-bottom: 10px;
-  padding: 10px;
-  width: 25%;
+/* Statistics page buttons and styling */
+.stats-table {
+  margin: 10px;
+  overflow-x: auto;
+}
+.stats-table label {
+    font-weight: normal;
+    margin-right: 0px;
+    width: 90px;
+}
+.stats-table select {
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 1.0);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    font-family: Tahoma, sans-serif;
+    font-size: 12px;
+    padding: 5px 5px;
+    width: 300px;
+}
+#clear-all {
+    background-color: rgba(255, 0, 0, 0.55);
+    border: 1px solid rgba(0, 0, 0, 1.0) ;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    font-size: 11px;
+    font-weight: bold;
+    width: 70px;
+    padding: 5px 0;
+}
+#clear-all:active {
+    background-color: rgba(255, 0, 0, 0.75);
+}
+.stats-table button {
+    background-color: rgba(200, 200, 200, 0.25);
+    border: 1px solid rgba(0, 0, 0, 1) ;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    font-size: 11px;
+    font-weight: bold;
+    width: 70px;
+    padding: 5px 0;
+}
+.stats-table button:active {
+    background-color: rgba(200, 200, 200, 0.55);
 }
 /* Special formatting for publications - long lines */
 .instructions li {

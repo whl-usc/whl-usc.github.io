@@ -189,122 +189,227 @@ fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/refs/heads/ma
     })
     .catch(error => console.error("Error loading CSV:", error));
 
-// JavaScript to fetch STATISTICS
+// JavaScript to fetch STATISTICS..CSV file
 const csvFiles = [
-    { name: 'PARIS1', link: 'https://example.com/dataset1.csv' },
-    { name: 'PARIS-exo', link: 'https://example.com/dataset2.csv' },
-    { name: 'PARIS2', link: 'https://example.com/dataset3.csv' },
-    { name: 'SHARC-exo', link: 'https://example.com/dataset3.csv' },
-    { name: 'SHARC-in_vitro', link: 'https://example.com/dataset3.csv' }
+    { name: 'PARIS1', link: 'https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/refs/heads/main/cris/csv/stats/PARIS1.csv' },
+    { name: 'PARIS-exo', link: 'https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/refs/heads/main/cris/csv/stats/PARIS-exo.csv' },
+    { name: 'PARIS2', link: 'https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/refs/heads/main/cris/csv/stats/PARIS2.csv' },
+    { name: 'SHARC-exo', link: 'https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/refs/heads/main/cris/csv/stats/SHARC-exo.csv' },
+    { name: 'SHARC-in_vitro', link: 'https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/refs/heads/main/cris/csv/stats/SHARC-in_vitro.csv' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    const datasetSelect = document.getElementById('dataset');
-    const categorySelect = document.getElementById('category');
-    const columnSelect = document.getElementById('column');
-    const filterInput = document.getElementById('filter-input');
-    const table = document.getElementById('data-table');
+    const studyNameSelect = document.getElementById('study-name');
+    const datasetSelects = [
+        document.getElementById('dataset1'),
+        document.getElementById('dataset2'),
+        document.getElementById('dataset3'),
+        document.getElementById('dataset4')
+    ];
+    const table = document.getElementById('stats-table');
+    const clearButton = document.getElementById('clear-btn');
     let currentData = [];
-    let categories = [];
+    const columnDataMap = {}; // Maps selected column to dataset column data
+    const selectedColumns = new Set(); // Tracks selected columns to prevent duplicates
 
-    // Populate datasets dropdown from predefined list
+    // Populate Study Name dropdown
+    const defaultOption = document.createElement('option');
+    studyNameSelect.appendChild(defaultOption);
+
     csvFiles.forEach(file => {
         const option = document.createElement('option');
         option.value = file.link;
         option.textContent = file.name;
-        datasetSelect.appendChild(option);
+        studyNameSelect.appendChild(option);
     });
 
-    // Load the first dataset by default
-    if (csvFiles.length > 0) {
-        loadDataset(csvFiles[0].link);
-    }
+    // Event listener for Study Name change
+    studyNameSelect.addEventListener('change', () => {
+        const studyNameLink = studyNameSelect.value;
+        if (!studyNameLink) return;
 
-    // Load selected dataset
-    datasetSelect.addEventListener('change', (e) => {
-        const datasetLink = e.target.value;
-        loadDataset(datasetLink);
-    });
-
-    // Fetch and process the selected dataset
-    function loadDataset(link) {
-        fetch(link)
+        fetch(studyNameLink)
             .then(response => response.text())
             .then(data => {
-                currentData = parseCSV(data);
-                categories = Object.keys(currentData[0]).slice(1); // Skip "Name" column
-                populateCategorySelect(categories);
-                renderTable(currentData, categories[0]);
+                currentData = preprocessData(parseCSV(data));
+                populateDatasetSelects(currentData);
             });
+    });
+
+    // Populate dataset dropdowns
+    function populateDatasetSelects(data) {
+        datasetSelects.forEach(select => {
+            select.innerHTML = ''; // Reset options
+
+            // Add default "Select a dataset" option
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = 'Select a dataset';
+            select.appendChild(defaultOption);
+
+            const categories = Object.keys(data[0]).filter(key => key !== 'Metrics');
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                select.appendChild(option);
+            });
+        });
     }
+
+    // Event listener for dataset selection
+    datasetSelects.forEach((select, index) => {
+        select.addEventListener('change', () => {
+            const selectedColumn = select.value;
+            if (!selectedColumn) return;
+
+            // Prevent selection of identical columns
+            if (selectedColumns.has(selectedColumn)) {
+                alert('This dataset has already been selected!');
+                select.value = ''; // Reset the dropdown selection
+                return;
+            }
+
+            // Add column to selected columns set
+            selectedColumns.add(selectedColumn);
+
+            // Store column data
+            columnDataMap[selectedColumn] = extractColumnData(currentData, selectedColumn);
+            updateTable(index + 1, selectedColumn, columnDataMap[selectedColumn]);
+        });
+    });
+
+    // Clear specific dataset column
+    datasetSelects.forEach((select, index) => {
+        const clearDatasetButton = document.getElementById(`clear-dataset${index + 1}`);
+        clearDatasetButton.addEventListener('click', () => {
+            const selectedColumn = select.value;
+            if (selectedColumn) {
+                // Remove the column from the set
+                selectedColumns.delete(selectedColumn);
+
+                // Reset the dropdown for this dataset
+                select.value = '';
+
+                // Remove the column from the table
+                const rows = table.querySelectorAll('tr');
+                rows.forEach(row => {
+                    row.children[index + 1]?.remove();
+                });
+
+                // Ensure table header also reflects the change
+                const headerRow = table.querySelector('thead tr');
+                if (headerRow) {
+                    const headerCell = headerRow.children[index + 1];
+                    if (headerCell) {
+                        headerRow.removeChild(headerCell);
+                    }
+                }
+            }
+        });
+    });
+
+    // Clear all button (implements a full reset for study selection)
+    const clearAllButton = document.getElementById('clear-all');
+    clearAllButton.addEventListener('click', () => {
+        // Clear the study name and dataset selections
+        studyNameSelect.value = '';
+        datasetSelects.forEach(select => {
+            select.value = '';
+        });
+        clearTable();
+        
+        // Reset column data map and selected columns
+        Object.keys(columnDataMap).forEach(column => {
+            delete columnDataMap[column]; // Remove the column from the map
+        });
+        selectedColumns.clear(); // Clear the set of selected columns
+    });
 
     // Parse CSV into array of objects
     function parseCSV(data) {
         const rows = data.split('\n').map(row => row.split(','));
         const headers = rows[0];
-        return rows.slice(1).map(row => Object.fromEntries(headers.map((h, i) => [h.trim(), row[i]?.trim()])));
+        return rows.slice(1).map(row => Object.fromEntries(headers.map((h, i) => [h.trim(), row[i]?.trim()]))); 
     }
 
-    // Populate category dropdown
-    function populateCategorySelect(categories) {
-        categorySelect.innerHTML = '';
-        categories.forEach(category => {
-            const option = document.createElement('option');
-            option.value = category;
-            option.textContent = category;
-            categorySelect.appendChild(option);
-        });
-
-        // Populate column select for the first category
-        updateColumnSelect(categories[0]);
-    }
-
-    // Populate column dropdown
-    function updateColumnSelect(category) {
-        columnSelect.innerHTML = '';
-        currentData.forEach((row, index) => {
-            const option = document.createElement('option');
-            option.value = index;
-            option.textContent = `Column ${index + 2}`;
-            columnSelect.appendChild(option);
+    // Preprocess data to ensure Metrics is the first column
+    function preprocessData(data) {
+        return data.map(row => {
+            const reordered = { Metrics: row.Metrics };
+            Object.keys(row).forEach(key => {
+                if (key !== 'Metrics') reordered[key] = row[key];
+            });
+            return reordered;
         });
     }
 
-    // Filter table rows
-    filterInput.addEventListener('input', (e) => {
-        const filterText = e.target.value.toLowerCase();
-        renderTable(currentData, categorySelect.value, filterText);
-    });
+    // Extract specific dataset column
+    function extractColumnData(data, column) {
+        return data.map(row => {
+            const value = row[column];
+            
+            // Ensure the value is a string and remove ".0" for integer-like values
+            const valueStr = String(value);
+            const cleanedValue = valueStr.endsWith('.0') ? parseInt(valueStr) : value;
+            
+            return { Metrics: row.Metrics, [column]: cleanedValue };
+        });
+    }
 
-    // Render table
-    function renderTable(data, category, filterText = '') {
-        const tbody = table.querySelector('tbody');
+    // Update table
+    function updateTable(columnIndex, columnName, columnData) {
         const thead = table.querySelector('thead');
-        tbody.innerHTML = '';
-        thead.innerHTML = '';
+        const tbody = table.querySelector('tbody');
 
-        // Render headers
-        const headers = ['Name', category];
-        const headerRow = document.createElement('tr');
-        headers.forEach(header => {
-            const th = document.createElement('th');
-            th.textContent = header;
-            headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
+        // Update table headers
+        if (thead.innerHTML === '') {
+            const headerRow = document.createElement('tr');
+            headerRow.innerHTML = '<th>Metrics</th>';
+            thead.appendChild(headerRow);
+        }
+        const headerRow = thead.querySelector('tr');
+        const existingHeaders = Array.from(headerRow.children).map(th => th.textContent);
 
-        // Render rows
-        data.forEach(row => {
-            if (filterText && !row[category].toLowerCase().includes(filterText)) return;
-            const tr = document.createElement('tr');
-            const nameCell = document.createElement('td');
-            nameCell.textContent = row.Name;
-            const categoryCell = document.createElement('td');
-            categoryCell.textContent = row[category];
-            tr.appendChild(nameCell);
-            tr.appendChild(categoryCell);
-            tbody.appendChild(tr);
+        if (!existingHeaders.includes(columnName)) {
+            // If column doesn't exist, add it
+            if (headerRow.children[columnIndex]) {
+                headerRow.children[columnIndex].textContent = columnName;
+            } else {
+                const newHeaderCell = document.createElement('th');
+                newHeaderCell.textContent = columnName;
+                headerRow.appendChild(newHeaderCell);
+            }
+        }
+
+        // Update table rows
+        columnData.forEach((row, index) => {
+            let tableRow = tbody.children[index];
+            if (!tableRow) {
+                // Create new row if it doesn't exist
+                tableRow = document.createElement('tr');
+                const metricsCell = document.createElement('td');
+                metricsCell.textContent = row.Metrics;
+                tableRow.appendChild(metricsCell);
+                tbody.appendChild(tableRow);
+            }
+
+            // Update or add cell for the column
+            const cell = tableRow.children[columnIndex];
+            if (cell) {
+                cell.textContent = row[columnName];
+            } else {
+                const newCell = document.createElement('td');
+                newCell.textContent = row[columnName];
+                tableRow.appendChild(newCell);
+            }
         });
+    }
+
+    // Clear table
+    function clearTable() {
+        table.querySelector('thead').innerHTML = '';
+        table.querySelector('tbody').innerHTML = '';
     }
 });
 
