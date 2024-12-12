@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="en-US">
-
 <head>
     <!-- Meta tags, CSS links, and other head content here -->
     <title>CRIS Database</title>
@@ -46,46 +44,34 @@
                 <div class="dl-container">
                     <dl>
                         <dt>SE</dt>
-                        <dd>Single ended mode.</dd>
-                    
+                            <dd>Single ended mode.</dd>                
                         <dt>-threads</dt>
-                        <dd>Indicates the number of computing threads to use, which improves performance on multi-core computers. If not specified, it will be chosen automatically.</dd>
-                    
+                            <dd>Indicates the number of computing threads to use, which improves performance on multi-core computers. If not specified, it will be chosen automatically.</dd>                
                         <dt>-phred33 or -phred64</dt>
-                        <dd>Specifies the base quality encoding.</dd>
-                
+                            <dd>Specifies the base quality encoding.</dd>            
                         <dt>Input/output</dt>
-                        <dd>For input and output files, specifying .gz tells Trimmomatic that the file provided is in compressed format or that Trimmomatic should gzip the file, respectively.</dd>
-            
+                            <dd>For input and output files, specifying .gz tells Trimmomatic that the file provided is in compressed format or that Trimmomatic should gzip the file, respectively.</dd>        
                         <dt>ILLUMINACLIP</dt>
-                        <dd>Finds and removes specifically Illumina adapters.</dd>
-        
+                            <dd>Finds and removes specifically Illumina adapters.</dd>    
                         <dt>fastaWithAdaptersEtc</dt>
-                        <dd>Specifies the path to a fasta file containing all the adapters, PCR sequences, etc. The naming of the various sequences within this file determines how they are used.</dd>
-    
+                            <dd>Specifies the path to a fasta file containing all the adapters, PCR sequences, etc. The naming of the various sequences within this file determines how they are used.</dd>
                         <dt>seedMismatches</dt>
-                        <dd>Specifies the maximum mismatch count which will still allow a full match to be performed.</dd>
-                        <dd>To speed up the search, short sections of each adapter (up to 16bp) are tested at all possible positions to find "seeds" that trigger a full alignment.</dd>
-
+                            <dd>Specifies the maximum mismatch count which will still allow a full match to be performed.</dd>
+                            <dd>To speed up the search, short sections of each adapter (up to 16bp) are tested at all possible positions to find "seeds" that trigger a full alignment.</dd>
                         <dt>palindromeClipThreshold</dt>
-                        <dd>Specifies how accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment.</dd>
-
+                            <dd>Specifies how accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment.</dd>
                         <dt>simpleClipThreshold</dt>
-                        <dd>Specifies how accurate the match between any adapter etc. sequence must be against a read.</dd>
-                        <dd>Suggested values are 7-15 depending on the length of the Score; increase 0.6 per match, decrease by Q/10 per mismatch where Q is the quality score.</dd>
-
+                            <dd>Specifies how accurate the match between any adapter etc. sequence must be against a read.</dd>
+                            <dd>Suggested values are 7-15 depending on the length of the Score; increase 0.6 per match, decrease by Q/10 per mismatch where Q is the quality score.</dd>
                         <dt>Sliding window</dt>
-                        <dd>Performs sliding window trimming when average quality within the window falls below specified threshold.</dd>
-                        <dd>By considering multiple bases, a single poor quality base will not cause the removal of high quality data later in the read.</dd>
-
+                            <dd>Performs sliding window trimming when average quality within the window falls below specified threshold.</dd>
+                            <dd>By considering multiple bases, a single poor quality base will not cause the removal of high quality data later in the read.</dd>
                         <dt>Sliding window size</dt>
-                        <dd>Length of window in number of base pairs.</dd>
-
+                            <dd>Length of window in number of base pairs.</dd>
                         <dt>Sliding window minimum quality</dt>
-                        <dd>The average quality required during trimming.</dd>
-
+                            <dd>The average quality required during trimming.</dd>
                         <dt>Minimum read length</dt>
-                        <dd>Removes reads that fall below the specified minimum length. Reads removed by this step are included in the 'dropped reads' count. Length written in base pairs.</dd>
+                            <dd>Removes reads that fall below the specified minimum length. Reads removed by this step are included in the 'dropped reads' count. Length written in base pairs.</dd>
                     </dl>
                 </div>
                 <p>
@@ -117,19 +103,16 @@
                 <div class="dl-container">
                     <dl>
                         <dt>-b</dt>
-                        <dd>Specifies the position and length of hexamer for reads to be used for demultiplexing.</dd> 
-                        
+                            <dd>Specifies the position and length of hexamer for reads to be used for demultiplexing.</dd>                     
                         <dt>-l&nbsp;&nbsp;“L”</dt>
-                        <dd>Specifies the list of specific length (-b) of barcodes "L" to be used for separation and subsequent names for the output file(s).</dd>
-                        <dd>Multiple barcodes can be provided separated with two colons "::".</dd>
-                        <dd>For example, providing "CGTGAT:R701" will take reads with barcode "CGTGAT" and separate them into file "R701.fastq".</dd>
-                        <dd>Use format BARCODE1:LIB_NAME1::BARCODE2:LIB_NAME2::...</dd>
-                        
+                            <dd>Specifies the list of specific length (-b) of barcodes "L" to be used for separation and subsequent names for the output file(s).</dd>
+                            <dd>Multiple barcodes can be provided separated with two colons "::".</dd>
+                            <dd>For example, providing "CGTGAT:R701" will take reads with barcode "CGTGAT" and separate them into file "R701.fastq".</dd>
+                            <dd>Use format BARCODE1:LIB_NAME1::BARCODE2:LIB_NAME2::...</dd>                    
                         <dt>-s</dt>
-                        <dd>Generates a simple statistics output file if separated by library barcode.</dd>
-                    
+                            <dd>Generates a simple statistics output file if separated by library barcode.</dd>                
                         <dt>-d</dt>
-                        <dd>Specifies the directory at which to output file(s).</dd>
+                            <dd>Specifies the directory at which to output file(s).</dd>
                     </dl>
                 </div>
                 <div class="separator-line"></div>
