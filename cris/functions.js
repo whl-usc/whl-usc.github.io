@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', loadTemplate);
 // });
 
 // JavaScript to fetch DATASETS.CSV file
-fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/links/datasets.csv') // Use the raw file URL
+fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/refs/heads/main/cris/csv/datasets.csv') // Use the raw file URL
     .then(response => {
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         return response.text();
@@ -137,7 +137,7 @@ fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/lin
     .catch(error => console.error("Error loading CSV:", error));
 
 // JavaScript to fetch REFERENCES.CSV file
-fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/links/reference_genomes.csv') // Use the raw CSV URL
+fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/refs/heads/main/cris/csv/reference_genomes.csv') // Use the raw CSV URL
     .then(response => {
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         return response.text();
@@ -190,48 +190,37 @@ fetch('https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/lin
     .catch(error => console.error("Error loading CSV:", error));
 
 // JavaScript to fetch STATISTICS
-const directoryCsv = 'https://raw.githubusercontent.com/whl-usc/whl-usc.github.io/main/cris/links/statistics.csv';
+const csvFiles = [
+    { name: 'PARIS1', link: 'https://example.com/dataset1.csv' },
+    { name: 'PARIS-exo', link: 'https://example.com/dataset2.csv' },
+    { name: 'PARIS2', link: 'https://example.com/dataset3.csv' },
+    { name: 'SHARC-exo', link: 'https://example.com/dataset3.csv' },
+    { name: 'SHARC-in_vitro', link: 'https://example.com/dataset3.csv' }
+];
 
 document.addEventListener('DOMContentLoaded', () => {
     const datasetSelect = document.getElementById('dataset');
     const categorySelect = document.getElementById('category');
     const columnSelect = document.getElementById('column');
     const filterInput = document.getElementById('filter-input');
-    const table = document.getElementById('stats-table');
+    const table = document.getElementById('data-table');
     let currentData = [];
     let categories = [];
 
-    // Load directory CSV and populate datasets
-    fetch(directoryCsv)
-        .then(response => response.text())
-        .then(data => {
-            const datasets = parseCSV(data);
-            populateDatasetSelect(datasets);
-        });
+    // Populate datasets dropdown from predefined list
+    csvFiles.forEach(file => {
+        const option = document.createElement('option');
+        option.value = file.link;
+        option.textContent = file.name;
+        datasetSelect.appendChild(option);
+    });
 
-    // Parse CSV into array of objects
-    function parseCSV(data) {
-        const rows = data.split('\n').map(row => row.split(','));
-        const headers = rows[0];
-        return rows.slice(1).map(row => Object.fromEntries(headers.map((h, i) => [h.trim(), row[i].trim()])));
+    // Load the first dataset by default
+    if (csvFiles.length > 0) {
+        loadDataset(csvFiles[0].link);
     }
 
-    // Populate dataset dropdown
-    function populateDatasetSelect(datasets) {
-        datasets.forEach(dataset => {
-            const option = document.createElement('option');
-            option.value = dataset.Link;
-            option.textContent = dataset.Name;
-            datasetSelect.appendChild(option);
-        });
-
-        // Load the first dataset by default
-        if (datasets.length > 0) {
-            loadDataset(datasets[0].Link);
-        }
-    }
-
-    // Load selected dataset and populate category select
+    // Load selected dataset
     datasetSelect.addEventListener('change', (e) => {
         const datasetLink = e.target.value;
         loadDataset(datasetLink);
@@ -247,6 +236,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 populateCategorySelect(categories);
                 renderTable(currentData, categories[0]);
             });
+    }
+
+    // Parse CSV into array of objects
+    function parseCSV(data) {
+        const rows = data.split('\n').map(row => row.split(','));
+        const headers = rows[0];
+        return rows.slice(1).map(row => Object.fromEntries(headers.map((h, i) => [h.trim(), row[i]?.trim()])));
     }
 
     // Populate category dropdown

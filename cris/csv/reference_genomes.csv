@@ -1,0 +1,4 @@
+﻿normal,link,curated,link,special,link
+human,https://example.com,hg38mask14add,https://example.com,rna_1-rna_2,https://example.com
+mouse,https://example.com,mm10mask16add,https://example.com,rna_1-rna_3,https://example.com
+yeast,https://example.com,,,rna_2-rna_3,
