@@ -116,13 +116,13 @@
                     </dl>
                 </div>
                 <div class="separator-line"></div>
-            <h2>Quality Control (FastQC)</h2><hr />
+            <h2>Quality Control (FastQC)</h2>
             <h3>FastQC</h3>
                 <p>
                     After pre-processing, data must be checked for quality.
                 </p>
                 <div class="separator-line"></div>
-            <h2>Alignment to reference genome</h2><hr />
+            <h2>Alignment to reference genome</h2>
             <h3>STAR</h3>
                 <p>
                     The mapping of pre-processed data is standardized from PARIS- and SHARC-based sequencing. STAR and various scripts from the CRSSANT pipeline are used. More specific details can be found in the supplemental material provided as part of the <a href="https://genome.cshlp.org/content/suppl/2022/05/02/gr.275979.121.DC1/Supplemental_Material.pdf" target="_blank"><i>CRSSANT</i></a> pipeline paper.
@@ -155,7 +155,8 @@
                         --chimNonchimScoreDropMin 20<br />
                     </code>
                 </div>
-            <h2>Primary Read Extraction and Classification</h2><hr />
+                <div class="separator-line"></div>
+            <h2>Primary Read Extraction and Classification</h2>
             <h3>Extraction by samtools</h3>
                 <div class="container">
                     <code class="code-block example">
@@ -200,7 +201,8 @@
                         python gapfilter.py Gtf x_prigapm.sam x_prigapm_filtered.sam 13 yes<br />
                     </code>
                 </div>
-            <h2>Generate Alignment Statistics</h2><hr />
+                <div class="separator-line"></div>
+            <h2>Generate Alignment Statistics</h2>
             <h3>Gap Length</h3>
                 <div class="container">
                     <code class="code-block example">
@@ -219,7 +221,7 @@
                         rm -f x_prifiltered.sam x_prifiltered.list<br />
                     </code>
                 </div>
-            <h2>Read Counting</h2><hr />
+            <h2>Read Counting</h2>
                 <div class="container">
                     <code class="code-block example">
                         samtools view -bS -o x_prigap1.bam x_prigap1.sam<br />
@@ -234,8 +236,8 @@
                         bedtools coverage -g chrNameLength_sorted.txt -a reference.bed -b x_sorted.bed -counts -sorted -nonamecheck > x_coverage.txt<br />
                     </code>
                 </div>
-            <h2>CRSSANT</h2><hr />
                 <div class="separator-line"></div>
+            <h2>CRSSANT</h2>
             <h3>Input file preparation</h3>
                 <div class="container">
                     <code class="code-block example">
@@ -256,7 +258,7 @@
                     </code>
                 </div>
                 <p>
-                    Separate the alignments by the tagged identifier.
+                    <i>(AFTER CRSSANT DG ASSEMBLY)</i> Separate the alignments by the tagged identifier.
                 </p>
                 <div class="container">
                     <code class="code-block example">
@@ -277,13 +279,13 @@
                         bedtools genomecov -bg -split -strand - -ibam x_pri_crssant.bam -g staridxPath/chrNameLength.txt > x_minus.bedgraph<br />
                     </code>
                 </div>
-            <h3>DG and NG assembly</h3><hr />
+            <h3>DG and NG assembly</h3>
                 <div class="container">
                     <code class="code-block example">
                         python crssant.py -cluster cliques -t_o 0.2 -out ./ x_pri_crssant.sam $Bed x_plus.bedgraph,x_minus.bedgraph<br />
                     </code>
                 </div>
-            <h3>TG assembly</h3><hr />
+            <h3>TG assembly</h3>
                 <div class="container">
                     <code class="code-block example">
                         python gapmcluster.py x.bedpe x_gapm.sam
@@ -291,13 +293,33 @@
                 </div>
             <div class="separator-line"></div>
 
-            <h2>IGV Browser</h2><hr />
+            <h2>Useful Resources</h2>
+                <ul>
+                    <li>
+                        <a href="https://bedtools.readthedocs.io/en/latest/index.html" target="_blank">BEDtools</a>
+                    </li>
+                    <li>
+                        <a href="https://igv.org/" target="_blank">Integrative Genomics Viewer</a>
+                    </li>
+                    <li>
+                        <a href="https://www.htslib.org/" target="_blank">SAMtools</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/alexdobin/STAR" target="_blank">STAR</a>
+                    </li>
+                </ul>
+            <div class="separator-line"></div>
+        </div>
+        <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
+        <div class="section-color">
+            <h1>IGV Browser</h1><hr />
                 <form id="uploadForm">
                     <label for="fileInput">Upload a file:</label>
                     <input type="file" id="fileInput" accept=".bam,.vcf,.bed,.gff,.gtf,.wig,.bigwig">
                 </form>
                 <div id="igv-container"></div>
                 <script src="https://cdn.jsdelivr.net/npm/igv@2.15.13/dist/igv.min.js"></script>
+                <div class="separator-line"></div>
         </div>
         <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
     </main>
