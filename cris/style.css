@@ -450,16 +450,16 @@ label, button {
     font-size: 12px;
   }
   ul {
-    font-size: 10px;
+    font-size: 11px;
   }
   th, td, code, dl, .publications a {
-    font-size: 10px
+    font-size: 11px
   }
   .grid-item {
-    font-size: 10px
+    font-size: 12px
   }
   .separator-dots {
-    font-size: 8px;
+    font-size: 6px;
     letter-spacing: 8px;
   }
   header .display-4 {
@@ -479,10 +479,6 @@ label, button {
     margin-left: 0px;
     padding: 0px 10px;
   }
-/*  .nav-item a:hover,
-  .dropdown-menu a:hover {
-    background: rgba(128, 128, 128, 0.55);
-  }*/
   .table-container {
     overflow-x: auto;
     width: 90%;
@@ -499,11 +495,14 @@ label, button {
   #data-table td:first-child {
   background-color: rgba(245, 245, 245, 1);
   }
+  .stats-table select {
+    width: 200px;
+  }
   /*  Style the menu toggle button  */
   .navbar-toggler {
     border: none;
     background: transparent;
-    font-size: 16px;
+    font-size: 18px;
     color: white;
     text-shadow: 2px 2px 5px rgba(10, 10, 0, 0.50);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.50);
@@ -531,7 +530,7 @@ label, button {
   footer p, 
   footer ul {
     display: flex;
-    font-size: 10px;
+    font-size: 12px;
     padding: 0px 20px;
     white-space: normal;
   }
