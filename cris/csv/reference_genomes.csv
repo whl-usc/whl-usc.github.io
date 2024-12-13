@@ -1,4 +1,4 @@
 ﻿normal,link,curated,link,special,link
-human,https://example.com,hg38mask14add,https://example.com,rna_1-rna_2,https://example.com
-mouse,https://example.com,mm10mask16add,https://example.com,rna_1-rna_3,https://example.com
-yeast,https://example.com,,,rna_2-rna_3,
+human,,hg38mask14add,https://uscedu-my.sharepoint.com/:u:/r/personal/zhipengl_usc_edu/Documents/CRIS/genomes/starhg38mask14add.tar.gz?csf=1&web=1&e=6TSxjH,rna_1-rna_2,
+mouse,,mm10mask16add,,rna_1-rna_3,
+,,,,rna_2-rna_3,

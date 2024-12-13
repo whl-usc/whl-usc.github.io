@@ -201,10 +201,11 @@ table td:not(:first-child), th:not(:first-child) {
 .instructions li {
   list-style-position: outside;
   list-style-type: lower-roman;
-  margin-left: 25px;
+  width: 75%;
 }
 .instructions p {
-  margin-left: 15px;
+  margin-left: 5px;
+  width: 55%;
 }
 .publications a {
   color: rgba(0, 0, 0, 1);
@@ -221,8 +222,8 @@ table td:not(:first-child), th:not(:first-child) {
   font-size: 12px;
   list-style-position: outside;
   list-style-type: number;
-  margin-bottom: 10px;
-  max-width: 95%;
+  margin-bottom: 2.5px;
+  max-width: 75%;
   width: fit-content;
 }
 /* Create a grid system for items */
@@ -314,6 +315,7 @@ dd {
   display: flex;
   justify-content: left;
   margin-left: 25px;
+  max-width: 75%;
 }
 /* Footer section */
 footer {
