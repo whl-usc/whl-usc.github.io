@@ -108,7 +108,7 @@ faq-container li {
 .large-picture {
   display: block;
   margin: 20px auto;
-  width: 90%;
+  width: 85%;
   transition: transform 0.3s ease;
 }
 /* Tables */
