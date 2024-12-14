@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 803 288">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: .5em;
+      }
+
+      .cls-2 {
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-7, .cls-4, .cls-8, .cls-9, .cls-5, .cls-6, .cls-10, .cls-11 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-9, .cls-5, .cls-6, .cls-11 {
+        stroke: #999;
+      }
+
+      .cls-12, .cls-13 {
+        font-family: Arial-BoldMT, Arial;
+      }
+
+      .cls-12, .cls-13, .cls-14, .cls-15, .cls-16 {
+        font-weight: 700;
+      }
+
+      .cls-12, .cls-14, .cls-17 {
+        font-size: 12px;
+      }
+
+      .cls-18, .cls-19 {
+        font-size: 4.44px;
+      }
+
+      .cls-18, .cls-14, .cls-15, .cls-17, .cls-16 {
+        font-style: italic;
+      }
+
+      .cls-18, .cls-17 {
+        font-family: Arial-ItalicMT, Arial;
+      }
+
+      .cls-7 {
+        stroke: red;
+      }
+
+      .cls-7, .cls-8, .cls-9, .cls-10 {
+        fill: none;
+      }
+
+      .cls-13 {
+        font-size: 14px;
+      }
+
+      .cls-20 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-21 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-22 {
+        letter-spacing: -.07em;
+      }
+
+      .cls-19 {
+        font-family: ArialMT, Arial;
+      }
+
+      .cls-23 {
+        letter-spacing: 1.05em;
+      }
+
+      .cls-4, .cls-8 {
+        stroke-width: 2px;
+      }
+
+      .cls-4, .cls-10 {
+        stroke: #000;
+      }
+
+      .cls-14, .cls-15, .cls-16 {
+        font-family: Arial-BoldItalicMT, Arial;
+      }
+
+      .cls-24 {
+        letter-spacing: .5em;
+      }
+
+      .cls-8 {
+        stroke: #333;
+      }
+
+      .cls-25 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-26 {
+        fill: #333;
+      }
+
+      .cls-9, .cls-6, .cls-11 {
+        stroke-width: .75px;
+      }
+
+      .cls-15 {
+        font-size: 11.5px;
+      }
+
+      .cls-5 {
+        filter: url(#drop-shadow-2);
+      }
+
+      .cls-16 {
+        font-size: 9px;
+      }
+
+      .cls-27 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-28 {
+        letter-spacing: -.09em;
+      }
+
+      .cls-10 {
+        stroke-width: 5px;
+      }
+    </style>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1"/>
+      <feGaussianBlur result="blur" stdDeviation="2"/>
+      <feFlood flood-color="#000" flood-opacity=".75"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1"/>
+      <feGaussianBlur result="blur-2" stdDeviation="2"/>
+      <feFlood flood-color="#000" flood-opacity=".45"/>
+      <feComposite in2="blur-2" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Workflow">
+    <rect class="cls-3" x="37" y="19" width="378" height="216"/>
+    <rect class="cls-3" x="468.98" y="19" width="333.02" height="108"/>
+    <path class="cls-2" d="M136,100l-13.57-15.43c-.88-1.59-2.55-2.57-4.37-2.57H51c-2.76,0-5-2.24-5-5v-35c0-2.76,2.24-5,5-5h71.59c2.52,0,4.65,1.88,4.96,4.38l8.45,58.62"/>
+    <text class="cls-12" transform="translate(226 45.95)"><tspan x="0" y="0">PREPROCESSED D</tspan><tspan class="cls-22" x="112.03" y="0">AT</tspan><tspan class="cls-27" x="126.24" y="0">A</tspan></text>
+    <text class="cls-14" transform="translate(157.67 45.95)"><tspan x="0" y="0">fastq</tspan></text>
+    <text class="cls-14" transform="translate(492.99 45.8)"><tspan x="0" y="0">crssant.py</tspan></text>
+    <text class="cls-14" transform="translate(492.99 113.3)"><tspan x="0" y="0">crssant.py</tspan></text>
+    <text class="cls-14" transform="translate(478.98 77.3)"><tspan x="0" y="0">gapmcluste</tspan><tspan class="cls-21" x="66.69" y="0">r</tspan><tspan x="70.69" y="0">.py</tspan></text>
+    <text class="cls-14" transform="translate(577 45.8)"><tspan x="0" y="0">gap1.sam + trans.sam</tspan></text>
+    <text class="cls-12" transform="translate(713.17 45.8)"><tspan x="0" y="0">DG OR NG</tspan></text>
+    <text class="cls-12" transform="translate(651 113.3)"><tspan x="0" y="0">HOMODIMER DG OR NG</tspan></text>
+    <text class="cls-12" transform="translate(566.78 176.3)"><tspan x="0" y="0">READ VISUALIZ</tspan><tspan class="cls-22" x="92" y="0">A</tspan><tspan x="99.78" y="0">TION</tspan></text>
+    <text class="cls-12" transform="translate(579 203.3)"><tspan x="0" y="0">STEMLOO</tspan><tspan class="cls-25" x="59.33" y="0">P</tspan><tspan class="cls-27" x="67.12" y="0"> </tspan><tspan x="70.01" y="0">ARCS</tspan></text>
+    <text class="cls-12" transform="translate(580.66 233.3)"><tspan x="0" y="0">CROSSLINK SITE </tspan><tspan x="9.79" y="12">ELUCID</tspan><tspan class="cls-22" x="54.45" y="12">A</tspan><tspan x="62.23" y="12">TION</tspan></text>
+    <text class="cls-14" transform="translate(508.16 176.3)"><tspan x="0" y="0">IGV</tspan></text>
+    <text class="cls-14" transform="translate(498.82 203.3)"><tspan x="0" y="0">dg2arc</tspan></text>
+    <text class="cls-14" transform="translate(494 233.3)"><tspan x="0" y="0">nt_freq.py</tspan><tspan x="-20.01" y="12">freq_icSHAPE.py</tspan></text>
+    <text class="cls-12" transform="translate(735.17 77.3)"><tspan x="0" y="0">TG </tspan></text>
+    <text class="cls-14" transform="translate(577 77.3)"><tspan x="0" y="0">gapm.sam + DGs, NGs</tspan></text>
+    <text class="cls-14" transform="translate(577 113.3)"><tspan x="0" y="0">homo.sam</tspan></text>
+    <text class="cls-14" transform="translate(137.76 77.3)"><tspan x="0" y="0">S</tspan><tspan class="cls-22" x="8" y="0">T</tspan><tspan x="14.44" y="0">AR 2.7.1a</tspan></text>
+    <text class="cls-14" transform="translate(137.76 179.3)"><tspan x="0" y="0">S</tspan><tspan class="cls-22" x="8" y="0">T</tspan><tspan x="14.44" y="0">AR 2.7.1a</tspan><tspan x="-.77" y="12">gaptypes.py</tspan></text>
+    <text class="cls-15" transform="translate(132.69 149.12)"><tspan x="0" y="0">softreverse.py</tspan></text>
+    <text class="cls-14" transform="translate(136.99 113.3)"><tspan x="0" y="0">gaptypes.py</tspan></text>
+    <text class="cls-17" transform="translate(55 51.8)"><tspan x="0" y="0">bad</tspan><tspan class="cls-23" x="20.02" y="0">	</tspan><tspan x="36" y="0">cont</tspan><tspan x="0" y="12">gap1</tspan><tspan class="cls-1" x="26.7" y="12">	</tspan><tspan x="36" y="12">gapm</tspan><tspan x="0" y="24">trans</tspan><tspan class="cls-24" x="26.68" y="24">	</tspan><tspan x="36" y="24">homo</tspan></text>
+    <text class="cls-12" transform="translate(226 71.3)"><tspan x="0" y="0">ROUND 1 PERMISSIVE </tspan><tspan x="0" y="12">MAPPING </tspan><tspan class="cls-25" x="59.34" y="12">T</tspan><tspan x="66.45" y="12">O GENOME</tspan></text>
+    <text class="cls-12" transform="translate(226 179.3)"><tspan x="0" y="0">ROUND 2 MAPPING + </tspan><tspan x="0" y="12">CLASSIFIC</tspan><tspan class="cls-22" x="63.33" y="12">A</tspan><tspan x="71.11" y="12">TION </tspan></text>
+    <text class="cls-12" transform="translate(226 215.3)"><tspan x="0" y="0">PENA</tspan><tspan class="cls-22" x="33.34" y="0">L</tspan><tspan x="39.78" y="0">TY/D</tspan><tspan class="cls-22" x="67.11" y="0">AT</tspan><tspan x="81.33" y="0">ABASE-</tspan><tspan x="0" y="12">DEPENDENT FI</tspan><tspan class="cls-22" x="88.01" y="12">L</tspan><tspan x="94.45" y="12">TERING</tspan></text>
+    <text class="cls-12" transform="translate(226 113.3)"><tspan x="0" y="0">ALIGNMENT CLASSIFIC</tspan><tspan class="cls-22" x="137.99" y="0">A</tspan><tspan x="145.77" y="0">TION</tspan></text>
+    <text class="cls-12" transform="translate(226 143.3) scale(1.02 1)"><tspan x="0" y="0">REARRANGE SOFTCLIPPED </tspan><tspan x="0" y="12">CONTINOUS</tspan><tspan class="cls-20" x="72" y="12"> </tspan><tspan x="74.89" y="12">ALIGNMENTS</tspan></text>
+    <g>
+      <line class="cls-10" x1="424" y1="73" x2="445.65" y2="73"/>
+      <polygon points="442.73 82.97 460 73 442.73 63.03 442.73 82.97"/>
+    </g>
+    <path class="cls-26" d="M136,127l279-.25c1.05,1.4-279.04-.21-279,.25h0Z"/>
+    <path class="cls-26" d="M136,91l279-.25c1.05,1.4-279.04-.21-279,.25h0Z"/>
+    <path class="cls-26" d="M138.26,163l276.74-.25c1.05,1.4-276.77-.21-276.74.25h0Z"/>
+    <path class="cls-26" d="M136,55l279-.25c1.05,1.4-279.04-.21-279,.25h0Z"/>
+    <rect class="cls-8" x="37" y="19" width="378" height="216"/>
+    <rect class="cls-8" x="468.79" y="19" width="333.21" height="108"/>
+    <rect class="cls-4" x="1" y="1" width="234" height="27"/>
+    <text class="cls-13" transform="translate(8.33 19.51)"><tspan x="0" y="0">MAPPING</tspan><tspan class="cls-27" x="65.34" y="0"> </tspan><tspan x="68.71" y="0">AND CLASSIFIC</tspan><tspan class="cls-22" x="176.82" y="0">A</tspan><tspan x="185.89" y="0">TION</tspan></text>
+    <path class="cls-26" d="M136,199l279-.25c1.05,1.4-279.04-.21-279,.25h0Z"/>
+    <path class="cls-26" d="M476.91,55l325.09-.25c1.06,1.41-325.13-.21-325.09.25h0Z"/>
+    <path class="cls-26" d="M476.91,91l325.09-.25c1.06,1.41-325.13-.21-325.09.25h0Z"/>
+    <path class="cls-26" d="M487,181l216-.25c1.04,1.4-216.03-.21-216,.25h0Z"/>
+    <path class="cls-26" d="M487,217l216-.25c1.04,1.4-216.03-.21-216,.25h0Z"/>
+    <text class="cls-14" transform="translate(139.99 221.3)"><tspan x="0" y="0">gapfilte</tspan><tspan class="cls-21" x="42.67" y="0">r</tspan><tspan x="46.68" y="0">.py</tspan></text>
+    <rect class="cls-5" x="10" y="91" width="108" height="189" rx="5" ry="5"/>
+    <g>
+      <text class="cls-16" transform="translate(35 184.22)"><tspan x="0" y="0">gaplendist.py</tspan></text>
+      <g>
+        <rect class="cls-6" x="41.98" y="100" width="61.28" height="57.6"/>
+        <text class="cls-18" transform="translate(56.85 169.99) scale(1.06 1)"><tspan x="0" y="0">Gap length (nt)</tspan></text>
+        <text class="cls-18" transform="translate(24.42 138.67) rotate(-90) scale(.94 1)"><tspan x="0" y="0">Frequency</tspan></text>
+        <text class="cls-19" transform="translate(46.41 164.75) scale(1.06 1)"><tspan x="0" y="0">0</tspan></text>
+        <text class="cls-19" transform="translate(27.8 159.19) scale(1.06 1)"><tspan x="0" y="0">0.00</tspan></text>
+        <text class="cls-19" transform="translate(27.8 144.79) scale(1.06 1)"><tspan x="0" y="0">0.25</tspan></text>
+        <text class="cls-19" transform="translate(27.8 130.39) scale(1.06 1)"><tspan x="0" y="0">0.50</tspan></text>
+        <text class="cls-19" transform="translate(27.8 117.79) scale(1.06 1)"><tspan x="0" y="0">0.75</tspan></text>
+        <text class="cls-19" transform="translate(27.8 106.99) scale(1.06 1)"><tspan x="0" y="0">1.00</tspan></text>
+        <text class="cls-19" transform="translate(69.99 164.75) scale(1.06 1)"><tspan x="0" y="0">50</tspan></text>
+        <text class="cls-19" transform="translate(99.31 164.75) scale(1.06 1)"><tspan x="0" y="0">100</tspan></text>
+        <path class="cls-7" d="M47.35,157.62c1.85-3.44,2.25-7.65,2.3-11.7s-.19-8.15.56-12.1c.7-3.67,2.23-7.06,3.75-10.39.84-1.84,1.69-3.71,2.93-5.23.92-1.12,2.03-2.02,3.16-2.84,2.28-1.67,4.75-3.12,7.41-3.68,1.78-.38,3.62-.35,5.4-.78,1.43-.34,2.78-.97,4.16-1.5,4.13-1.61,8.45-2.43,12.75-3.25,4.42-.84,8.84-1.69,13.27-2.53"/>
+        <line class="cls-11" x1="41.98" y1="105.4" x2="38.15" y2="105.4"/>
+        <line class="cls-11" x1="41.98" y1="116.2" x2="38.15" y2="116.2"/>
+        <line class="cls-11" x1="41.98" y1="128.8" x2="38.15" y2="128.8"/>
+        <line class="cls-11" x1="41.98" y1="157.6" x2="38.15" y2="157.6"/>
+        <line class="cls-11" x1="41.98" y1="143.2" x2="38.15" y2="143.2"/>
+        <line class="cls-9" x1="47.72" y1="161.2" x2="47.72" y2="157.6"/>
+        <line class="cls-9" x1="72.62" y1="161.2" x2="72.62" y2="157.6"/>
+        <line class="cls-9" x1="103.26" y1="161.2" x2="103.26" y2="157.6"/>
+      </g>
+    </g>
+    <g>
+      <text class="cls-16" transform="translate(35.24 274.22)"><tspan x="0" y="0">seglendist.py</tspan></text>
+      <g>
+        <rect class="cls-6" x="41.98" y="190" width="61.28" height="57.6"/>
+        <text class="cls-18" transform="translate(51.85 259.99) scale(1.06 1)"><tspan x="0" y="0">Segment length (nt)</tspan></text>
+        <text class="cls-18" transform="translate(24.42 228.67) rotate(-90) scale(.94 1)"><tspan x="0" y="0">Frequency</tspan></text>
+        <text class="cls-19" transform="translate(46.41 254.75) scale(1.06 1)"><tspan x="0" y="0">0</tspan></text>
+        <text class="cls-19" transform="translate(27.8 249.19) scale(1.06 1)"><tspan x="0" y="0">0.00</tspan></text>
+        <text class="cls-19" transform="translate(27.8 234.79) scale(1.06 1)"><tspan x="0" y="0">0.25</tspan></text>
+        <text class="cls-19" transform="translate(27.8 220.39) scale(1.06 1)"><tspan x="0" y="0">0.50</tspan></text>
+        <text class="cls-19" transform="translate(27.8 207.79) scale(1.06 1)"><tspan x="0" y="0">0.75</tspan></text>
+        <text class="cls-19" transform="translate(27.8 196.99) scale(1.06 1)"><tspan x="0" y="0">1.00</tspan></text>
+        <text class="cls-19" transform="translate(69.99 254.75) scale(1.06 1)"><tspan x="0" y="0">20</tspan></text>
+        <text class="cls-19" transform="translate(100.63 254.75) scale(1.06 1)"><tspan x="0" y="0">40</tspan></text>
+        <line class="cls-11" x1="41.98" y1="195.4" x2="38.15" y2="195.4"/>
+        <line class="cls-11" x1="41.98" y1="206.2" x2="38.15" y2="206.2"/>
+        <line class="cls-11" x1="41.98" y1="218.8" x2="38.15" y2="218.8"/>
+        <line class="cls-11" x1="41.98" y1="247.6" x2="38.15" y2="247.6"/>
+        <line class="cls-11" x1="41.98" y1="233.2" x2="38.15" y2="233.2"/>
+        <line class="cls-9" x1="47.72" y1="251.2" x2="47.72" y2="247.6"/>
+        <line class="cls-9" x1="72.62" y1="251.2" x2="72.62" y2="247.6"/>
+        <line class="cls-9" x1="103.26" y1="251.2" x2="103.26" y2="247.6"/>
+        <path class="cls-7" d="M45.81,247.6s26.81,0,34.47-18c7.66-18,7.66-32.4,22.98-32.4"/>
+      </g>
+    </g>
+    <rect class="cls-4" x="433" y="1" width="117" height="27"/>
+    <text class="cls-13" transform="translate(441.19 19.51)"><tspan x="0" y="0">DG</tspan><tspan class="cls-27" x="21" y="0"> </tspan><tspan x="24.37" y="0">ASSEMB</tspan><tspan class="cls-28" x="84.27" y="0">L</tspan><tspan class="cls-25" x="91.53" y="0">Y</tspan></text>
+    <rect class="cls-8" x="469" y="154" width="234" height="99"/>
+    <rect class="cls-4" x="433" y="136" width="117" height="27"/>
+    <text class="cls-13" transform="translate(456.75 154.51)"><tspan x="0" y="0">ANA</tspan><tspan class="cls-28" x="30.33" y="0">L</tspan><tspan x="37.6" y="0">YSIS</tspan></text>
+    <g>
+      <line class="cls-10" x1="586" y1="127" x2="586" y2="148.65"/>
+      <polygon points="576.03 145.73 586 163 595.97 145.73 576.03 145.73"/>
+    </g>
+  </g>
+</svg>
