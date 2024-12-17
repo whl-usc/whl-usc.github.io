@@ -1,4 +1,3 @@
 ﻿normal,link,curated,link,special,link
-human,,hg38mask14add,https://uscedu-my.sharepoint.com/:u:/r/personal/zhipengl_usc_edu/Documents/CRIS/genomes/starhg38mask14add.tar.gz?csf=1&web=1&e=6TSxjH,rna_1-rna_2,
-mouse,,mm10mask16add,,rna_1-rna_3,
-,,,,rna_2-rna_3,
+hg38,https://uscedu-my.sharepoint.com/:u:/r/personal/zhipengl_usc_edu/Documents/CRIS/genomes/starhg38pri.tar.gz?csf=1&web=1&e=kTtjGD,hg38mask14add,https://uscedu-my.sharepoint.com/:u:/r/personal/zhipengl_usc_edu/Documents/CRIS/genomes/starhg38mask14add.tar.gz?csf=1&web=1&e=6TSxjH,rna_1-rna_2,
+mm10,https://uscedu-my.sharepoint.com/:u:/r/personal/zhipengl_usc_edu/Documents/CRIS/genomes/starmm10pri.tar.gz?csf=1&web=1&e=sAA3Zw,mm10mask16add,https://uscedu-my.sharepoint.com/:u:/r/personal/zhipengl_usc_edu/Documents/CRIS/genomes/.starmm10mask16add.tar.gz.OtZ77TIhjH?csf=1&web=1&e=npgzSh,,

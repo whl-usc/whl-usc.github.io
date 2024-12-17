@@ -108,7 +108,7 @@ faq-container li {
 .large-picture {
   display: block;
   margin: 20px auto;
-  width: 85%;
+  width: 60%;
   transition: transform 0.3s ease;
 }
 /* Tables */
@@ -198,11 +198,11 @@ table td:not(:first-child), th:not(:first-child) {
 .instructions li {
   list-style-position: outside;
   list-style-type: lower-roman;
-  width: 75%;
+  width: 85%;
 }
 .instructions p {
   margin-left: 5px;
-  width: 55%;
+  width: 75%;
 }
 .publications a {
   color: rgba(0, 0, 0, 1);
