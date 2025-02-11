@@ -1,47 +1,47 @@
 Metrics,IV-1HR2_DPI-5_T4-24h_exo-0h,IV-1HR2_DPI-5_T4-24h_exo-2h,IV-4GMA_DPI-5_T4-24h_exo-0h,IV-4GMA_DPI-5_T4-24h_exo-2h
-Raw reads,831410.0,1479445.0,2439256.0,6763234
+Raw reads,831410,1479445,2439256,6763234
 Round 1,,,,
-Input reads,1150551.0,900196.0,315513.0,633255.0
-Average input read length,70.0,55.0,67.0,59.0
-Uniquely mapped reads,2352.0,3921.0,58980.0,39319.0
-Multi-mapped reads,992.0,3054.0,982.0,1113.0
-Too many mismatches,0.0,13.0,1.0,2.0
-Too short reads,670101.0,749177.0,107177.0,303874.0
-Other unmapped,477082.0,143979.0,148001.0,288308.0
+Input reads,1150551,900196,315513,633255
+Average input read length,70,55,67,59
+Uniquely mapped reads,2352,3921,58980,39319
+Multi-mapped reads,992,3054,982,1113
+Too many mismatches,0,13,1,2
+Too short reads,670101,749177,107177,303874
+Other unmapped,477082,143979,148001,288308
 Round 2,,,,
-Input reads,107.0,504.0,25963.0,6351.0
-Average input read length,19.0,18.0,72.0,48.0
-Uniquely mapped reads,27.0,138.0,24020.0,5424.0
-Multi-mapped reads,18.0,85.0,1070.0,237.0
-Too many mismatches,0.0,0.0,0.0,0.0
-Too short reads,62.0,280.0,37.0,161.0
-Other unmapped,0.0,0.0,0.0,0.0
+Input reads,107,504,25963,6351
+Average input read length,19,18,72,48
+Uniquely mapped reads,27,138,24020,5424
+Multi-mapped reads,18,85,1070,237
+Too many mismatches,0,0,0,0
+Too short reads,62,280,37,161
+Other unmapped,0,0,0,0
 Combined,,,,
-Input reads,1150658.0,900700.0,341476.0,639606.0
-Average input read length,89.0,73.0,139.0,107.0
-Uniquely mapped reads,2379.0,4059.0,83000.0,44743.0
-Multi-mapped reads,1010.0,3139.0,2052.0,1350.0
-Too many mismatches,0.0,13.0,1.0,2.0
-Too short reads,670163.0,749457.0,107214.0,304035.0
-Other unmapped,477082.0,143979.0,148001.0,288308.0
+Input reads,1150658,900700,341476,639606
+Average input read length,89,73,139,107
+Uniquely mapped reads,2379,4059,83000,44743
+Multi-mapped reads,1010,3139,2052,1350
+Too many mismatches,0,13,1,2
+Too short reads,670163,749457,107214,304035
+Other unmapped,477082,143979,148001,288308
 Gap type analysis,,,,
-Total input alignment number,45.0,223.0,25937.0,6199
-Continuous alignments (no gaps),31.0,152.0,23631.0,5476
-Two-segment gapped alignments,7.0,26.0,2091.0,537
-Multi-segment gapped alignments,0.0,0.0,8.0,6
-Other chimeric (different str/chr),0.0,0.0,9.0,18
-Overlapping chimeric (homotypic),0.0,0.0,74.0,55
-Bad alignments,7.0,45.0,124.0,107
-Filtering for gap_1,722.0,2331.0,5666.0,3467
-Total single gapped alignments,684.0,2108.0,3996.0,2852
-Alignments with at least 1 good gap,0.0,0.0,1.0,1
-Alignment with at least 2 good gaps,,,,
-Filtering for gap_m,29.0,58.0,77.0,161
-Total multiple gapped alignments,29.0,57.0,59.0,159
-Alignments with at least 1 good gap,25.0,48.0,28.0,49
-Alignment with at least 2 good gaps,,,,
-Total number of gaps,742.0,2222.0,4117.0,3176
-Median gap length (all),22.0,24.0,40.0,30.0
-Median gap length (dist. plot),22.0,22.0,36.0,27
-Total number of segments,1483.0,4425.0,8250.0,6318
-Median segment length,8.0,9.0,21.0,13.0
+Total input alignment number,45,223,25937,6199
+Continuous alignments (no gaps),31,152,23631,5476
+Two-segment gapped alignments,7,26,2091,537
+Multi-segment gapped alignments,0,0,8,6
+Other chimeric (different str/chr),0,0,9,18
+Overlapping chimeric (homotypic),0,0,74,55
+Bad alignments,7,45,124,107
+Filtering for gap_1,,,,
+Total single gapped alignments,722,2331,5666,3467
+Alignments with at least 1 good gap,684,2108,3996,2852
+Alignment with at least 2 good gaps,0,0,1,1
+Filtering for gap_m,,,,
+Total multiple gapped alignments,29,58,77,161
+Alignments with at least 1 good gap,29,57,59,159
+Alignment with at least 2 good gaps,25,48,28,49
+Total number of gaps,742,2222,4117,3176
+Median gap length (all),22,24,40,30
+Median gap length (dist. plot),22,22,36,27
+Total number of segments,1483,4425,8250,6318
+Median segment length,8,9,21,13

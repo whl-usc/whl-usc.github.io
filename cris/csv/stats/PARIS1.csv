@@ -1,47 +1,47 @@
 Metrics,HS-HEK293T_AMT-0.5_T4-24h_exo-0h,HS-HEK293T_AMT-0.5_T4-24h_exo-0h_stress,MM-mES_AMT-0.5_T4-24h_exo-0h,MM-mES_AMT-0.5_T4-24h_exo-0h_KOMettl3
-Raw reads,99698824.0,116639933.0,120346903.0,164769535
+Raw reads,99698824,116639933,120346903,164769535
 Round 1,,,,
-Input reads,99698824.0,116639933.0,120346903.0,164769535.0
-Average input read length,42.0,40.0,47.0,45.0
-Uniquely mapped reads,61844402.0,74295670.0,74153801.0,94775143.0
-Multi-mapped reads,7425576.0,9226114.0,6197646.0,9168902.0
-Too many mismatches,0.0,0.0,0.0,0.0
-Too short reads,24020613.0,25975257.0,33073386.0,52492376.0
-Other unmapped,244786.0,362334.0,55122.0,77562.0
+Input reads,99698824,116639933,120346903,164769535
+Average input read length,42,40,47,45
+Uniquely mapped reads,61844402,74295670,74153801,94775143
+Multi-mapped reads,7425576,9226114,6197646,9168902
+Too many mismatches,0,0,0,0
+Too short reads,24020613,25975257,33073386,52492376
+Other unmapped,244786,362334,55122,77562
 Round 2,,,,
-Input reads,20274626.0,22643764.0,25340304.0,33007783.0
-Average input read length,41.0,40.0,47.0,44.0
-Uniquely mapped reads,14908190.0,16094620.0,19622956.0,24766762.0
-Multi-mapped reads,2137403.0,2821385.0,1940351.0,2943770.0
-Too many mismatches,0.0,0.0,0.0,0.0
-Too short reads,1013411.0,1258500.0,955799.0,1787361.0
-Other unmapped,52.0,48.0,59.0,60.0
+Input reads,20274626,22643764,25340304,33007783
+Average input read length,41,40,47,44
+Uniquely mapped reads,14908190,16094620,19622956,24766762
+Multi-mapped reads,2137403,2821385,1940351,2943770
+Too many mismatches,0,0,0,0
+Too short reads,1013411,1258500,955799,1787361
+Other unmapped,52,48,59,60
 Combined,,,,
-Input reads,119973450.0,139283697.0,145687207.0,197777318.0
-Average input read length,83.0,80.0,94.0,89.0
-Uniquely mapped reads,76752592.0,90390290.0,93776757.0,119541905.0
-Multi-mapped reads,9562979.0,12047499.0,8137997.0,12112672.0
-Too many mismatches,0.0,0.0,0.0,0.0
-Too short reads,25034024.0,27233757.0,34029185.0,54279737.0
-Other unmapped,244838.0,362382.0,55181.0,77622.0
+Input reads,119973450,139283697,145687207,197777318
+Average input read length,83,80,94,89
+Uniquely mapped reads,76752592,90390290,93776757,119541905
+Multi-mapped reads,9562979,12047499,8137997,12112672
+Too many mismatches,0,0,0,0
+Too short reads,25034024,27233757,34029185,54279737
+Other unmapped,244838,362382,55181,77622
 Gap type analysis,,,,
-Total input alignment number,19274055.0,21394003.0,24436025.0,31318902
-Continuous alignments (no gaps),15915901.0,18264749.0,19420248.0,25157704
-Two-segment gapped alignments,2408924.0,2101153.0,3429952.0,4201112
-Multi-segment gapped alignments,404.0,403.0,705.0,682
-Other chimeric (different str/chr),943471.0,1021171.0,1287624.0,1604131
-Overlapping chimeric (homotypic),814.0,819.0,2253.0,2305
-Bad alignments,4541.0,5708.0,295243.0,352968
-Filtering for gap_1,12919952.0,11993846.0,21545820.0,25429177
-Total single gapped alignments,11435925.0,10426401.0,19519920.0,23260909
-Alignments with at least 1 good gap,0.0,0.0,0.0,2
-Alignment with at least 2 good gaps,,,,
-Filtering for gap_m,84259.0,71392.0,185337.0,196465
-Total multiple gapped alignments,81033.0,68176.0,173915.0,187555
-Alignments with at least 1 good gap,36110.0,28635.0,81077.0,92739
-Alignment with at least 2 good gaps,,,,
-Total number of gaps,11598143.0,10562867.0,19868235.0,23636501
-Median gap length (all),156.0,168.0,185.0,181
-Median gap length (dist. plot),27.0,28.0,29.0,30
-Total number of segments,29704716.0,28244418.0,48440009.0,58313027
-Median segment length,22.0,22.0,25.0,24
+Total input alignment number,19274055,21394003,24436025,31318902
+Continuous alignments (no gaps),15915901,18264749,19420248,25157704
+Two-segment gapped alignments,2408924,2101153,3429952,4201112
+Multi-segment gapped alignments,404,403,705,682
+Other chimeric (different str/chr),943471,1021171,1287624,1604131
+Overlapping chimeric (homotypic),814,819,2253,2305
+Bad alignments,4541,5708,295243,352968
+Filtering for gap_1,,,,
+Total single gapped alignments,12919952,11993846,21545820,25429177
+Alignments with at least 1 good gap,11435925,10426401,19519920,23260909
+Alignment with at least 2 good gaps,0,0,0,2
+Filtering for gap_m,,,,
+Total multiple gapped alignments,84259,71392,185337,196465
+Alignments with at least 1 good gap,81033,68176,173915,187555
+Alignment with at least 2 good gaps,36110,28635,81077,92739
+Total number of gaps,11598143,10562867,19868235,23636501
+Median gap length (all),156,168,185,181
+Median gap length (dist. plot),27,28,29,30
+Total number of segments,29704716,28244418,48440009,58313027
+Median segment length,22,22,25,24
