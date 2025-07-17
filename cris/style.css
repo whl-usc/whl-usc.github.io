@@ -350,10 +350,10 @@ footer ul {
   display: flex;
   flex-direction: column;
   font-family: Tahoma, sans-serif;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 11px;
+  line-height: 13px;
   margin: 0;
-  padding: 0px 10px;
+  padding: 0px 15px;
   text-decoration: none;
   white-space: normal;
 }
