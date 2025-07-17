@@ -1,13 +1,16 @@
 /* Positioning and styling main body elements */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0px;
   overflow-x: hidden;
 }
+
 body {
   background: rgba(240, 240, 240, 1.0);
   margin: 0px;
 }
+
 main {
   margin-bottom: 50px;
   margin-top: 5px;
@@ -16,24 +19,31 @@ main {
   position: relative;
   z-index: 1;
 }
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
   color: rgba(0, 0, 0, 1);
   font-family: Tahoma, sans-serif;
   font-weight: bold;
 }
+
 h1 {
   font-size: 20px;
   margin: 10px 5px;
 }
+
 h2 {
   font-size: 16px;
   margin: 10px 5px;
 }
+
 h3 {
   font-size: 14px;
   margin: 10px 25px;
   text-decoration: underline;
 }
+
 p {
   color: rgba(0, 0, 0, 1);
   font-family: Tahoma, sans-serif;
@@ -43,6 +53,7 @@ p {
   text-align: justify;
   width: fit-content;
 }
+
 ul {
   color: rgba(0, 0, 0, 1);
   font-family: Tahoma, sans-serif;
@@ -52,6 +63,7 @@ ul {
   text-align: justify;
   width: fit-content;
 }
+
 /* Section separators and styling */
 hr {
   background: linear-gradient(to right, rgba(0, 0, 0, 1.0), rgba(255, 255, 255, 0.5));
@@ -60,6 +72,7 @@ hr {
   margin: 0px 5px 10px;
   max-width: 75%;
 }
+
 .separator-dots {
   background: linear-gradient(to right, rgba(255, 255, 255, 0.50), rgba(0, 0, 0, 1.0), rgba(255, 255, 255, 0.50));
   -webkit-background-clip: text;
@@ -68,17 +81,20 @@ hr {
   font-size: 12px;
   letter-spacing: 12px;
 }
+
 .dot-container {
   align-items: center;
   display: flex;
   justify-content: center;
   margin: 15px auto;
 }
+
 .separator-line {
   background: linear-gradient(to right, rgba(255, 255, 255, 1.0), rgba(0, 0, 0, 1.0), rgba(255, 255, 255, 1.0));
   height: 1.25px;
   margin-left: 0px auto;
 }
+
 .section-color {
   background: rgba(255, 255, 255, 1.0);
   border: 0.5px solid rgba(0, 0, 0, 0.25);
@@ -89,35 +105,43 @@ hr {
   position: relative;
   max-width: 95%;
 }
+
 .container {
   display: flex;
   justify-content: left;
   margin-left: 10px;
   text-align: center;
 }
+
 faq-container ul {
   padding-left: 15px;
 }
+
 faq-container li {
   margin-bottom: 10px;
 }
+
 /* Linked images and sources */
-.link-hover a:hover, .link-hover p:hover {
+.link-hover a:hover,
+.link-hover p:hover {
   text-decoration: underline;
 }
+
 .landing-picture {
   display: block;
-  margin: 0px auto;
-  width: 80%;
+  margin: 15px auto;
+  width: 98%;
   height: auto;
   transition: transform 0.3s ease;
 }
+
 .large-picture {
   display: block;
   margin: 20px auto;
   width: 60%;
   transition: transform 0.3s ease;
 }
+
 /* Tables */
 .table-container {
   border: 1.25px solid rgba(0, 0, 0, 0.125);
@@ -128,12 +152,15 @@ faq-container li {
   overflow-x: auto;
   overflow-y: auto;
 }
+
 table {
   border-collapse: collapse;
   table-layout: auto;
   width: auto;
 }
-th, td {
+
+th,
+td {
   border: 1px solid #ddd;
   font-family: Tahoma, sans-serif;
   font-size: 14px;
@@ -142,75 +169,90 @@ th, td {
   width: 120px;
   white-space: nowrap;
 }
+
 th {
   background-color: rgba(0, 100, 200, 0.45);
 }
+
 thead {
   background-color: white;
   position: sticky;
   top: 0;
 }
-table td:not(:first-child), th:not(:first-child) {
-  text-align: center;  
+
+table td:not(:first-child),
+th:not(:first-child) {
+  text-align: center;
 }
+
 #data-table td:first-child {
   background-color: rgba(245, 245, 245, 1);
 }
+
 /* Statistics page buttons and styling */
 .stats-table {
   margin: 10px;
   overflow-x: auto;
 }
+
 .stats-table label {
-    font-weight: normal;
-    margin-right: 0px;
-    width: 90px;
+  font-weight: normal;
+  margin-right: 0px;
+  width: 90px;
 }
+
 .stats-table select {
-    border-radius: 6px;
-    border: 1px solid rgba(0, 0, 0, 1.0);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-    font-family: Tahoma, sans-serif;
-    font-size: 12px;
-    padding: 5px 5px;
-    width: 300px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 1.0);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  padding: 5px 5px;
+  width: 300px;
 }
+
 #clear-all {
-    background-color: rgba(255, 0, 0, 0.55);
-    border: 1px solid rgba(0, 0, 0, 1.0) ;
-    border-radius: 4px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-    font-size: 11px;
-    font-weight: bold;
-    width: 70px;
-    padding: 5px 0;
+  background-color: rgba(255, 0, 0, 0.55);
+  border: 1px solid rgba(0, 0, 0, 1.0);
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  font-size: 11px;
+  font-weight: bold;
+  width: 70px;
+  padding: 5px 0;
 }
+
 #clear-all:active {
-    background-color: rgba(255, 0, 0, 0.75);
+  background-color: rgba(255, 0, 0, 0.75);
 }
+
 .stats-table button {
-    background-color: rgba(200, 200, 200, 0.25);
-    border: 1px solid rgba(0, 0, 0, 1) ;
-    border-radius: 4px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-    font-size: 11px;
-    font-weight: bold;
-    width: 70px;
-    padding: 5px 0;
+  background-color: rgba(200, 200, 200, 0.25);
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  font-size: 11px;
+  font-weight: bold;
+  width: 70px;
+  padding: 5px 0;
 }
+
 .stats-table button:active {
-    background-color: rgba(200, 200, 200, 0.55);
+  background-color: rgba(200, 200, 200, 0.55);
 }
+
 /* Special formatting for publications - long lines */
 .instructions li {
   list-style-position: outside;
   list-style-type: lower-roman;
   width: 85%;
 }
+
 .instructions p {
   margin-left: 5px;
   width: 75%;
 }
+
 .publications a {
   color: rgba(0, 0, 0, 1);
   font-family: Tahoma, sans-serif;
@@ -219,9 +261,11 @@ table td:not(:first-child), th:not(:first-child) {
   justify-content: left;
   text-decoration: underline;
 }
+
 .publications a:hover {
   color: rgba(0, 0, 255, 1);
 }
+
 .publications li {
   font-size: 12px;
   list-style-position: outside;
@@ -230,6 +274,7 @@ table td:not(:first-child), th:not(:first-child) {
   max-width: 75%;
   width: fit-content;
 }
+
 /* Create a grid system for items */
 .grid-container {
   background: rgba(174, 214, 241, 0.25);
@@ -243,6 +288,7 @@ table td:not(:first-child), th:not(:first-child) {
   padding: 10px;
   width: fit-content;
 }
+
 .grid-item {
   background: rgba(255, 255, 255, 0.55);
   border: 0.5px solid rgba(0, 0, 0, .5);
@@ -256,12 +302,16 @@ table td:not(:first-child), th:not(:first-child) {
   text-align: center;
   text-decoration: none;
 }
+
 .grid-item:hover {
   border-color: rgba(255, 255, 0, 0.25);
 }
-.grid-item:hover a:hover, .grid-hover p:hover {
+
+.grid-item:hover a:hover,
+.grid-hover p:hover {
   text-decoration: underline;
 }
+
 /* Code examples */
 code {
   color: black;
@@ -281,19 +331,23 @@ code {
   width: fit-content;
   z-index: 10;
 }
+
 code.example {
   background-color: rgba(144, 238, 144, 0.25);
 }
+
 code.faq-example {
   background-color: rgba(144, 144, 144, 0.25);
   font-size: 11px;
   margin-left: 10px;
   padding: 5px;
 }
+
 .code-block {
   text-align: left;
   width: fit-content;
 }
+
 /* Definition lists for vocabulary */
 dl {
   background-color: rgba(255, 248, 220, 0.15);
@@ -307,21 +361,25 @@ dl {
   padding: 10px;
   width: fit-content;
 }
+
 dt {
   color: rgba(10, 10, 10, 1);
   font-weight: bold;
   text-decoration: underline;
 }
+
 dd {
   margin: 0px 50px 5px 15px;
   word-wrap: break-word;
 }
+
 .dl-container {
   display: flex;
   justify-content: left;
   margin-left: 25px;
   max-width: 85%;
 }
+
 /* Footer section */
 footer {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.65));
@@ -332,19 +390,22 @@ footer {
   width: 100%;
   z-index: 100;
 }
+
 footer .container {
   justify-content: left;
   max-width: 100%;
   padding: 0px;
 }
+
 footer h5,
 footer .col-md-3 a {
   text-align: left;
   white-space: nowrap;
 }
-footer a, 
-footer h5, 
-footer p, 
+
+footer a,
+footer h5,
+footer p,
 footer ul {
   color: rgba(255, 255, 255, 1.0);
   display: flex;
@@ -357,11 +418,13 @@ footer ul {
   text-decoration: none;
   white-space: normal;
 }
+
 /* Navigation bar styling */
 .brand-logo {
   height: 40px;
   max-width: 100%;
 }
+
 .navbar-brand {
   color: rgba(255, 255, 255, 1.0);
   font-family: Tahoma, sans-serif;
@@ -370,16 +433,18 @@ footer ul {
   padding-right: 10px;
   font-size: 16px;
   font-weight: bold;
-  text-shadow: 
-    1px 1px 0 #000, 
-    -1px -1px 0 #000, 
-    1px -1px 0 #000, 
-    -1px 1px 0 #000, 
+  text-shadow:
+    1px 1px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
     2px 2px 5px yellow;
 }
+
 .navbar-brand:hover {
   color: rgba(128, 128, 128, 1.0);
 }
+
 .navbar {
   background: linear-gradient(to right, rgba(0, 0, 0, 1.0), rgba(11, 41, 63, 0.95));
   border-radius: 0 0 10px 10px;
@@ -387,41 +452,51 @@ footer ul {
   margin: 0;
   padding: 0px 10px;
 }
-.navbar-nav, .nav-link {
+
+.navbar-nav,
+.nav-link {
   color: rgba(255, 255, 255, 1.0);
 }
-.navbar-nav:hover, 
-.nav-item:hover, 
+
+.navbar-nav:hover,
+.nav-item:hover,
 .nav-link:hover,
 .dropdown-item:hover {
   color: rgba(255, 255, 0, 1.0);
 }
+
 .nav-item {
   font-size: 16px;
-  text-shadow:   
-    1px 1px 5 #000, 
-    -1px -1px 5 #000, 
-    1px -1px 5 #000, 
+  text-shadow:
+    1px 1px 5 #000,
+    -1px -1px 5 #000,
+    1px -1px 5 #000,
     -1px 1px 5 #000;
 }
+
 .game {
   color: rgba(150, 250, 250, 1)
 }
+
 .nav-item,
 .dropdown-item {
   color: rgba(255, 255, 255, 1.0);
 }
+
 .dropdown-item {
   font-size: 14px;
   padding: 0px 10px;
 }
+
 .dropdown-menu {
   border-radius: 10px;
 }
+
 .dropdown-menu,
 .dropdown-item:hover {
   background-color: rgba(11, 41, 63, 1.0);
 }
+
 /* IGV styling */
 #igv-container {
   border: 0.5px solid rgba(0, 0, 0, 0.50);
@@ -432,79 +507,104 @@ footer ul {
   padding: 10px;
   width: 98.5%;
 }
+
 .igv-ideogram-canvas {
   max-height: 100px;
 }
-label, button {
+
+label,
+button {
   color: rgba(0, 0, 0, 1);
   font-family: Tahoma, sans-serif;
   font-size: 14px;
   font-weight: normal;
   margin-left: 25px;
 }
+
 /* Media query for screens smaller than 768px */
 @media (max-width: 768px) {
   h1 {
     font-size: 20px;
   }
+
   h2 {
     font-size: 16px;
   }
+
   h3 {
     font-size: 14px;
   }
+
   p {
     font-size: 12px;
   }
+
   ul {
     font-size: 11px;
   }
-  th, td, code, dl, .publications a {
+
+  th,
+  td,
+  code,
+  dl,
+  .publications a {
     font-size: 11px
   }
+
   .grid-item {
     font-size: 12px
   }
+
   .separator-dots {
     font-size: 6px;
     letter-spacing: 8px;
   }
+
   header .display-4 {
     font-size: 22px;
     margin: 0px;
   }
+
   .navbar-nav {
     margin: 0;
     width: 100%;
   }
+
   .nav-item a {
     margin: 0;
     padding: 0px 10px;
   }
+
   .dropdown-menu {
     background: transparent;
     margin-left: 0px;
     padding: 0px 10px;
   }
+
   .table-container {
     overflow-x: auto;
     width: 90%;
   }
+
   #data-table th:first-child,
   #data-table td:first-child {
     left: 0;
     position: sticky;
     z-index: 2;
   }
+
   #data-table th:first-child {
-  background-color: rgba(130, 180, 230, 1);
+    background-color: rgba(130, 180, 230, 1);
   }
+
   #data-table td:first-child {
-  background-color: rgba(245, 245, 245, 1);
+    background-color: rgba(245, 245, 245, 1);
   }
+
   .stats-table select {
     width: 200px;
   }
+
   /*  Style the menu toggle button  */
   .navbar-toggler {
     border: none;
@@ -515,26 +615,32 @@ label, button {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.50);
     transition: color 0.3s ease;
   }
+
   .navbar-toggler .bi-list {
     display: none;
   }
+
   .navbar-toggler .bi-x {
     display: none;
   }
+
   .navbar-toggler.collapsed .bi-list {
     display: block;
   }
+
   .navbar-toggler:not(.collapsed) .bi-x {
     display: block;
   }
 }
+
 @media (max-width: 1080px) {
   footer .container {
     text-align: left;
   }
-  footer a, 
-  footer h5, 
-  footer p, 
+
+  footer a,
+  footer h5,
+  footer p,
   footer ul {
     display: flex;
     font-size: 12px;
