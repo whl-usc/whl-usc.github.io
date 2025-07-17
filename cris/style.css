@@ -105,11 +105,10 @@ faq-container li {
 .link-hover a:hover, .link-hover p:hover {
   text-decoration: underline;
 }
-}
 .landing-picture {
   display: block;
-  margin: 0 auto;
-  width: 10%;
+  margin: 0px auto;
+  width: 80%;
   height: auto;
   transition: transform 0.3s ease;
 }
