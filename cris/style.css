@@ -462,7 +462,7 @@ footer ul {
 .nav-item:hover,
 .nav-link:hover,
 .dropdown-item:hover {
-  color: rgba(255, 255, 0, 1.0);
+  color: rgba(255, 255, 200, 1.0);
 }
 
 .nav-item {
