@@ -105,10 +105,17 @@ faq-container li {
 .link-hover a:hover, .link-hover p:hover {
   text-decoration: underline;
 }
+}
+.landing-picture {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
 .large-picture {
   display: block;
   margin: 20px auto;
-  width: 95%;
+  width: 60%;
   transition: transform 0.3s ease;
 }
 /* Tables */
