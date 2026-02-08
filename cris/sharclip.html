@@ -25,25 +25,173 @@
     <main>
         <div class="section-color">
         <h1>SHARCLIP</h1><hr />
-        <h2>Header</h2>
-            <p>
-                NULL
-            </p>
+        <h2>Supplementary Data</h2>
+            <p>Supplementary Data S1-7</p>
+
             <div class="table-container">
-                <table id=<"NULL">
-                    <thead>
-                        <tr>
-                            <th>NULL</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        NULL
-                    </tbody>
-                </table>
+            <table id="sharclip-data-table" class="table table-sm table-striped">
+                <thead>
+                <tr>
+                    <th>Dataset</th>
+                    <th>File name</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td>Data S1</td><td>DGdiv_counts.bb</td><td>DG counts for individual samples</td></tr>
+                <tr><td>Data S2</td><td>A3SS_blockers.txt</td><td>A3SS blockers</td></tr>
+                <tr><td>Data S3</td><td>A5SS_blockers.txt</td><td>A5SS blockers</td></tr>
+                <tr><td>Data S4</td><td>RI_blockers.txt</td><td>RI blockers</td></tr>
+                <tr><td>Data S5</td><td>SE_blockers.txt</td><td>SE blockers</td></tr>
+                <tr><td>Data S6</td><td>Alternative_blocker_switches_for_138_MXEs.txt</td><td>Alternative blocker switches</td></tr>
+                <tr><td>Data S7</td><td>Alternative_loop_switches_for_138_MXEs.txt</td><td>Alternative loop switches</td></tr>
+                </tbody>
+            </table>
             </div><br />
 
+            <!-- ===== START: Upload UI for Data_S1 .. Data_S7 ===== -->
+            <div class="card p-3 mb-4" style="max-width:1000px;">
+              <h5 class="card-title">Upload supplementary files (Data_S1 ... Data_S7)</h5>
+
+              <div class="form-group">
+                <label for="file-selector">Choose files (multiple allowed):</label>
+                <input type="file" id="file-selector" class="form-control-file" accept=".txt,.bb,.csv" multiple>
+              </div>
+
+              <div class="mb-2">
+                <button id="btn-show" class="btn btn-secondary btn-sm">Show selection</button>
+                <button id="btn-preview" class="btn btn-info btn-sm">Preview selected file</button>
+                <button id="btn-upload" class="btn btn-primary btn-sm">Upload selected</button>
+                <span id="global-status" class="ml-2"></span>
+              </div>
+
+              <div id="selection-list"></div>
+
+              <div>
+                <label class="form-label">Preview (first 200 lines):</label>
+                <div id="file-preview"></div>
+              </div>
+
+              <div id="upload-results" class="mt-3"></div>
+            </div>
+            <!-- ===== END: Upload UI ===== -->
+        
         <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
     </main>
     <div id="footer-container"></div>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const sel = $('file-selector');
+  const showBtn = $('btn-show');
+  const previewBtn = $('btn-preview');
+  const uploadBtn = $('btn-upload');
+  const selectionList = $('selection-list');
+  const previewDiv = $('file-preview');
+  const globalStatus = $('global-status');
+  const resultsDiv = $('upload-results');
+
+  function esc(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m]); }
+
+  showBtn.addEventListener('click', () => {
+    const files = Array.from(sel.files || []);
+    if (files.length === 0) {
+      selectionList.innerHTML = '<div class="text-muted small">No files selected.</div>';
+      return;
+    }
+    selectionList.innerHTML = files.map((f,i) => `<div><strong>${i+1}.</strong> ${esc(f.name)} - ${f.size.toLocaleString()} bytes</div>`).join('');
+  });
+
+  // Preview the first selected file (read as text; limit size)
+  previewBtn.addEventListener('click', () => {
+    previewDiv.textContent = '';
+    globalStatus.textContent = '';
+    const file = (sel.files && sel.files[0]) || null;
+    if (!file) { globalStatus.textContent = 'No file selected to preview.'; return; }
+    if (file.size > 20 * 1024 * 1024) { globalStatus.textContent = 'File too large to preview (>20MB).'; return; }
+
+    globalStatus.textContent = 'Reading file...';
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const text = ev.target.result;
+      const lines = text.split(/\r?\n/);
+      previewDiv.textContent = lines.slice(0,200).join('\n') + (lines.length > 200 ? '\n\n... (truncated)' : '');
+      globalStatus.textContent = `Preview ready - ${lines.length} lines (showing up to 200).`;
+    };
+    reader.onerror = () => { globalStatus.textContent = 'Could not read file.'; };
+    reader.readAsText(file);
+  });
+
+  // Upload selected files sequentially
+  uploadBtn.addEventListener('click', async () => {
+    resultsDiv.innerHTML = '';
+    globalStatus.textContent = '';
+    const files = Array.from(sel.files || []);
+    if (files.length === 0) { globalStatus.textContent = 'No files selected to upload.'; return; }
+
+    globalStatus.textContent = 'Starting uploads...';
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const container = document.createElement('div');
+      container.className = 'mb-2';
+      container.innerHTML = `<div><strong>Uploading:</strong> ${esc(file.name)} <span id="stat-${i}" class="text-muted"></span></div>
+        <div class="progress" style="height:10px;"><div id="bar-${i}" class="progress-bar" role="progressbar" style="width:0%"></div></div>
+        <div id="res-${i}" class="small mt-1"></div>`;
+      resultsDiv.appendChild(container);
+
+      try {
+        await uploadSingle(file, i);
+        document.getElementById('stat-' + i).textContent = ' - done';
+      } catch (err) {
+        document.getElementById('stat-' + i).textContent = ' - failed';
+        document.getElementById('res-' + i).textContent = 'Error: ' + err.message;
+      }
+    }
+    globalStatus.textContent = 'Uploads finished (attempted).';
+  });
+
+  // single file upload using XMLHttpRequest to report progress
+  function uploadSingle(file, index){
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      // <-- change this URL if your backend uses a different endpoint -->
+      xhr.open('POST', '/api/upload-file', true);
+
+      xhr.upload.addEventListener('progress', (e) => {
+        if (e.lengthComputable) {
+          const pct = Math.round((e.loaded / e.total) * 100);
+          const bar = document.getElementById('bar-' + index);
+          if (bar) bar.style.width = pct + '%';
+        }
+      });
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) return;
+        const resEl = document.getElementById('res-' + index);
+        if (xhr.status >= 200 && xhr.status < 300) {
+          let json = null;
+          try { json = JSON.parse(xhr.responseText); } catch(e){}
+          resEl.innerHTML = '<span class="text-success">Success</span>' + (json ? (' - ' + esc(JSON.stringify(json))) : '');
+          resolve(json);
+        } else {
+          resEl.innerHTML = '<span class="text-danger">Failed</span> - ' + esc(xhr.responseText || xhr.statusText || ('Status ' + xhr.status));
+          reject(new Error(xhr.responseText || xhr.statusText || 'Status ' + xhr.status));
+        }
+      };
+
+      const fd = new FormData();
+      const sentName = file.name.replace(/\s+/g,'_');
+      fd.append('file', file, sentName);
+
+      xhr.send(fd);
+    });
+  }
+
+  // initial placeholder
+  selectionList.innerHTML = '<div class="text-muted small">No files selected.</div>';
+})();
+</script>
+
 </body>
 </html>
