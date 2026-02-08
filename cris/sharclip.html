@@ -155,7 +155,6 @@
   function uploadSingle(file, index){
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      // <-- change this URL if your backend uses a different endpoint -->
       xhr.open('POST', '/api/upload-file', true);
 
       xhr.upload.addEventListener('progress', (e) => {
