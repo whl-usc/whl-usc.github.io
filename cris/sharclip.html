@@ -38,43 +38,89 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr><td>Data S1</td><td>DGdiv_counts.bb</td><td>DG counts for individual samples</td></tr>
-                <tr><td>Data S2</td><td>A3SS_blockers.txt</td><td>A3SS blockers</td></tr>
-                <tr><td>Data S3</td><td>A5SS_blockers.txt</td><td>A5SS blockers</td></tr>
-                <tr><td>Data S4</td><td>RI_blockers.txt</td><td>RI blockers</td></tr>
-                <tr><td>Data S5</td><td>SE_blockers.txt</td><td>SE blockers</td></tr>
-                <tr><td>Data S6</td><td>Alternative_blocker_switches_for_138_MXEs.txt</td><td>Alternative blocker switches</td></tr>
-                <tr><td>Data S7</td><td>Alternative_loop_switches_for_138_MXEs.txt</td><td>Alternative loop switches</td></tr>
+                <tr><td>Data S1</td><td>
+                    DGdiv_counts.bb
+                    <!--
+                    <a href="" target="_blank" rel="noopener">
+                        DGdiv_counts.bb
+                    </a>
+                    -->
+                    <i class="bi bi-download text-muted ml-2"
+                        title="Download (coming soon)"
+                        style="cursor:not-allowed;"></i>
+                </td><td>DG counts for individual samples</td></tr>
+                <tr><td>Data S2</td><td>
+                    A3SS_blockers.txt
+                    <!--
+                    <a href="https://drive.google.com/file/d/113X5EOa66KkIna9_MhwIARa60U1wUktV/view?usp=drive_link" target="_blank" rel="noopener">
+                        A3SS_blockers.txt
+                    </a>
+                    -->
+                    <i class="bi bi-download text-muted ml-2"
+                        title="Download (coming soon)"
+                        style="cursor:not-allowed;"></i>
+                </td><td>A3SS blockers</td></tr>
+                <tr><td>Data S3</td><td>
+                    A5SS_blockers.txt
+                    <!--
+                    <a href="https://drive.google.com/file/d/1owHweg_B_YmtuR3gh1o584UFECHT5LFT/view?usp=drive_link" target="_blank" rel="noopener">
+                        A5SS_blockers.txt
+                    </a>
+                    -->
+                    <i class="bi bi-download text-muted ml-2"
+                        title="Download (coming soon)"
+                        style="cursor:not-allowed;"></i>
+                </td><td>A5SS blockers</td></tr>
+                <tr><td>Data S4</td><td>
+                    RI_blockers.txt
+                    <!--
+                    <a href="https://drive.google.com/file/d/1Pj45F8oyVuqEzFdDjhlvNB5Izj2-BKYo/view?usp=drive_link" target="_blank" rel="noopener">
+                        RI_blockers.txt
+                    </a>
+                    -->
+                    <i class="bi bi-download text-muted ml-2"
+                        title="Download (coming soon)"
+                        style="cursor:not-allowed;"></i>
+                </td><td>RI blockers</td></tr>
+                <tr><td>Data S5</td><td>
+                    SE_blockers.txt
+                    <!--
+                    <a href="" target="_blank" rel="noopener">
+                        SE_blockers.txt
+                    </a>
+                    -->
+                    <i class="bi bi-download text-muted ml-2"
+                        title="Download (coming soon)"
+                        style="cursor:not-allowed;"></i>
+                </td><td>SE blockers</td></tr>
+                <tr><td>Data S6</td>
+                    <td>
+                    Alternative_blocker_switches_for_138_MXEs.txt
+                    <!--
+                    <a href="https://drive.google.com/file/d/1erQLd_Ot190k5cYq80LjtLF0-u7LIHwe/view?usp=drive_link" target="_blank" rel="noopener">
+                        Alternative_blocker_switches_for_138_MXEs.txt
+                    </a>
+                    -->
+                    <i class="bi bi-download text-muted ml-2"
+                        title="Download (coming soon)"
+                        style="cursor:not-allowed;"></i>
+                </td><td>Alternative blocker switches</td></tr>
+                <tr><td>Data S7</td><td>
+                    Alternative_loop_switches_for_138_MXEs.txt
+                    <!--
+                    <a href="https://drive.google.com/file/d/1kGjjY_psJ78i9d_mP9qiNTvqJFoUIZgu/view?usp=drive_link" target="_blank" rel="noopener">
+                        Alternative_loop_switches_for_138_MXEs.txt
+                    </a>
+                    -->
+                    <i class="bi bi-download text-muted ml-2"
+                        title="Download (coming soon)"
+                        style="cursor:not-allowed;"></i>
+                </td><td>Alternative loop switches</td></tr>
                 </tbody>
             </table>
             </div><br />
 
-            <!-- ===== START: Upload UI for Data_S1 .. Data_S7 ===== -->
-            <div class="card p-3 mb-4" style="max-width:1000px;">
-              <h5 class="card-title">Upload supplementary files (Data_S1 ... Data_S7)</h5>
 
-              <div class="form-group">
-                <label for="file-selector">Choose files (multiple allowed):</label>
-                <input type="file" id="file-selector" class="form-control-file" accept=".txt,.bb,.csv" multiple>
-              </div>
-
-              <div class="mb-2">
-                <button id="btn-show" class="btn btn-secondary btn-sm">Show selection</button>
-                <button id="btn-preview" class="btn btn-info btn-sm">Preview selected file</button>
-                <button id="btn-upload" class="btn btn-primary btn-sm">Upload selected</button>
-                <span id="global-status" class="ml-2"></span>
-              </div>
-
-              <div id="selection-list"></div>
-
-              <div>
-                <label class="form-label">Preview (first 200 lines):</label>
-                <div id="file-preview"></div>
-              </div>
-
-              <div id="upload-results" class="mt-3"></div>
-            </div>
-            <!-- ===== END: Upload UI ===== -->
         
         <div class="dot-container"><div class="separator-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</div></div>
     </main>
@@ -155,6 +201,7 @@
   function uploadSingle(file, index){
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
+      // <-- change this URL if the backend uses a different endpoint -->
       xhr.open('POST', '/api/upload-file', true);
 
       xhr.upload.addEventListener('progress', (e) => {
