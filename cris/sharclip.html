@@ -155,7 +155,7 @@
                     <a href="https://drive.google.com/file/d/1lS6l-rzewyzt1owr2qE7gOAHYayeZ7Mm/view?usp=drive_link"
                       target="_blank"
                       class="btn btn-sm btn-outline-secondary ml-2">
-                      Preview (200 lines)
+                      Preview
                     </a> 
                         
                     <!--
@@ -196,83 +196,5 @@
     </main>
     <div id="footer-container"></div>
 
-<!-- Preview modal (Bootstrap) -->
-<div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="previewModalTitle">Preview</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>      
-      <div class="modal-body">
-        <pre id="previewContent">Loading...</pre>
-      </div>
-      <div class="modal-footer">
-        <label for="previewLines" class="mr-2">Lines:</label>
-        <input id="previewLines" type="number" class="form-control form-control-sm" value="200" min="1" style="width:100px; display:inline-block;">
-        <button id="previewReload" class="btn btn-sm btn-secondary ml-2">Reload</button>
-        <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-    const previewModalJQ = $('#previewModal'); // Bootstrap modal via jQuery
-    const previewTitleEl = document.getElementById('previewModalTitle');
-    const previewContentEl = document.getElementById('previewContent');
-    const previewLinesEl = document.getElementById('previewLines');
-    const previewReloadBtn = document.getElementById('previewReload');
-
-    let currentPreviewUrl = null;
-
-    document.querySelectorAll('.preview-btn').forEach(btn => {
-      btn.addEventListener('click', async (ev) => {
-        ev.preventDefault();
-        const url = btn.dataset.url;
-        if (!url) return;
-        currentPreviewUrl = url;
-
-        let label = 'File preview';
-        try {
-          const t = btn.parentElement && btn.parentElement.childNodes[0];
-          if (t && t.textContent) label = t.textContent.trim();
-        } catch(e){}
-
-        if (previewTitleEl) previewTitleEl.textContent = 'Preview — ' + label;
-        if (previewContentEl) previewContentEl.textContent = 'Loading...';
-        if (previewModalJQ) previewModalJQ.modal('show');
-
-        await loadPreview(url, Number(previewLinesEl && previewLinesEl.value ? previewLinesEl.value : 200));
-      });
-    });
-    if (previewReloadBtn) {
-      previewReloadBtn.addEventListener('click', async () => {
-        if (!currentPreviewUrl) return;
-        if (previewContentEl) previewContentEl.textContent = 'Reloading...';
-        await loadPreview(currentPreviewUrl, Number(previewLinesEl && previewLinesEl.value ? previewLinesEl.value : 200));
-      });
-    }
-
-    async function loadPreview(fileUrl, lines) {
-      try {
-        const apiUrl = '/api/preview?url=' + encodeURIComponent(fileUrl) + '&lines=' + encodeURIComponent(lines);
-        const resp = await fetch(apiUrl, { cache: 'no-store' });
-        if (!resp.ok) {
-          const txt = await resp.text().catch(()=>resp.statusText||'Error');
-          if (previewContentEl) previewContentEl.textContent = 'Preview failed: HTTP ' + resp.status + ' — ' + txt;
-          return;
-        }
-        const text = await resp.text();
-        if (previewContentEl) previewContentEl.textContent = text || '(empty file or no preview available)';
-      } catch (err) {
-        if (previewContentEl) previewContentEl.textContent = 'Preview failed: ' + (err && err.message ? err.message : String(err));
-      }
-    }
-  })();
-  </script>
-</body>
+  </body>
 </html>
